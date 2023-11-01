@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLightTheme, setDarkTheme } from "../Actions/ThemeAction";
 import { useState } from "react"; // Import the action
-import ToggleSwitch from "./ToggleSwitch";
+import ToggleSwitch from "./toggleSwitch";
 
 const DarkModeSwitch = () => {
   const DarkModeSwitchData = useSelector((state) => state.DarkModeSwitchData);
