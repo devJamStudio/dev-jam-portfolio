@@ -37,7 +37,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               raw
             }
             ThumbImg {
-              gatsbyImageData(layout: FULL_WIDTH)
+              gatsbyImageData
             }
           }
         }
@@ -47,7 +47,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   allContentfulData.data?.allContentfulPortfolio.edges.forEach((edge) => {
     const { name, description, ThumbImg, slug } = edge.node;
-    if (!name) return; // Skip if no name is defined
+    if (!slug) return; // Skip if no name is defined
 
     // Type-safe `createPage` call.
     createPage({
