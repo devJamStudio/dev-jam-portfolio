@@ -1,5 +1,15 @@
-import { GatsbyNode } from "gatsby";
-import { resolve } from "path";
+import type { GatsbyNode } from "gatsby";
+import { createFilePath } from "gatsby-source-filesystem";
+
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+  ({ actions }) => {
+    const { createTypes } = actions;
+    createTypes(`
+    type ContentfulAsset implements Node {
+      gatsbyImageData: JSON
+    }
+  `);
+  };
 
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
@@ -52,7 +62,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     // Type-safe `createPage` call.
     createPage({
       path: "/portfolio/" + slug,
-      component: resolve("./src/templates/portfolio.tsx"),
+      component: require.resolve("./src/templates/portfolio.tsx"),
       context: {
         slug: slug, // Pass the slug to the page query
         name,
@@ -62,3 +72,5 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
   });
 };
+
+export default { createSchemaCustomization, createPages };
