@@ -68,14 +68,14 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
 };
 
 export const query = graphql`
-  query PortfolioPageQuery($slug: String) {
-    contentfulPortfolio(slug: { eq: $slug }) {
+  query PortfolioPageQuery {
+    contentfulPortfolio {
       name
       description {
         raw
       }
       ThumbImg {
-        gatsbyImageData(layout: CONSTRAINED)
+        gatsbyImageData(layout: FULL_WIDTH)
       }
       stack
     }
