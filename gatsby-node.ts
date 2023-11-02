@@ -37,7 +37,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               raw
             }
             ThumbImg {
-              gatsbyImageData
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
         }
