@@ -7,7 +7,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { createPage } = actions;
 
-  // Use a GraphQL fragment for ContentfulPortfolio to avoid redundant code
   const portfolioFragment = `
     fragment PortfolioFields on ContentfulPortfolio {
       slug
@@ -21,7 +20,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
   `;
 
-  // Use the fragment in your query
   const allContentfulData = await graphql(`
     query allContentfulDataQuery {
       allContentfulPortfolio {
@@ -32,7 +30,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       }
     }
-    ${portfolioFragment} // Include the fragment
+    ${portfolioFragment}
   `);
 
   if (allContentfulData.errors) {
