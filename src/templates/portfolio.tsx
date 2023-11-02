@@ -75,12 +75,7 @@ export const query = graphql`
         raw
       }
       ThumbImg {
-        childImageSharp {
-          gatsbyImageData(
-            width: 200
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
+        gatsbyImageData(layout: CONSTRAINED)
       }
       stack
     }
