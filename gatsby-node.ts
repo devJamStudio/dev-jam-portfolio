@@ -1,17 +1,6 @@
 import { GatsbyNode } from "gatsby";
 import { resolve } from "path";
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
 
-  // Define custom types and customizations for your ContentfulAsset
-  const typeDefs = `
-    type ContentfulAsset implements Node {
-      gatsbyImageData(layout: FULL_WIDTH, width: Int, height: Int, formats: [String], placeholder: BLURRED): GatsbyImageData
-    }
-  `;
-
-  createTypes(typeDefs);
-};
 export const createPages: GatsbyNode["createPages"] = async ({
   actions,
   graphql,
