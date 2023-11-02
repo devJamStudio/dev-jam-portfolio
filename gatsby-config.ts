@@ -40,7 +40,12 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-image",
+    {
+      resolve: `gatsby-plugin-image`,
+      options: {
+        formats: ["auto", "webp"], // Remove "avif"
+      },
+    },
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

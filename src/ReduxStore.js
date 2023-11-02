@@ -24,6 +24,4 @@ if (isBrowser) {
   }
 }
 
-console.log("Initial Redux State:", store);
-
 export default store;

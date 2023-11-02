@@ -51,14 +51,14 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
   return (
     <Layout>
       {name && name.length > 0 && <h1 className="text-5xl mb-3">{name}</h1>}
-      {image && <GatsbyImage image={image} alt={name} />}
+      {image && <GatsbyImage image={ThumbImg.gatsbyImageData} alt={name} />}
       {description && description.raw && renderRichText(description, options)}
       {stack && (
         <div className="stack py-4">
           <h3 className="text-2xl">Stack: </h3>
           <ul>
             {stack.map((item) => (
-              <li>{item}</li>
+              <li key={item}>{item}</li>
             ))}
           </ul>
         </div>
