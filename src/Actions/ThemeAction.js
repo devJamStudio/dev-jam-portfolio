@@ -10,7 +10,7 @@ export const setDarkTheme = (theme) => {
 export const setLightTheme = (theme) => {
   console.log("Light theme action called");
   document.documentElement.classList.remove("dark");
-  localStorage.setItem("dark-mode", false);
+  localStorage.setItem("light-mode", false);
   return {
     type: "light",
     payload: theme,

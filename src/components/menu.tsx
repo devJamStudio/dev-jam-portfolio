@@ -5,7 +5,7 @@ interface MenuProps {
   toggle: boolean;
 }
 
-const Menu: React.FC<MenuProps> = ({ toggle, setToggle }) => {
+const Menu: React.FC<MenuProps> = ({ toggle }) => {
   var Links = ["about", "contact", "portfolio", "tech-stack"];
 
   return (

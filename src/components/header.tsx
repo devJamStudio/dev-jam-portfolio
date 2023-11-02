@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "./logo";
-import DarkModeToggle from "./darkMode";
+import DarkModeToggle from "./darkModeToggle";
 import MenuToggle from "./menuToggle";
 
 interface HeaderProps {
