@@ -75,7 +75,7 @@ export const query = graphql`
         raw
       }
       ThumbImg {
-        gatsbyImageDat(layout: FULL_WIDTH, placeholder: BLURRED)
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
       }
       stack
     }
