@@ -7,46 +7,54 @@ export const createPages: GatsbyNode["createPages"] = async ({
 }) => {
   const { createPage } = actions;
 
-  const portfolioFragment = `
-    fragment PortfolioFields on ContentfulPortfolio {
-      slug
-      name
-      description {
-        raw
-      }
-      ThumbImg {
-        gatsbyImageData
-      }
-    }
-  `;
-
-  const allContentfulData = await graphql(`
+  const allContentfulData: {
+    errors?: any;
+    data?: {
+      allContentfulPortfolio: {
+        edges: {
+          node: {
+            slug: string;
+            name: string;
+            description: {
+              raw: string;
+            };
+            ThumbImg: {
+              gatsbyImageData: any;
+            };
+          };
+        }[];
+      };
+    };
+  } = await graphql(`
     query allContentfulDataQuery {
       allContentfulPortfolio {
         edges {
           node {
-            ...PortfolioFields
+            slug
+            stack
+            name
+            description {
+              raw
+            }
+            ThumbImg {
+              gatsbyImageData(layout: FULL_WIDTH)
+            }
           }
         }
       }
     }
-    ${portfolioFragment}
   `);
 
-  if (allContentfulData.errors) {
-    console.error("Error fetching Contentful data:", allContentfulData.errors);
-    return;
-  }
-
-  allContentfulData.data.allContentfulPortfolio.edges.forEach((edge) => {
-    const { slug, name, description, ThumbImg } = edge.node;
+  allContentfulData.data?.allContentfulPortfolio.edges.forEach((edge) => {
+    const { name, description, ThumbImg, slug } = edge.node;
     if (!name) return; // Skip if no name is defined
 
+    // Type-safe `createPage` call.
     createPage({
-      path: `/portfolio/${slug}`,
+      path: "/portfolio/" + slug,
       component: resolve("./src/templates/portfolio.tsx"),
       context: {
-        slug,
+        slug: slug, // Pass the slug to the page query
         name,
         description,
         ThumbImg,
