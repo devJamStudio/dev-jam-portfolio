@@ -46,12 +46,14 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
     },
   };
   const { name, description, ThumbImg, stack } = data?.contentfulPortfolio;
-  const image = getImage(ThumbImg);
+  //const image = getImage(ThumbImg);
 
   return (
     <Layout>
       {name && name.length > 0 && <h1 className="text-5xl mb-3">{name}</h1>}
-      {image && <GatsbyImage image={image} alt={name} />}
+      {ThumbImg.gatsbyImageData && (
+        <GatsbyImage image={ThumbImg.gatsbyImageData} alt={name} />
+      )}
       {description && description.raw && renderRichText(description, options)}
       {stack && (
         <div className="stack py-4">
