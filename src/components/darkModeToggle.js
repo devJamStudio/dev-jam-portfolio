@@ -4,13 +4,11 @@ import { setLightTheme, setDarkTheme } from "../Actions/ThemeAction";
 import { useState } from "react"; // Import the action
 import ToggleSwitch from "./toggleSwitch";
 
-const DarkModeToggle = () => {
-  console.log(useSelector((state) => state.theme || {}));
+const DarkMode = () => {
   //const DarkModeData = useSelector((state) => state.DarkModeData);
   const theme = useSelector((state) => state.theme || {});
-
   const dispatch = useDispatch();
-  const [darkMode, setDarkMode] = useState(theme === "dark" || "light"); // Use false as the default state
+  const [darkMode, setDarkMode] = useState(theme === "dark" || false); // Use false as the default state
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
@@ -32,4 +30,4 @@ const DarkModeToggle = () => {
 
   return <ToggleSwitch checked={darkMode} onChange={toggleTheme} />;
 };
-export default DarkModeToggle;
+export default DarkMode;

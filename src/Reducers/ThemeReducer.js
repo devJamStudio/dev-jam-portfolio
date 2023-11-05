@@ -10,7 +10,6 @@ const reducer = (state = initialState, action) => {
       return {
         theme: "light",
       };
-
     default:
       return state;
   }
