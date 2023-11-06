@@ -49,35 +49,51 @@ const ContactForm = () => {
 
   return (
     <form action={FORM_ENDPOINT} onSubmit={handleSubmit} method="POST">
-      <div className="pt-0 mb-3">
+      <div className="pt-0 mb-6" 
+          data-sal="slide-left"
+          data-sal-delay="300"
+          data-sal-duration="600"
+          data-sal-easing="ease">
         <input
           type="text"
           placeholder="Your name"
           name="name"
-          className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
+          className="focus:outline-none border-black border-2 shadow-dark rounded-lg bg-white dark:bg-black  dark:border-white dark:shadow-light  focus:ring relative w-full px-3 py-3 text-sm text-black dark:text-white  placeholder-gray-600  dark:placeholder-gray-300  outline-none"
           required
         />
       </div>
-      <div className="pt-0 mb-3">
+      <div className="pt-0 mb-6"
+        data-sal="slide-left"
+        data-sal-delay="600"
+        data-sal-duration="600"
+        data-sal-easing="ease">
         <input
           type="email"
           placeholder="Email"
           name="email"
-          className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
+          className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm border-black border-2 shadow-dark rounded-lg bg-white dark:bg-black  dark:border-white dark:shadow-light  focus:ring relative w-full px-3 py-3 text-sm text-black dark:text-white  placeholder-gray-600  dark:placeholder-gray-300  outline-none"
           required
         />
       </div>
-      <div className="pt-0 mb-3">
+      <div className="pt-0 mb-6"
+      data-sal="slide-left"
+      data-sal-delay="900"
+      data-sal-duration="600"
+      data-sal-easing="ease">
         <textarea
           placeholder="Your message"
           name="message"
-          className="focus:outline-nonefocus:ring h-40 relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
+          className="focus:outline-nonefocus:ring h-40 relative w-full px-3 py-3 text-sm border-black border-2 shadow-dark rounded-lg bg-white dark:bg-black  dark:border-white dark:shadow-light  focus:ring relative w-full px-3 py-3 text-sm text-black dark:text-white  placeholder-gray-600  dark:placeholder-gray-300 outline-none"
           required
         />
       </div>
-      <div className="pt-0 mb-3 text-center">
+      <div className="pt-0 mb-3 text-center"
+      data-sal="slide-left"
+      data-sal-delay="900"
+      data-sal-duration="600"
+      data-sal-easing="ease">
         <button
-          className="active:bg-amber-600 hover:shadow-lg focus:outline-none px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-amber-600 rounded shadow outline-none"
+          className="active:bg-green-600 hover:shadow-[0]  rounded-lg dark:shadow-light dark:border-white border-black border-2 shadow-dark text-black dark:text-white  focus:outline-none px-6 py-3 mb-1 mr-1 text-sm font-bold  uppercase transition-all duration-150 ease-linear bg-amber-300 hover:bg-amber-500 rounded shadow outline-none"
           type="submit"
         >
           Send a message

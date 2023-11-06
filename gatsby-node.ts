@@ -33,6 +33,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
             slug
             stack
             name
+            url
+            websiteImage
             description {
               raw
             }

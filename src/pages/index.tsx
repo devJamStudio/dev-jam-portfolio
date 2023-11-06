@@ -8,16 +8,16 @@ import Typewriter from "typewriter-effect";
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <div className=" text-[3rem] md:text-[6rem] md:text-[9rem] xl:text-[10rem] mr-10">
+      <div className=" text-[3rem] mt-10 leading-tightfont-ocr text-black dark:text-white md:text-[5rem] md:text-[7rem] xl:text-[8rem] mr-10">
         <Typewriter
           options={{
             strings: [
-              "ARE YOU READY TO JAM??",
-              "WEB DEVELOPMENT",
-              "WORDPRESS",
-              "WOOCOMMERCE",
-              "SHOPIFY",
-              "GATSBYJS",
+              "Are You ready to JAM?",
+              "Web Development",
+              "WordPress",
+              "WooCommerce",
+              "Shopify",
+              "GatsbyJS",
             ],
             autoStart: true,
             loop: true,

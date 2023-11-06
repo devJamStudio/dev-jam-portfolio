@@ -22,13 +22,13 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
 
   return (
     <Layout>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 lg:grid-cols-4 2xl:grid-cols-5">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 lg:grid-cols-4 2xl:grid-cols-5  gap-8">
         {stack.map((tech) => (
           <div key={tech.name}>
             {tech.stack.map((item, index) => (
               <div
                 key={index}
-                className="border-2 border-black dark:shadow-lg shadow-lg dark:shadow-white/10 shadow-black/20 rounded-md dark:border-white"
+                className="border-2 border-black dark:shadow-light shadow-dark  rounded-lg dark:border-white"
               >
                 <div className="p-4">
                   <h3>{tech.name}</h3>
@@ -45,7 +45,7 @@ const TechStack: React.FC<TechStackProps> = ({ data }) => {
 };
 
 export const query = graphql`
-  query MyQuery {
+  query StackQuery {
     allContentfulStack {
       nodes {
         name

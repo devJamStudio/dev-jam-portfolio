@@ -11,7 +11,9 @@ const data = "Hello World";
 const Contact: React.FC<ContactProps> = () => {
   return (
     <Layout>
+      <div className="max-w-[700px] mx-auto">
       <ConfactForm />
+      </div>
     </Layout>
   );
 };
