@@ -78,7 +78,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
               <h1 className="text-5xl mb-3  ">{name}</h1>
             )}
           </div>
-          <div className=" shadow-dark py-4 border-b-2 border-black px-4 dark:border-white dark:shadow-light">
+          <div className=" shadow-dark py-4 border-b-2 flex-[2] border-black px-4 dark:border-white dark:shadow-light">
             <h2 className="text-2xl">About: </h2>
             {description &&
               description.raw &&
