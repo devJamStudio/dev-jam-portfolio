@@ -16,6 +16,7 @@ interface PortfolioPageProps {
       ThumbImg: {
         gatsbyImageData: any;
       };
+      stack: string[];
     };
   };
 }
