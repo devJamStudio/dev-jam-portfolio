@@ -12,7 +12,17 @@ const Contact: React.FC<ContactProps> = () => {
   return (
     <Layout>
       <div className="max-w-[700px] mx-auto">
-      <ConfactForm />
+        <div
+          className="my-4"
+          data-sal="slide-left"
+          data-sal-delay="100"
+          data-sal-duration="600"
+          data-sal-easing="ease"
+        >
+          <h1 className="text-6xl mb-6">Contact Me</h1>
+          <span>I speak english & polish</span>
+        </div>
+        <ConfactForm />
       </div>
     </Layout>
   );

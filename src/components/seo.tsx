@@ -21,6 +21,7 @@ const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
         siteMetadata {
           title
           description
+          image
         }
       }
     }
@@ -29,6 +30,7 @@ const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
   const siteMetadata = data.site.siteMetadata;
   const metaDescription = description || siteMetadata.description;
   const defaultTitle = siteMetadata.title;
+  const image = siteMetadata.image;
 
   return (
     <>
@@ -41,6 +43,7 @@ const Seo: React.FC<SeoProps> = ({ description, title, children }) => {
       <meta name="twitter:creator" content={siteMetadata.author || ""} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta name="og:image" content={image} />
       {children}
     </>
   );

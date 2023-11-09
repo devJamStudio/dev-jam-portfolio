@@ -6,6 +6,7 @@ interface SiteMetadata {
   title: string;
   siteUrl: string;
   author: string;
+  image: string;
   pages: {
     title: string;
     slug: string;
@@ -16,6 +17,7 @@ const config: GatsbyConfig = {
     title: `devJam Studio`,
     siteUrl: `https://devjam.studio`,
     author: `@devjamstudio`,
+    image: "",
     pages: [
       {
         title: "Home",

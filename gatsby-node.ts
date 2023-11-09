@@ -33,10 +33,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
             slug
             stack
             name
+            logoImg {
+              gatsbyImageData(layout: FIXED, placeholder: BLURRED)
+            }
+            url
             description {
               raw
             }
-            ThumbImg {
+            websiteImage {
               gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }

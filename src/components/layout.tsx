@@ -14,11 +14,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-[calc(100vh-8.875rem)]">
       <Header toggle={toggle} setToggle={toggleMenu} />
       <div className="flex h-full flex-row ">
         <main className="flex-1 p-8">{children}</main>
-        <Menu toggle={toggle} setToggle={toggleMenu} />
+        <Menu toggle={toggle} />
       </div>
     </div>
   );

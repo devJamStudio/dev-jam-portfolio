@@ -49,11 +49,13 @@ const ContactForm = () => {
 
   return (
     <form action={FORM_ENDPOINT} onSubmit={handleSubmit} method="POST">
-      <div className="pt-0 mb-6" 
-          data-sal="slide-left"
-          data-sal-delay="300"
-          data-sal-duration="600"
-          data-sal-easing="ease">
+      <div
+        className="pt-0 mb-6"
+        data-sal="slide-left"
+        data-sal-delay="300"
+        data-sal-duration="600"
+        data-sal-easing="ease"
+      >
         <input
           type="text"
           placeholder="Your name"
@@ -62,11 +64,13 @@ const ContactForm = () => {
           required
         />
       </div>
-      <div className="pt-0 mb-6"
+      <div
+        className="pt-0 mb-6"
         data-sal="slide-left"
         data-sal-delay="600"
         data-sal-duration="600"
-        data-sal-easing="ease">
+        data-sal-easing="ease"
+      >
         <input
           type="email"
           placeholder="Email"
@@ -75,11 +79,13 @@ const ContactForm = () => {
           required
         />
       </div>
-      <div className="pt-0 mb-6"
-      data-sal="slide-left"
-      data-sal-delay="900"
-      data-sal-duration="600"
-      data-sal-easing="ease">
+      <div
+        className="pt-0 mb-6"
+        data-sal="slide-left"
+        data-sal-delay="900"
+        data-sal-duration="600"
+        data-sal-easing="ease"
+      >
         <textarea
           placeholder="Your message"
           name="message"
@@ -87,13 +93,15 @@ const ContactForm = () => {
           required
         />
       </div>
-      <div className="pt-0 mb-3 text-center"
-      data-sal="slide-left"
-      data-sal-delay="900"
-      data-sal-duration="600"
-      data-sal-easing="ease">
+      <div
+        className="pt-0 mb-3 text-center"
+        data-sal="slide-left"
+        data-sal-delay="900"
+        data-sal-duration="600"
+        data-sal-easing="ease"
+      >
         <button
-          className="active:bg-green-600 hover:shadow-[0]  rounded-lg dark:shadow-light dark:border-white border-black border-2 shadow-dark text-black dark:text-white  focus:outline-none px-6 py-3 mb-1 mr-1 text-sm font-bold  uppercase transition-all duration-150 ease-linear bg-amber-300 hover:bg-amber-500 rounded shadow outline-none"
+          className="border-2 text-center  hover:shadow-[0] dark:hover:shadow-[0] shadow-dark text-black  dark:borer-white dark:shadow-light border-black dark:border-white hover:dark:text-white dark:text-white py-2 px-5 min-w-[33%] rounded-lg bg-teal-400 hover:bg-teal-200 dark:bg-amber-600 dark:hover:bg-amber-500 duration-200"
           type="submit"
         >
           Send a message

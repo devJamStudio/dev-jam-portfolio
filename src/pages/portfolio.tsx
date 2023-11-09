@@ -14,7 +14,7 @@ interface PortfolioPageProps {
           description: {
             raw: string;
           };
-          ThumbImg: {
+          logoImg: {
             gatsbyImageData: any;
           };
           slug: string;
@@ -27,31 +27,32 @@ interface PortfolioPageProps {
 const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
   return (
     <Layout>
-      <div className="grid md:grid-cols-2 gap-8 lg:grid-cols-2">
+      <div className="grid md:grid-cols-3 gap-8 lg:grid-cols-3">
         {data.allContentfulPortfolio.edges.map((item, index) => {
-          const { name, ThumbImg, slug } = item.node;
-          const image = getImage(ThumbImg);
+          const { name, logoImg, slug } = item.node;
+          const image = getImage(logoImg);
           const delay = `${index * 100}`;
           return (
             <div
-              className={`flex flex-col border-2 border-black dark:shadow-light  duration-300 shadow-dark  col-span-1 rounded-lg dark:border-white justify-between `}
+              className={`flex flex-col  border-2 border-black dark:shadow-light  duration-300 shadow-dark  col-span-1 rounded-lg dark:border-white justify-between `}
               key={name}
               data-sal="slide-up"
               data-sal-delay={delay}
               data-sal-duration="500"
               data-sal-easing="ease"
             >
-              <div className="text-2xl p-4 border-b-2 border-black dark:border-white">
+              <div className="text-2xl p-4 border-b-2 border-black  dark:border-white">
                 {name && name.length > 0 && <h2>{name}</h2>}
               </div>
-              <div className="overflow-hidden">
+              <div className="flex items-center justify-center py-8  bg-white h-full">
                 {image && (
                   <Link to={`/portfolio/${slug}`}>
                     {" "}
                     <GatsbyImage
-                      className="aspect-[16/9] hover:scale-110 transform duration-300"
+                      className=" hover:scale-110 aspect-square transform duration-300aspect-square"
                       image={image}
                       alt={name}
+                      objectFit="contain"
                     />{" "}
                   </Link>
                 )}
@@ -83,8 +84,8 @@ export const query = graphql`
           description {
             raw
           }
-          ThumbImg {
-            gatsbyImageData(layout: FULL_WIDTH)
+          logoImg {
+            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
           }
         }
       }

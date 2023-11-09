@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply bg-white dark:bg-black font-ocr;
+  @apply bg-white dark:bg-black font-ocr  duration-300;
 }
 body {
   @apply bg-white dark:bg-black font-ocr duration-300;
