@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-
+import Button from "../components/button";
 const FORM_ENDPOINT =
-  "https://public.herotofu.com/v1/6a0f4e30-78d1-11ee-924e-b76664806d50"; // TODO - update to the correct endpoint
+  "https://public.herotofu.com/v1/6a0f4e30-78d1-11ee-924e-b76664806d50";
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -100,12 +100,7 @@ const ContactForm = () => {
         data-sal-duration="600"
         data-sal-easing="ease"
       >
-        <button
-          className="border-2 text-center  hover:shadow-[0] dark:hover:shadow-[0] shadow-dark text-black  dark:borer-white dark:shadow-light border-black dark:border-white hover:dark:text-white dark:text-white py-2 px-5 min-w-[33%] rounded-lg bg-teal-400 hover:bg-teal-200 dark:bg-amber-600 dark:hover:bg-amber-500 duration-200"
-          type="submit"
-        >
-          Send a message
-        </button>
+        <Button type="submit">Send a message</Button>{" "}
       </div>
     </form>
   );

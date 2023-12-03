@@ -28,7 +28,7 @@ interface HeadProps {
   };
 }
 const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
-  const options = {
+  const options: any = {
     renderMark: {
       [MARKS.BOLD]: (text: string) => <b className="font-bold">{text}</b>,
     },

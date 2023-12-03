@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 import Seo from "../components/seo";
 import type { HeadFC } from "gatsby";
+import Button from "../components/button";
 interface PortfolioPageProps {
   data: {
     allContentfulPortfolio: {
@@ -59,9 +60,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
               </div>
               <div className="border-t-2 border-black dark:border-white p-5 text-center">
                 <Link to={`/portfolio/${slug}`}>
-                  <button className="border-2  hover:shadow-[0] dark:hover:shadow-[0] shadow-dark text-black  dark:borer-white dark:shadow-light border-black dark:border-white hover:dark:text-white dark:text-white py-2 px-5 min-w-[33%] rounded-lg bg-teal-400 hover:bg-teal-200 dark:bg-amber-600 dark:hover:bg-amber-500 duration-200">
-                    Check it out
-                  </button>
+                  <Button type="button"> Check it out</Button>
                 </Link>
               </div>
             </div>

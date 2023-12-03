@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
+import Button from "../components/button";
 // Define the interface for the component's props
 interface OfferProps {
   data: {
@@ -30,24 +31,25 @@ const Offer: React.FC<OfferProps> = ({ data }) => {
             key={offer.name}
             className="border-2  px-4 flex flex-col justify-between border-black dark:shadow-light shadow-dark py-4 rounded-lg dark:border-white"
           >
-            <h2 className="text-center text-5xl">{offer.name}</h2>
-            <ul className="text-center mt-4 my-4">
+            <h2 className="text-center mt-4 text-5xl">{offer.name}</h2>
+            <ul className="text-center mt-8 my-4">
               {offer.features.map((feature, index) => (
-                <li className="text-xl py-2" key={index}>
-                  {feature}
-                </li>
+                <>
+                  <li className="text-xl py-2" key={index}>
+                    {feature}
+                  </li>
+                  <>-</>
+                </>
               ))}
             </ul>
             <div>
-              <div className="text-center flex flex-col text-2xl my-4">
+              <div className="text-center flex flex-col text-2xl mt-3">
                 <span>From: {offer.pricePln} PLN</span>
                 <span>/ {offer.priceEuro} EURO </span>
               </div>
               <div className="text-center">
                 <Link to="/contact">
-                  <button className="border-2 text-center  hover:shadow-[0] dark:hover:shadow-[0] shadow-dark text-black  dark:borer-white dark:shadow-light border-black dark:border-white hover:dark:text-white dark:text-white py-2 px-5 min-w-[33%] rounded-lg bg-teal-400 hover:bg-teal-200 dark:bg-amber-600 dark:hover:bg-amber-500 duration-200">
-                    Contact me
-                  </button>
+                  <Button type="button">Contact me</Button>
                 </Link>
               </div>
             </div>

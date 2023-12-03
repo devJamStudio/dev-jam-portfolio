@@ -8,7 +8,7 @@ import Typewriter from "typewriter-effect";
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <div className=" text-[3rem] mt-10 leading-tightfont-ocr text-black dark:text-white md:text-[5rem] md:text-[7rem] xl:text-[8rem] mr-10">
+      <div className=" mt-10 leading-tightfont-ocr text-black dark:text-white text-[3rem] m:text-[5rem] md:text-[7rem] xl:text-[8rem] 2xl:text-[12rem] mr-10">
         <Typewriter
           options={{
             strings: [
