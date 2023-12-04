@@ -28,7 +28,7 @@ interface PortfolioPageProps {
 const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
   return (
     <Layout>
-      <div className="grid md:grid-cols-3 gap-8 lg:grid-cols-3">
+      <div className="grid md:grid-cols-2 gap-8 lg:grid-cols-3 2xl:grid-cols-4">
         {data.allContentfulPortfolio.edges.map((item, index) => {
           const { name, logoImg, slug } = item.node;
           const image = getImage(logoImg);
@@ -42,7 +42,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
               data-sal-duration="500"
               data-sal-easing="ease"
             >
-              <div className="text-2xl p-4 border-b-2 border-black  dark:border-white">
+              <div className="text-2xl px-4 py-6 border-b-2 border-black   dark:border-white">
                 {name && name.length > 0 && <h2>{name}</h2>}
               </div>
               <div className="flex items-center justify-center py-8  bg-white h-full">
@@ -50,7 +50,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                   <Link to={`/portfolio/${slug}`}>
                     {" "}
                     <GatsbyImage
-                      className=" hover:scale-110 aspect-square transform duration-300aspect-square"
+                      className=" hover:scale-110  transform duration-300 "
                       image={image}
                       alt={name}
                       objectFit="contain"
@@ -58,7 +58,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                   </Link>
                 )}
               </div>
-              <div className="border-t-2 border-black dark:border-white p-5 text-center">
+              <div className="border-t-2 border-black dark:border-white mb-2 text-center">
                 <Link to={`/portfolio/${slug}`}>
                   <Button type="button"> Check it out</Button>
                 </Link>

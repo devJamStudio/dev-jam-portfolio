@@ -50,7 +50,7 @@ const ContactForm = () => {
   return (
     <form action={FORM_ENDPOINT} onSubmit={handleSubmit} method="POST">
       <div
-        className="pt-0 mb-6"
+        className="pt-0 my-8"
         data-sal="slide-left"
         data-sal-delay="300"
         data-sal-duration="600"
@@ -65,7 +65,7 @@ const ContactForm = () => {
         />
       </div>
       <div
-        className="pt-0 mb-6"
+        className="pt-0 my-8"
         data-sal="slide-left"
         data-sal-delay="600"
         data-sal-duration="600"
@@ -80,7 +80,7 @@ const ContactForm = () => {
         />
       </div>
       <div
-        className="pt-0 mb-6"
+        className="pt-0 mt-8"
         data-sal="slide-left"
         data-sal-delay="900"
         data-sal-duration="600"
@@ -94,7 +94,7 @@ const ContactForm = () => {
         />
       </div>
       <div
-        className="pt-0 mb-3 text-center"
+        className="pt-0 text-center"
         data-sal="slide-left"
         data-sal-delay="900"
         data-sal-duration="600"

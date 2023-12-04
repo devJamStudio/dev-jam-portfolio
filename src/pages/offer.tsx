@@ -21,7 +21,7 @@ const Offer: React.FC<OfferProps> = ({ data }) => {
   const offers = data.allContentfulOffer.nodes || [];
   return (
     <Layout>
-      <div className="grid grid-cols-1 md:grid-cols-3  gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  gap-8 2xl:gap-12">
         {offers.map((offer) => (
           <div
             data-sal="slide-up"

@@ -7,14 +7,10 @@ const Typewrite = () => {
       onInit={(typewriter) => {
         typewriter
           .typeString("Hello World!")
-          .callFunction(() => {
-            console.log("String typed out!");
-          })
+          .callFunction(() => {})
           .pauseFor(2500)
           .deleteAll()
-          .callFunction(() => {
-            console.log("All strings were deleted");
-          })
+          .callFunction(() => {})
           .start();
       }}
     />
