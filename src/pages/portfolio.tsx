@@ -32,14 +32,14 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
         {data.allContentfulPortfolio.edges.map((item, index) => {
           const { name, logoImg, slug } = item.node;
           const image = getImage(logoImg);
-          const delay = `${index * 100}`;
+          const delay = `${index * 10}`;
           return (
             <div
               className={`flex flex-col  border-2 border-black dark:shadow-light  duration-300 shadow-dark  col-span-1 rounded-lg dark:border-white justify-between `}
               key={name}
               data-sal="slide-up"
               data-sal-delay={delay}
-              data-sal-duration="500"
+              data-sal-duration="300"
               data-sal-easing="ease"
             >
               <div className="text-2xl px-4 py-6 border-b-2 border-black   dark:border-white">

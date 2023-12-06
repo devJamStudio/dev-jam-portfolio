@@ -25,7 +25,7 @@ const Offer: React.FC<OfferProps> = ({ data }) => {
         {offers.map((offer) => (
           <div
             data-sal="slide-up"
-            data-sal-delay="300"
+            data-sal-delay="30"
             data-sal-duration="500"
             data-sal-easing="ease"
             key={offer.name}

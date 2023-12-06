@@ -35,6 +35,7 @@ const IndexPage: React.FC<PageProps> = () => {
               .start();
           }}
         />
+        
       </div>
     </Layout>
   );

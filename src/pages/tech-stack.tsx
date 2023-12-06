@@ -83,7 +83,7 @@ const TechStack: React.FC<TechStackProps> = () => {
             key={tech.name}
             className="border-2   aspect-square rounded-lg  dark:shadow-light  dark:border-white shadow-dark  border-black dark:border-white dark:shadow-light flex flex-col justify-between"
             data-sal="slide-up"
-            data-sal-delay={index * 100}
+            data-sal-delay={index * 10}
             data-sal-duration="500"
             data-sal-easing="ease"
           >

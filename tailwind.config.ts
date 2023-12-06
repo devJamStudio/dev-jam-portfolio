@@ -27,6 +27,9 @@ module.exports = {
       borderRadius: {
         lg: "0.375rem",
       },
+      screens: {
+        
+      }
     },
   },
   darkMode: "class",

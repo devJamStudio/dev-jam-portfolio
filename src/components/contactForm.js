@@ -67,7 +67,7 @@ const ContactForm = () => {
       <div
         className="pt-0 my-8"
         data-sal="slide-left"
-        data-sal-delay="600"
+        data-sal-delay="300"
         data-sal-duration="600"
         data-sal-easing="ease"
       >
@@ -82,7 +82,7 @@ const ContactForm = () => {
       <div
         className="pt-0 mt-8"
         data-sal="slide-left"
-        data-sal-delay="900"
+        data-sal-delay="300"
         data-sal-duration="600"
         data-sal-easing="ease"
       >
@@ -96,7 +96,7 @@ const ContactForm = () => {
       <div
         className="pt-0 text-center"
         data-sal="slide-left"
-        data-sal-delay="900"
+        data-sal-delay="300"
         data-sal-duration="600"
         data-sal-easing="ease"
       >
