@@ -39,7 +39,7 @@ assert.ok(
   "PL page does not link back to its EN counterpart",
 );
 assert.ok(
-  en.includes('href="https://devjam.studio/pl/about/"'),
+  en.includes('href="https://devjamstudio.netlify.app/pl/about/"'),
   "hreflang alternate should be an absolute URL with a trailing slash",
 );
 assert.ok(en.includes("Automation first"), "EN about copy missing");

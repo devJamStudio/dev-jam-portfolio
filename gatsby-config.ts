@@ -14,7 +14,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `devJam Studio`,
     description: `devJam Studio — DevOps, AI and automation. CI/CD pipelines, infrastructure as code, AI agents, and the web builds that sit on top of them.`,
-    siteUrl: `https://devjam.studio`,
+    siteUrl: `https://devjamstudio.netlify.app`,
     author: `@devjamstudio`,
     image: "",
     pages: [
