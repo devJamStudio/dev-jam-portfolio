@@ -79,6 +79,30 @@ const details = readdirSync(join(PUBLIC, "portfolio"), {
   withFileTypes: true,
 }).filter((e) => e.isDirectory());
 assert.ok(details.length > 0, "no portfolio detail pages were built");
+for (const slug of [
+  "menswear-list",
+  "i-love-montessori",
+  "rentcar-cash",
+  "carpol-de",
+  "bluba",
+]) {
+  assert.ok(
+    details.some((e) => e.name === slug),
+    `portfolio project missing: ${slug}`,
+  );
+}
+// A project with a screenshot must actually render one; a project without one
+// (unlaunched site) must fall back to its name rather than an empty box.
+assert.ok(
+  /<img[^>]+alt="Menswear List"/.test(read("portfolio/menswear-list/index.html")),
+  "Menswear List screenshot did not render",
+);
+assert.ok(
+  read("portfolio/i-love-montessori/index.html").includes(
+    "has not launched yet",
+  ),
+  "unlaunched project should say so instead of showing a dead link",
+);
 for (const { name } of details) {
   assert.ok(
     has(join("pl", "portfolio", name, "index.html")),

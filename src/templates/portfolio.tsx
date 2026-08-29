@@ -1,115 +1,105 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import Seo from "../components/seo";
 import type { HeadFC } from "gatsby";
-import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Layout from "../components/layout";
 import Button from "../components/button";
-import { useCopy } from "../i18n/LocaleContext";
+import Seo from "../components/seo";
+import { findProject } from "../data/portfolio";
+import { useCopy, useLocale } from "../i18n/LocaleContext";
 import type { LocalePageContext } from "../i18n/copy";
 import { defaultLocale } from "../i18n/copy";
-interface PortfolioPageProps {
+
+interface ProjectPageContext extends LocalePageContext {
+  slug: string;
+}
+
+interface PortfolioTemplateProps {
   data: {
-    contentfulPortfolio: {
-      name: string;
-      description: {
-        raw: string;
-      };
-      websiteImage: {
-        gatsbyImageData: any;
-      };
-      stack: string[];
-      url: string;
+    allFile: {
+      nodes: Array<{
+        name: string;
+        childImageSharp: { gatsbyImageData: any } | null;
+      }>;
     };
   };
+  pageContext: ProjectPageContext;
 }
-interface HeadProps {
-  contentfulPortfolio: {
-    name: string;
-  };
-}
-const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
+
+const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
+  data,
+  pageContext,
+}) => {
   const copy = useCopy();
-  const options: any = {
-    renderMark: {
-      [MARKS.BOLD]: (text: string) => <b className="font-bold">{text}</b>,
-    },
-    renderNode: {
-      [INLINES.HYPERLINK]: (node: any, children: any) => {
-        const { uri } = node.data;
-        return (
-          <a href={uri} className="underline">
-            {children}
-          </a>
-        );
-      },
-      [BLOCKS.HEADING_1]: (node: any, children: any) => {
-        return <h1>{children}</h1>;
-      },
-    },
-  };
-  const { name, description, websiteImage, stack, url } =
-    data?.contentfulPortfolio;
-  //const image = getImage(ThumbImg);
+  const locale = useLocale();
+  const project = findProject(pageContext.slug);
+
+  if (!project) return <Layout>{copy.portfolio.empty}</Layout>;
+
+  const node = data.allFile.nodes.find((n) => n.name === project.image);
+  const image = node?.childImageSharp
+    ? getImage(node.childImageSharp.gatsbyImageData)
+    : undefined;
 
   return (
     <Layout>
-      <div className="flex flex-col 2xl:flex-row gap-8 ">
+      <div className="flex flex-col 2xl:flex-row gap-8">
         <div
-          className=" w-full 2xl:w-8/12 flex  aspect-video"
+          className="w-full 2xl:w-8/12 flex"
           data-sal="slide-right"
           data-sal-delay="300"
           data-sal-duration="700"
           data-sal-easing="ease"
         >
-          {websiteImage.gatsbyImageData && (
-            <div className="w-full flex border-2  border-black rounded-lg shadow-dark dark:border-white dark:shadow-light ">
+          {image && (
+            <div className="w-full flex border-2 border-black rounded-lg shadow-dark dark:border-white dark:shadow-light overflow-hidden">
               <GatsbyImage
                 className="w-full"
-                image={websiteImage.gatsbyImageData}
-                alt={name}
+                image={image}
+                alt={project.name}
                 objectPosition="0% 0%"
-                objectFit="fill"
               />
             </div>
           )}
         </div>
+
         <div
-          className="w-full 2xl:w-4/12 flex border-2 border-black rounded-lg  dark:shadow-light  dark:border-white shadow-dark flex-col"
+          className="w-full 2xl:w-4/12 flex border-2 border-black rounded-lg dark:shadow-light dark:border-white shadow-dark flex-col"
           data-sal="slide-left"
           data-sal-delay="300"
           data-sal-duration="700"
           data-sal-easing="ease"
         >
-          <div className="shadow-dark p-4 border-b-2 border-black dark:border-white dark:shadow-light ">
-            {name && name.length > 0 && (
-              <h1 className="text-5xl my-3  ">{name}</h1>
-            )}
+          <div className="shadow-dark p-4 border-b-2 border-black dark:border-white dark:shadow-light">
+            <h1 className="text-5xl my-3">{project.name}</h1>
           </div>
+
           <div className="shadow-dark py-6 border-b-2 flex-[2] border-black px-4 dark:border-white dark:shadow-light mb-2">
-            <h2 className="text-2xl mb-4">{copy.portfolio.aboutLabel}: </h2>
-            {description &&
-              description.raw &&
-              renderRichText(description, options)}
+            <h2 className="text-2xl mb-4">{copy.portfolio.aboutLabel}:</h2>
+            {project.description[locale].map((paragraph) => (
+              <p key={paragraph} className="mb-4 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
           </div>
-          {stack && (
-            <div className="stack   m-4">
-              <h3 className="text-2xl mb-6">{copy.portfolio.stackLabel}: </h3>
-              <ul className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mx-4">
-                {stack.map((item) => (
-                  <li key={item} className="mx-2">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          <div className="button--wrapper  flex justify-center py-4">
-            <a href={url} target="_blank" rel="noopener noreferrer">
-              <Button type="button">{copy.portfolio.visit}</Button>
-            </a>
+
+          <div className="stack m-4">
+            <h2 className="text-2xl mb-6">{copy.portfolio.stackLabel}:</h2>
+            <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-2 gap-4 mx-4">
+              {project.stack.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="button--wrapper flex justify-center py-4 px-4 text-center">
+            {project.url ? (
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                <Button type="button">{copy.portfolio.visit}</Button>
+              </a>
+            ) : (
+              project.note && <p className="py-4">{project.note[locale]}</p>
+            )}
           </div>
         </div>
       </div>
@@ -118,36 +108,29 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
 };
 
 export const query = graphql`
-  query PortfolioPageQuery($slug: String) {
-    contentfulPortfolio(slug: { eq: $slug }) {
-      name
-      description {
-        raw
+  query PortfolioTemplateImagesQuery {
+    allFile(filter: { relativeDirectory: { eq: "portfolio" } }) {
+      nodes {
+        name
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+        }
       }
-      logoImg {
-        gatsbyImageData(layout: FIXED, placeholder: BLURRED)
-      }
-      websiteImage {
-        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-      }
-      stack
-      url
     }
   }
 `;
 
-export const Head: HeadFC<HeadProps, LocalePageContext> = ({
-  data,
-  pageContext,
-}) => {
-  const { name } = data.contentfulPortfolio;
+export default PortfolioTemplate;
+
+export const Head: HeadFC<object, ProjectPageContext> = ({ pageContext }) => {
+  const project = findProject(pageContext.slug);
+  const locale = pageContext?.locale || defaultLocale;
   return (
     <Seo
-      title={name}
-      locale={pageContext?.locale || defaultLocale}
+      title={project?.name || "Portfolio"}
+      description={project?.description[locale][0]}
+      locale={locale}
       basePath={pageContext?.basePath}
     />
   );
 };
-
-export default PortfolioPage;

@@ -5,24 +5,17 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import Button from "../components/button";
 import Seo from "../components/seo";
-import { useCopy, usePath } from "../i18n/LocaleContext";
+import { projects } from "../data/portfolio";
+import { useCopy, useLocale, usePath } from "../i18n/LocaleContext";
 import type { LocalePageContext } from "../i18n/copy";
 import { copy as allCopy, defaultLocale } from "../i18n/copy";
 
 interface PortfolioPageProps {
   data: {
-    allContentfulPortfolio: {
-      edges: Array<{
-        node: {
-          name: string;
-          description: {
-            raw: string;
-          };
-          logoImg: {
-            gatsbyImageData: any;
-          };
-          slug: string;
-        };
+    allFile: {
+      nodes: Array<{
+        name: string;
+        childImageSharp: { gatsbyImageData: any } | null;
       }>;
     };
   };
@@ -30,8 +23,12 @@ interface PortfolioPageProps {
 
 const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
   const copy = useCopy();
+  const locale = useLocale();
   const path = usePath();
-  const edges = data.allContentfulPortfolio.edges;
+
+  const images = new Map(
+    data.allFile.nodes.map((node) => [node.name, node.childImageSharp]),
+  );
 
   return (
     <Layout>
@@ -42,39 +39,48 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
         </p>
       </div>
 
-      {edges.length === 0 ? (
+      {projects.length === 0 ? (
         <p className="text-xl">{copy.portfolio.empty}</p>
       ) : (
         <div className="grid md:grid-cols-2 gap-8 lg:grid-cols-3 2xl:grid-cols-4">
-          {edges.map((item, index) => {
-            const { name, logoImg, slug } = item.node;
-            const image = getImage(logoImg);
+          {projects.map((project, index) => {
+            const thumb = images.get(project.logo || project.image || "");
+            const image = thumb ? getImage(thumb.gatsbyImageData) : undefined;
+            const to = path(`/portfolio/${project.slug}`);
+
             return (
               <div
                 className="flex flex-col border-2 border-black dark:shadow-light duration-300 shadow-dark col-span-1 rounded-lg dark:border-white justify-between"
-                key={name}
+                key={project.slug}
                 data-sal="slide-up"
                 data-sal-delay={index * 10}
                 data-sal-duration="300"
                 data-sal-easing="ease"
               >
                 <div className="text-2xl px-4 py-6 border-b-2 border-black dark:border-white">
-                  {name && name.length > 0 && <h2>{name}</h2>}
+                  <h2>{project.name}</h2>
                 </div>
-                <div className="flex items-center justify-center py-8 bg-white h-full">
-                  {image && (
-                    <Link to={path(`/portfolio/${slug}`)}>
-                      <GatsbyImage
-                        className="hover:scale-110 transform duration-300"
-                        image={image}
-                        alt={name}
-                        objectFit="contain"
-                      />
-                    </Link>
+                <Link
+                  to={to}
+                  className="flex items-center justify-center py-8 bg-white h-full"
+                >
+                  {image ? (
+                    <GatsbyImage
+                      className="hover:scale-110 transform duration-300"
+                      image={image}
+                      alt={project.name}
+                      objectFit="contain"
+                    />
+                  ) : (
+                    // Not every project has a screenshot to show — an unlaunched
+                    // site has nothing to point a camera at.
+                    <span className="font-ocr text-4xl text-black px-6 text-center">
+                      {project.name}
+                    </span>
                   )}
-                </div>
+                </Link>
                 <div className="border-t-2 border-black dark:border-white mb-2 text-center">
-                  <Link to={path(`/portfolio/${slug}`)}>
+                  <Link to={to}>
                     <Button type="button">{copy.portfolio.cta}</Button>
                   </Link>
                 </div>
@@ -88,19 +94,16 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
 };
 
 export const query = graphql`
-  query allContentfulPortfolioQuery {
-    allContentfulPortfolio {
-      edges {
-        node {
-          slug
-          stack
-          name
-          description {
-            raw
-          }
-          logoImg {
-            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
-          }
+  query PortfolioImagesQuery {
+    allFile(filter: { relativeDirectory: { eq: "portfolio" } }) {
+      nodes {
+        name
+        childImageSharp {
+          gatsbyImageData(
+            layout: CONSTRAINED
+            width: 400
+            placeholder: BLURRED
+          )
         }
       }
     }
@@ -109,9 +112,7 @@ export const query = graphql`
 
 export default PortfolioPage;
 
-export const Head: HeadFC<object, LocalePageContext> = ({
-  pageContext,
-}) => {
+export const Head: HeadFC<object, LocalePageContext> = ({ pageContext }) => {
   const locale = pageContext?.locale || defaultLocale;
   return (
     <Seo

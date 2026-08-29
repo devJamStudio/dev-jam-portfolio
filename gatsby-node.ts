@@ -1,75 +1,21 @@
 import { GatsbyNode } from "gatsby";
 import { resolve } from "path";
 import { defaultLocale, locales, localePath } from "./src/i18n/copy";
+import { projects } from "./src/data/portfolio";
 
-export const createPages: GatsbyNode["createPages"] = async ({
-  actions,
-  graphql,
-}) => {
+export const createPages: GatsbyNode["createPages"] = async ({ actions }) => {
   const { createPage } = actions;
 
-  const allContentfulData: {
-    errors?: any;
-    data?: {
-      allContentfulPortfolio: {
-        edges: {
-          node: {
-            slug: string;
-            name: string;
-            description: {
-              raw: string;
-            };
-            ThumbImg: {
-              gatsbyImageData: any;
-            };
-          };
-        }[];
-      };
-    };
-  } = await graphql(`
-    query allContentfulDataQuery {
-      allContentfulPortfolio {
-        edges {
-          node {
-            slug
-            stack
-            name
-            logoImg {
-              gatsbyImageData(layout: FIXED, placeholder: BLURRED)
-            }
-            url
-            description {
-              raw
-            }
-            websiteImage {
-              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  allContentfulData.data?.allContentfulPortfolio.edges.forEach((edge) => {
-    const { name, description, ThumbImg, slug } = edge.node;
-    if (!slug) return; // Skip if no name is defined
-
-    // onCreatePage below does not fire for pages a plugin creates itself, so
-    // these get both locales here.
-    const basePath = `/portfolio/${slug}/`;
+  // onCreatePage below does not fire for pages a plugin creates itself, so
+  // these get both locales here.
+  projects.forEach((project) => {
+    const basePath = `/portfolio/${project.slug}/`;
 
     locales.forEach((locale) => {
       createPage({
         path: localePath(basePath, locale),
         component: resolve("./src/templates/portfolio.tsx"),
-        context: {
-          slug: slug, // Pass the slug to the page query
-          name,
-          description,
-          ThumbImg,
-          locale,
-          basePath,
-        },
+        context: { slug: project.slug, locale, basePath },
       });
     });
   });

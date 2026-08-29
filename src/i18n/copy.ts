@@ -78,7 +78,7 @@ const en = {
   },
   portfolio: {
     title: "Portfolio",
-    intro: "Selected work. Automation case studies are being written up.",
+    intro: "Selected work — stores, CMS-backed sites and internal systems.",
     cta: "Check it out",
     empty: "Nothing published here yet.",
     aboutLabel: "About",
@@ -169,7 +169,7 @@ const pl: typeof en = {
   },
   portfolio: {
     title: "Portfolio",
-    intro: "Wybrane realizacje. Case studies z automatyzacji są w opracowaniu.",
+    intro: "Wybrane realizacje — sklepy, strony oparte o CMS i systemy wewnętrzne.",
     cta: "Zobacz projekt",
     empty: "Nic tu jeszcze nie opublikowano.",
     aboutLabel: "O projekcie",
