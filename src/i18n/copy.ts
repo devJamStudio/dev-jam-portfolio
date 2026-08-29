@@ -94,6 +94,8 @@ const en = {
     send: "Send a message",
     thanks: "Thank you!",
     thanksBody: "I'll be in touch soon.",
+    failed: "That didn't send. Email me directly and I'll pick it up.",
+    honeypot: "Leave this field empty",
   },
   notFound: {
     title: "Page not found",
@@ -185,6 +187,8 @@ const pl: typeof en = {
     send: "Wyślij wiadomość",
     thanks: "Dziękuję!",
     thanksBody: "Odezwę się niedługo.",
+    failed: "Nie udało się wysłać. Napisz do mnie mailem, odbiorę.",
+    honeypot: "Zostaw to pole puste",
   },
   notFound: {
     title: "Nie znaleziono strony",

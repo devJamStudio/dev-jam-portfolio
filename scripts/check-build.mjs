@@ -92,6 +92,21 @@ for (const slug of [
     `portfolio project missing: ${slug}`,
   );
 }
+// Netlify finds the contact form by parsing deployed HTML at build time. If
+// this markup ever stops being server-rendered, the form silently stops
+// collecting anything — no error, just lost enquiries.
+for (const page of ["contact/index.html", "pl/contact/index.html"]) {
+  const html = read(page);
+  for (const bit of [
+    'data-netlify="true"',
+    'netlify-honeypot="bot-field"',
+    'name="form-name"',
+    'name="bot-field"',
+  ]) {
+    assert.ok(html.includes(bit), `${page} is missing ${bit}`);
+  }
+}
+
 // Every card is a screenshot at the same aspect ratio; a mismatched one makes
 // the grid look ragged, so check the images we ship, not just the markup.
 const shots = readdirSync(join(PUBLIC, "..", "src", "images", "portfolio"));
