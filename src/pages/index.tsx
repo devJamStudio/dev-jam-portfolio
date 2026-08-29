@@ -12,7 +12,7 @@ import { copy as allCopy, defaultLocale } from "../i18n/copy";
 const IndexPage: React.FC<PageProps> = () => {
   const copy = useCopy();
   const path = usePath();
-  const typed = useTypewriter(copy.index.slogans);
+  const typewriter = useTypewriter(copy.index.slogans);
 
   return (
     <Layout>
@@ -32,7 +32,9 @@ const IndexPage: React.FC<PageProps> = () => {
           aria-hidden="true"
           className="relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[3rem] m:text-[5rem] md:text-[7rem] xl:text-[8rem] 2xl:text-[12rem] mr-10"
         >
-          <div className="absolute inset-0">{typed}</div>
+          <div ref={typewriter} className="absolute inset-0">
+            {copy.index.slogans[0]}
+          </div>
         </div>
 
         <p className="max-w-[60ch] text-lg md:text-xl 2xl:text-2xl leading-relaxed">
