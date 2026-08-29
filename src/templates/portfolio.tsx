@@ -7,6 +7,9 @@ import type { HeadFC } from "gatsby";
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Button from "../components/button";
+import { useCopy } from "../i18n/LocaleContext";
+import type { LocalePageContext } from "../i18n/copy";
+import { defaultLocale } from "../i18n/copy";
 interface PortfolioPageProps {
   data: {
     contentfulPortfolio: {
@@ -23,13 +26,12 @@ interface PortfolioPageProps {
   };
 }
 interface HeadProps {
-  data: {
-    contentfulPortfolio: {
-      name: string;
-    };
+  contentfulPortfolio: {
+    name: string;
   };
 }
 const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
+  const copy = useCopy();
   const options: any = {
     renderMark: {
       [MARKS.BOLD]: (text: string) => <b className="font-bold">{text}</b>,
@@ -87,14 +89,14 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
             )}
           </div>
           <div className="shadow-dark py-6 border-b-2 flex-[2] border-black px-4 dark:border-white dark:shadow-light mb-2">
-            <h2 className="text-2xl mb-4">About: </h2>
+            <h2 className="text-2xl mb-4">{copy.portfolio.aboutLabel}: </h2>
             {description &&
               description.raw &&
               renderRichText(description, options)}
           </div>
           {stack && (
             <div className="stack   m-4">
-              <h3 className="text-2xl mb-6">Stack: </h3>
+              <h3 className="text-2xl mb-6">{copy.portfolio.stackLabel}: </h3>
               <ul className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mx-4">
                 {stack.map((item) => (
                   <li key={item} className="mx-2">
@@ -106,7 +108,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
           )}
           <div className="button--wrapper  flex justify-center py-4">
             <a href={url} target="_blank" rel="noopener noreferrer">
-              <Button type="button">Check it out</Button>
+              <Button type="button">{copy.portfolio.visit}</Button>
             </a>
           </div>
         </div>
@@ -134,10 +136,18 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<HeadProps> = ({ data }) => {
-  console.log(data); // Log the data object to the console
+export const Head: HeadFC<HeadProps, LocalePageContext> = ({
+  data,
+  pageContext,
+}) => {
   const { name } = data.contentfulPortfolio;
-  return <Seo title={name} description={name} />;
+  return (
+    <Seo
+      title={name}
+      locale={pageContext?.locale || defaultLocale}
+      basePath={pageContext?.basePath}
+    />
+  );
 };
 
 export default PortfolioPage;

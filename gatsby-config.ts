@@ -4,6 +4,7 @@ require("dotenv").config({
 });
 interface SiteMetadata {
   title: string;
+  description: string;
   siteUrl: string;
   author: string;
   image: string;
@@ -15,6 +16,7 @@ interface SiteMetadata {
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `devJam Studio`,
+    description: `devJam Studio — DevOps, AI and automation. CI/CD pipelines, infrastructure as code, AI agents, and the web builds that sit on top of them.`,
     siteUrl: `https://devjam.studio`,
     author: `@devjamstudio`,
     image: "",

@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+
+export interface NavLink {
+  label: string;
+  to: string;
+}
+
 interface NavComponentProps {
-  Links: string[];
+  Links: NavLink[];
   toggle: boolean;
 }
-// tham-active class is added to the tham element when the menu is open
+
 const NavComponent: React.FC<NavComponentProps> = ({ Links, toggle }) => {
   return (
     <div
@@ -19,9 +24,9 @@ const NavComponent: React.FC<NavComponentProps> = ({ Links, toggle }) => {
           {Links.map((link) => (
             <li
               className="py-4 hover:text-teal-500  dark:hover:text-amber-600  "
-              key={link}
+              key={link.to}
             >
-              <Link to={"/" + link.toLowerCase()}>{link}</Link>
+              <Link to={link.to}>{link.label}</Link>
             </li>
           ))}
         </ul>

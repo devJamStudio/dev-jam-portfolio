@@ -1,0 +1,7 @@
+[build]
+  command = "gatsby build"
+  publish = "public"
+
+[build.environment]
+  # Gatsby 5 is not compatible with current Node LTS defaults; pin it.
+  NODE_VERSION = "20.12.2"

@@ -1,12 +1,23 @@
 import React from "react";
 import Nav from "./nav";
+import type { NavLink } from "./nav";
+import { useCopy, usePath } from "../i18n/LocaleContext";
 
 interface MenuProps {
   toggle: boolean;
 }
 
 const Menu: React.FC<MenuProps> = ({ toggle }) => {
-  var Links = ["offer", "contact", "portfolio", "tech-stack"];
+  const copy = useCopy();
+  const path = usePath();
+
+  const Links: NavLink[] = [
+    { label: copy.nav.offer, to: path("/offer") },
+    { label: copy.nav.stack, to: path("/tech-stack") },
+    { label: copy.nav.portfolio, to: path("/portfolio") },
+    { label: copy.nav.about, to: path("/about") },
+    { label: copy.nav.contact, to: path("/contact") },
+  ];
 
   return (
     <div
