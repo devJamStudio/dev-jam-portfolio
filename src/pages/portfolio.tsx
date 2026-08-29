@@ -67,6 +67,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                       image={image}
                       alt={project.name}
                       objectFit="contain"
+                      loading={index < 3 ? "eager" : "lazy"}
                     />
                   ) : (
                     // Not every project has a screenshot to show — an unlaunched

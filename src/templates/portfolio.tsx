@@ -54,6 +54,7 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
                 image={image}
                 alt={project.name}
                 objectPosition="0% 0%"
+                loading="eager"
               />
             </div>
           )}
