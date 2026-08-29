@@ -92,6 +92,14 @@ for (const slug of [
     `portfolio project missing: ${slug}`,
   );
 }
+// Every card is a screenshot at the same aspect ratio; a mismatched one makes
+// the grid look ragged, so check the images we ship, not just the markup.
+const shots = readdirSync(join(PUBLIC, "..", "src", "images", "portfolio"));
+assert.ok(
+  shots.length > 0 && shots.every((f) => f.endsWith(".jpg")),
+  `portfolio images must all be jpg screenshots, got: ${shots.join(", ")}`,
+);
+
 // A project with a screenshot must actually render one; a project without one
 // (unlaunched site) must fall back to its name rather than an empty box.
 assert.ok(

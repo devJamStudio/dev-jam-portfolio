@@ -7,8 +7,6 @@ export interface Project {
   url?: string;
   /** Basename of a file in src/images/portfolio (screenshot, 16:9). */
   image?: string;
-  /** Basename of a logo in src/images/portfolio, shown in the grid. */
-  logo?: string;
   stack: string[];
   description: Record<Locale, string[]>;
   /** Shown instead of a live link, e.g. while a site is unlaunched. */
@@ -107,7 +105,6 @@ export const projects: Project[] = [
     name: "Carpol DE",
     url: "https://carpol-fahrzeugbau.com",
     image: "carpol-de",
-    logo: "carpol-de-logo",
     stack: [
       "WordPress",
       "PHP",
@@ -120,12 +117,12 @@ export const projects: Project[] = [
     ],
     description: {
       en: [
-        "Carpol is a company specialising in car body conversions for professional use.",
-        "The site runs on WordPress as a CMS with custom post types, galleries and forms generated over AJAX. Written from scratch, styled with Tailwind CSS.",
+        "Carpol builds vehicle bodies and conversions for professional fleets — as a group, over 8,000 delivery vans a year.",
+        "A German-language WordPress build with custom post types, galleries and forms loaded over AJAX. Written from scratch, styled with Tailwind CSS.",
       ],
       pl: [
-        "Carpol to firma specjalizująca się w zabudowach samochodów do zastosowań profesjonalnych.",
-        "Strona działa na WordPressie jako CMS, z własnymi typami wpisów, galeriami i formularzami generowanymi przez AJAX. Napisana od zera, ostylowana Tailwind CSS.",
+        "Carpol produkuje zabudowy pojazdów dla flot profesjonalnych — jako grupa ponad 8000 samochodów dostawczych rocznie.",
+        "Niemieckojęzyczna strona na WordPressie z własnymi typami wpisów, galeriami i formularzami ładowanymi przez AJAX. Napisana od zera, ostylowana Tailwind CSS.",
       ],
     },
   },
@@ -134,16 +131,15 @@ export const projects: Project[] = [
     name: "Bluba",
     url: "https://bluba.studio",
     image: "bluba",
-    logo: "bluba-logo",
     stack: ["Shopify", "Liquid", "JavaScript"],
     description: {
       en: [
-        "Bluba creates custom, minimalistic 3D printed home decorations and accessories.",
-        "A Shopify storefront with a custom Liquid theme.",
+        "Bluba Studio makes modular interior lighting printed in 3D — configurable lamps in soothing colours, aimed at a sustainable way of living.",
+        "A Shopify storefront on a custom Liquid theme, selling across markets with currency and region switching.",
       ],
       pl: [
-        "Bluba tworzy autorskie, minimalistyczne dekoracje i akcesoria do domu drukowane w 3D.",
-        "Sklep na Shopify z autorskim motywem w Liquidzie.",
+        "Bluba Studio tworzy modułowe oświetlenie wnętrz drukowane w 3D — konfigurowalne lampy w kojących kolorach, z myślą o zrównoważonym stylu życia.",
+        "Sklep na Shopify z autorskim motywem w Liquidzie, sprzedający na wiele rynków, z przełącznikiem waluty i regionu.",
       ],
     },
   },

@@ -44,7 +44,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
       ) : (
         <div className="grid md:grid-cols-2 gap-8 lg:grid-cols-3 2xl:grid-cols-4">
           {projects.map((project, index) => {
-            const thumb = images.get(project.logo || project.image || "");
+            const thumb = images.get(project.image || "");
             const image = thumb ? getImage(thumb.gatsbyImageData) : undefined;
             const to = path(`/portfolio/${project.slug}`);
 
