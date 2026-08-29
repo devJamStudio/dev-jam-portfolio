@@ -13,62 +13,51 @@ const IndexPage: React.FC<PageProps> = () => {
   const copy = useCopy();
   const path = usePath();
 
-  const longestSlogan = copy.index.slogans.reduce((longest, slogan) =>
-    slogan.length > longest.length ? slogan : longest,
-  );
-
   return (
     <Layout>
-      {/* flex-1 + mt-auto on the buttons drops them to the bottom of the first
-          screen without position:fixed, so they scroll away with the page
-          instead of sitting on top of the content below. */}
-      <div className="flex flex-1 flex-col">
-      {/* The typewriter only paints client-side, so the real heading ships as
-          text and the animation is decorative. */}
-      <h1 className="sr-only">{copy.index.heading}</h1>
+      {/* Header + this column are exactly one viewport tall, so the hero ends
+          at the fold and the CTAs sit on the ground — no position:fixed. */}
+      <div className="flex flex-1 flex-col overflow-hidden">
+        {/* The typewriter only paints client-side, so the real heading ships
+            as text and the animation is decorative. */}
+        <h1 className="sr-only">{copy.index.heading}</h1>
 
-      {/* The typewriter grows and shrinks as it types, which shoved everything
-          below it up and down — 0.396 CLS, almost all of it from here. The
-          longest slogan is rendered invisibly to hold the box open and the
-          animation is overlaid on top, so the height is whatever the tallest
-          string needs at this width and never changes. Measured, not guessed:
-          the box swings between 1.25em and 5em depending on viewport. */}
-      <div
-        aria-hidden="true"
-        className="relative mt-10 leading-tight font-ocr text-black dark:text-white text-[3rem] m:text-[5rem] md:text-[7rem] xl:text-[8rem] 2xl:text-[12rem] mr-10"
-      >
-        <span className="invisible block" aria-hidden="true">
-          {longestSlogan}
-        </span>
-        <div className="absolute inset-0">
-          <Typewriter
-            options={{
-              strings: copy.index.slogans,
-              autoStart: true,
-              loop: true,
-              delay: 50,
-              // The blinking cursor relocates on every keystroke and on every
-              // line wrap, which Lighthouse counts as layout shift — it was
-              // 0.152 of the remaining 0.171 CLS on its own. The typing effect
-              // survives without it.
-              cursor: "",
-            }}
-          />
+        {/* The typewriter box takes the slack rather than sizing itself to its
+            text. That fills the screen and, more importantly, stops the box
+            height depending on how many lines the current slogan wraps to —
+            which is what caused the layout shift. min-h-0 lets it shrink under
+            its content; overflow-hidden stops a long string reopening it. */}
+        <div
+          aria-hidden="true"
+          className="relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[3rem] m:text-[5rem] md:text-[7rem] xl:text-[8rem] 2xl:text-[12rem] mr-10"
+        >
+          <div className="absolute inset-0">
+            <Typewriter
+              options={{
+                strings: copy.index.slogans,
+                autoStart: true,
+                loop: true,
+                delay: 50,
+                // The blinking cursor moved on every keystroke and every line
+                // wrap, which counts as layout shift — 0.152 CLS on its own.
+                cursor: "",
+              }}
+            />
+          </div>
         </div>
-      </div>
 
-      <p className="mt-12 max-w-[60ch] text-xl md:text-2xl 2xl:text-3xl leading-relaxed">
-        {copy.index.tagline}
-      </p>
+        <p className="max-w-[60ch] text-lg md:text-xl 2xl:text-2xl leading-relaxed">
+          {copy.index.tagline}
+        </p>
 
-      <div className="mt-auto flex flex-row flex-wrap gap-6 items-center pt-12">
-        <Link to={path("/offer")}>
-          <Button type="button">{copy.index.ctaOffer}</Button>
-        </Link>
-        <Link to={path("/contact")}>
-          <Button type="button">{copy.index.ctaContact}</Button>
-        </Link>
-      </div>
+        <div className="flex flex-row flex-wrap gap-6 items-center pt-8">
+          <Link to={path("/offer")}>
+            <Button type="button">{copy.index.ctaOffer}</Button>
+          </Link>
+          <Link to={path("/contact")}>
+            <Button type="button">{copy.index.ctaContact}</Button>
+          </Link>
+        </div>
       </div>
     </Layout>
   );
@@ -76,9 +65,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC<object, LocalePageContext> = ({
-  pageContext,
-}) => {
+export const Head: HeadFC<object, LocalePageContext> = ({ pageContext }) => {
   const locale = pageContext?.locale || defaultLocale;
   return (
     <Seo

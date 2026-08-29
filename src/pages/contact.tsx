@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
         <div
           className="my-4"
         >
-          <h1 className="text-6xl mb-6">{copy.contact.title}</h1>
+          <h1 className="text-3xl md:text-5xl mb-3">{copy.contact.title}</h1>
           <span>{copy.contact.subtitle}</span>
         </div>
         <ContactForm />

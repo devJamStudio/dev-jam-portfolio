@@ -52,7 +52,7 @@ const ContactForm = () => {
   return (
     <form action={FORM_ENDPOINT} onSubmit={handleSubmit} method="POST">
       <div
-        className="pt-0 my-8"
+        className="pt-0 my-4"
       >
         <input
           type="text"
@@ -63,7 +63,7 @@ const ContactForm = () => {
         />
       </div>
       <div
-        className="pt-0 my-8"
+        className="pt-0 my-4"
       >
         <input
           type="email"
@@ -74,7 +74,7 @@ const ContactForm = () => {
         />
       </div>
       <div
-        className="pt-0 mt-8"
+        className="pt-0 mt-4"
       >
         <textarea
           placeholder={copy.contact.message}

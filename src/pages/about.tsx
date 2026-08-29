@@ -12,26 +12,26 @@ const About: React.FC = () => {
   return (
     <Layout>
       <div className="max-w-[70ch] mx-auto">
-        <h1 className="text-4xl md:text-6xl leading-tight mb-10">
+        <h1 className="text-3xl md:text-5xl leading-tight mb-6">
           {copy.about.title}
         </h1>
 
         {copy.about.paragraphs.map((paragraph, index) => (
           <p
             key={paragraph}
-            className="text-lg md:text-xl leading-relaxed mb-6"
+            className="text-base md:text-lg leading-relaxed mb-4"
           >
             {paragraph}
           </p>
         ))}
 
         <div
-          className="border-2 border-black dark:border-white shadow-dark dark:shadow-light rounded-lg p-6 mt-12"
+          className="border-2 border-black dark:border-white shadow-dark dark:shadow-light rounded-lg p-5 mt-8"
         >
-          <h2 className="text-3xl mb-6">{copy.about.doesTitle}</h2>
-          <ul className="flex flex-col gap-4">
+          <h2 className="text-2xl mb-4">{copy.about.doesTitle}</h2>
+          <ul className="flex flex-col gap-2.5">
             {copy.about.does.map((item) => (
-              <li key={item} className="text-lg leading-relaxed">
+              <li key={item} className="text-base leading-relaxed">
                 — {item}
               </li>
             ))}

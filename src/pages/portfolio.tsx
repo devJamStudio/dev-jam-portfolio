@@ -32,9 +32,9 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
 
   return (
     <Layout>
-      <div className="mb-12 max-w-[70ch]">
-        <h1 className="text-4xl md:text-6xl mb-6">{copy.portfolio.title}</h1>
-        <p className="text-lg md:text-xl leading-relaxed">
+      <div className="mb-6 max-w-[70ch]">
+        <h1 className="text-3xl md:text-5xl mb-3">{copy.portfolio.title}</h1>
+        <p className="text-base md:text-lg leading-relaxed">
           {copy.portfolio.intro}
         </p>
       </div>
@@ -42,7 +42,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
       {projects.length === 0 ? (
         <p className="text-xl">{copy.portfolio.empty}</p>
       ) : (
-        <div className="grid md:grid-cols-2 gap-8 lg:grid-cols-3 2xl:grid-cols-4">
+        <div className="grid sm:grid-cols-2 gap-5 lg:grid-cols-3 2xl:grid-cols-4">
           {projects.map((project, index) => {
             const thumb = images.get(project.image || "");
             const image = thumb ? getImage(thumb.gatsbyImageData) : undefined;
@@ -54,12 +54,12 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                 style={{ animationDelay: `${index * 60}ms` }}
                 key={project.slug}
               >
-                <div className="text-2xl px-4 py-6 border-b-2 border-black dark:border-white">
+                <div className="text-xl px-4 py-3 border-b-2 border-black dark:border-white">
                   <h2>{project.name}</h2>
                 </div>
                 <Link
                   to={to}
-                  className="flex items-center justify-center py-8 bg-white h-full"
+                  className="flex items-center justify-center p-3 bg-white aspect-[16/10]"
                 >
                   {image ? (
                     <GatsbyImage

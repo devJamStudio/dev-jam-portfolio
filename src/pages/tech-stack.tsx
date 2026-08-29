@@ -12,27 +12,27 @@ const TechStack: React.FC = () => {
 
   return (
     <Layout>
-      <div className="mb-12 max-w-[70ch]">
-        <h1 className="text-4xl md:text-6xl mb-6">{copy.stack.title}</h1>
-        <p className="text-lg md:text-xl leading-relaxed">{copy.stack.intro}</p>
+      <div className="mb-6 max-w-[70ch]">
+        <h1 className="text-3xl md:text-5xl mb-3">{copy.stack.title}</h1>
+        <p className="text-base md:text-lg leading-relaxed">{copy.stack.intro}</p>
       </div>
 
       {stackGroups.map((group) => (
-        <section key={group.id} className="mb-16">
-          <h2 className="text-3xl mb-8 border-b-2 border-black dark:border-white pb-3">
+        <section key={group.id} className="mb-8">
+          <h2 className="text-2xl mb-4 border-b-2 border-black dark:border-white pb-2">
             {copy.stack.groups[group.id]}
           </h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-4">
             {group.items.map((tech, index) => (
               <div
                 key={tech.name}
-                className="reveal border-2 aspect-square rounded-lg dark:shadow-light dark:border-white shadow-dark border-black flex flex-col justify-between"
+                className="reveal border-2 aspect-[4/3] rounded-lg dark:shadow-light dark:border-white shadow-dark border-black flex flex-col justify-between"
                 style={{ animationDelay: `${index * 40}ms` }}
               >
-                <div className="text-2xl p-4 border-b-2 border-black dark:border-white">
+                <div className="text-sm p-2 border-b-2 border-black dark:border-white">
                   <h3>{tech.name}</h3>
                 </div>
-                <div className="p-4 flex items-center m-4 justify-center h-full">
+                <div className="p-3 flex items-center justify-center h-full">
                   <div dangerouslySetInnerHTML={{ __html: tech.logo }} />
                 </div>
               </div>
