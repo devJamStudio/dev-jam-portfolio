@@ -23,20 +23,37 @@ export const projects: Project[] = [
     image: "menswear-list",
     stack: [
       "Next.js 16",
+      "TypeScript",
+      "Tailwind CSS",
       "Payload 3",
       "PostgreSQL",
       "Neon",
-      "TypeScript",
-      "Tailwind CSS",
     ],
     description: {
       en: [
         "A private-order menswear store. Members of the list get early access to limited releases from one brand at a time, each drop running on its own countdown until orders close.",
-        "Payload 3 runs the admin and the API, Next.js 16 renders the storefront, and Postgres is hosted on Neon. The whole site is bilingual, Polish and English.",
+        "The storefront is Next.js 16, bilingual Polish and English, with a Payload 3 back end and Postgres on Neon behind it.",
       ],
       pl: [
         "Sklep w modelu private order. Członkowie listy dostają wcześniejszy dostęp do limitowanych wydań kolejnych marek — każdy drop ma własne odliczanie do zamknięcia zamówień.",
-        "Payload 3 obsługuje panel i API, Next.js 16 renderuje sklep, a Postgres stoi na Neonie. Całość dwujęzyczna, po polsku i po angielsku.",
+        "Sklep to Next.js 16, dwujęzyczny — po polsku i po angielsku — z backendem na Payload 3 i Postgresem na Neonie.",
+      ],
+    },
+  },
+  {
+    slug: "collo-italiano",
+    name: "Collo Italiano",
+    url: "https://colloitaliano.com",
+    image: "colloitaliano",
+    stack: ["Shopify", "Liquid", "JavaScript"],
+    description: {
+      en: [
+        "A multibrand boutique for classic men's elegance — ties, pocket squares and accessories, curated rather than mass stocked.",
+        "A Shopify storefront on a custom theme, running in Polish and English, with the current promotion and the free-delivery threshold kept in the announcement bar rather than buried on a terms page.",
+      ],
+      pl: [
+        "Multibrandowy butik z klasyczną męską elegancją — krawaty, poszetki i dodatki, kolekcjonowane, a nie masowo magazynowane.",
+        "Sklep na Shopify z autorskim motywem, po polsku i po angielsku, z aktualną promocją i progiem darmowej dostawy w pasku u góry, zamiast schowanych w regulaminie.",
       ],
     },
   },
@@ -46,21 +63,21 @@ export const projects: Project[] = [
     stack: [
       "Next.js 16",
       "React 19",
-      "Payload 3",
-      "PostgreSQL",
-      "Docker",
       "TypeScript",
       "Tailwind CSS",
       "Framer Motion",
+      "Payload 3",
+      "PostgreSQL",
+      "Docker",
     ],
     description: {
       en: [
-        "A Montessori preschool site with its own content management. Payload 3 is mounted inside a Next.js host, so the admin UI, the REST API and the GraphQL API all ship as a single deployable.",
-        "The public site is a separate Next.js 16 app that renders content from that CMS. Local development runs Postgres in Docker, so a new machine needs one command to come up.",
+        "The public site for a Montessori preschool, built on Next.js 16 and React 19, with Framer Motion carrying the movement through the page.",
+        "Everything on it is editable — the copy comes from a Payload 3 back end rather than being baked into the markup, so the school changes its own pages without touching code.",
       ],
       pl: [
-        "Strona przedszkola montessoriańskiego z własnym zarządzaniem treścią. Payload 3 jest osadzony wewnątrz hosta Next.js, więc panel, API REST i API GraphQL wdrażają się jako jedna aplikacja.",
-        "Publiczna strona to osobna aplikacja Next.js 16, która renderuje treści z tego CMS-a. Lokalnie Postgres stoi w Dockerze, więc nowa maszyna wstaje jedną komendą.",
+        "Publiczna strona przedszkola montessoriańskiego, zbudowana na Next.js 16 i React 19, z ruchem prowadzonym przez Framer Motion.",
+        "Wszystko na niej jest edytowalne — treści pochodzą z backendu na Payload 3, zamiast siedzieć na sztywno w kodzie, więc przedszkole zmienia swoje strony bez dotykania kodu.",
       ],
     },
     note: {

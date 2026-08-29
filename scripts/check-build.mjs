@@ -81,6 +81,7 @@ const details = readdirSync(join(PUBLIC, "portfolio"), {
 assert.ok(details.length > 0, "no portfolio detail pages were built");
 for (const slug of [
   "menswear-list",
+  "collo-italiano",
   "i-love-montessori",
   "rentcar-cash",
   "carpol-de",
