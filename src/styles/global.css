@@ -38,3 +38,9 @@ body {
     animation: none;
   }
 }
+
+/* Belt and braces for the cursor: the option above stops it rendering a
+   character, this stops the element taking part in layout at all. */
+.Typewriter__cursor {
+  display: none;
+}

@@ -47,6 +47,11 @@ const IndexPage: React.FC<PageProps> = () => {
               autoStart: true,
               loop: true,
               delay: 50,
+              // The blinking cursor relocates on every keystroke and on every
+              // line wrap, which Lighthouse counts as layout shift — it was
+              // 0.152 of the remaining 0.171 CLS on its own. The typing effect
+              // survives without it.
+              cursor: "",
             }}
           />
         </div>
