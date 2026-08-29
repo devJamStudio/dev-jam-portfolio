@@ -1,17 +1,18 @@
 import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { Link } from "gatsby";
-import Typewriter from "typewriter-effect";
 import Layout from "../components/layout";
 import Button from "../components/button";
 import Seo from "../components/seo";
 import { useCopy, usePath } from "../i18n/LocaleContext";
+import { useTypewriter } from "../hooks/useTypewriter";
 import type { LocalePageContext } from "../i18n/copy";
 import { copy as allCopy, defaultLocale } from "../i18n/copy";
 
 const IndexPage: React.FC<PageProps> = () => {
   const copy = useCopy();
   const path = usePath();
+  const typed = useTypewriter(copy.index.slogans);
 
   return (
     <Layout>
@@ -31,19 +32,7 @@ const IndexPage: React.FC<PageProps> = () => {
           aria-hidden="true"
           className="relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[3rem] m:text-[5rem] md:text-[7rem] xl:text-[8rem] 2xl:text-[12rem] mr-10"
         >
-          <div className="absolute inset-0">
-            <Typewriter
-              options={{
-                strings: copy.index.slogans,
-                autoStart: true,
-                loop: true,
-                delay: 50,
-                // The blinking cursor moved on every keystroke and every line
-                // wrap, which counts as layout shift — 0.152 CLS on its own.
-                cursor: "",
-              }}
-            />
-          </div>
+          <div className="absolute inset-0">{typed}</div>
         </div>
 
         <p className="max-w-[60ch] text-lg md:text-xl 2xl:text-2xl leading-relaxed">

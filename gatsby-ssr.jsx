@@ -1,12 +1,15 @@
 import "./src/styles/global.css";
 import React from "react";
-
-import ReduxWrapper from "./src/ReduxWrapper";
 import { LocaleProvider } from "./src/i18n/LocaleContext";
 
-export const wrapRootElement = ({ element }) => (
-  <ReduxWrapper element={element} />
-);
+const TYPEKIT = "https://use.typekit.net/thl7qti.css";
+
+// Runs before the body paints, so the theme is right on the first frame and
+// there is no flash. Replaces the redux store that used to decide this after
+// hydration — which is why the toggle never matched the actual theme.
+const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem('theme');
+if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+if(t==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})()`;
 
 export const wrapPageElement = ({ element, props }) => (
   <LocaleProvider
@@ -17,9 +20,7 @@ export const wrapPageElement = ({ element, props }) => (
   </LocaleProvider>
 );
 
-const TYPEKIT = "https://use.typekit.net/thl7qti.css";
-
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   setHeadComponents([
     <link
       key="preconnect-typekit"
@@ -33,8 +34,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
       href="https://p.typekit.net"
       crossOrigin="anonymous"
     />,
-    // media="print" then flipped once loaded: the kit never blocks first paint,
-    // text shows in the monospace fallback and swaps in when the font arrives.
+    // media="print" then flipped once loaded: the kit never blocks first paint.
     // React will not render a string onLoad, so the flip is a real script — and
     // it checks .sheet first in case the stylesheet beat the listener.
     <link
@@ -56,5 +56,9 @@ export const onRenderBody = ({ setHeadComponents }) => {
     <noscript key="typekit-noscript">
       <link rel="stylesheet" href={TYPEKIT} />
     </noscript>,
+  ]);
+
+  setPreBodyComponents([
+    <script key="theme" dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />,
   ]);
 };

@@ -7,23 +7,24 @@ const FORM_NAME = "contact";
 // Netlify detects the form by parsing the deployed HTML at build time, so the
 // markup below has to ship in the SSR output — not be created by JS on mount.
 // Submissions land in the Netlify UI; wire an email notification there.
-const encode = (data) =>
+const encode = (data: Record<string, string>) =>
   Object.keys(data)
     .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
     .join("&");
 
-const ContactForm = () => {
+const ContactForm: React.FC = () => {
   const copy = useCopy();
   const [submitted, setSubmitted] = useState(false);
   const [failed, setFailed] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFailed(false);
 
-    const form = e.target;
-    const data = { "form-name": FORM_NAME };
-    for (const input of form.elements) {
+    const form = e.currentTarget;
+    const data: Record<string, string> = { "form-name": FORM_NAME };
+    for (const element of Array.from(form.elements)) {
+      const input = element as HTMLInputElement | HTMLTextAreaElement;
       if (input.name) data[input.name] = input.value;
     }
 
