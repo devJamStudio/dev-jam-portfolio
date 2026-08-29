@@ -1,1 +1,3 @@
-@import url("https://use.typekit.net/thl7qti.css");
+/* The typekit stylesheet is loaded non-render-blocking from gatsby-ssr.jsx.
+   Adobe serves font-display:auto for this kit and ignores ?display=swap, so
+   loading it off the critical path is what gives us swap behaviour. */

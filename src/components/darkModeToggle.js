@@ -28,6 +28,12 @@ const DarkMode = () => {
     updateTheme(newTheme);
   };
 
-  return <ToggleSwitch checked={darkMode} onChange={toggleTheme} />;
+  return (
+    <ToggleSwitch
+      checked={darkMode}
+      onChange={toggleTheme}
+      label="Toggle dark mode"
+    />
+  );
 };
 export default DarkMode;

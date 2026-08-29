@@ -26,11 +26,8 @@ const TechStack: React.FC = () => {
             {group.items.map((tech, index) => (
               <div
                 key={tech.name}
-                className="border-2 aspect-square rounded-lg dark:shadow-light dark:border-white shadow-dark border-black flex flex-col justify-between"
-                data-sal="slide-up"
-                data-sal-delay={index * 10}
-                data-sal-duration="500"
-                data-sal-easing="ease"
+                className="reveal border-2 aspect-square rounded-lg dark:shadow-light dark:border-white shadow-dark border-black flex flex-col justify-between"
+                style={{ animationDelay: `${index * 40}ms` }}
               >
                 <div className="text-2xl p-4 border-b-2 border-black dark:border-white">
                   <h3>{tech.name}</h3>

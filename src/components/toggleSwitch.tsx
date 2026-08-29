@@ -54,9 +54,15 @@ const Input = styled.input`
 interface ToggleSwitchProps {
   checked: boolean;
   onChange?: (isChecked: boolean) => void;
+  /** Accessible name — the control is a bare styled checkbox otherwise. */
+  label: string;
 }
 
-const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ checked, onChange }) => {
+const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
+  checked,
+  onChange,
+  label,
+}) => {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -69,7 +75,12 @@ const ToggleSwitch: React.FC<ToggleSwitchProps> = ({ checked, onChange }) => {
 
   return (
     <Label>
-      <Input checked={isChecked} type="checkbox" onChange={handleChange} />
+      <Input
+        aria-label={label}
+        checked={isChecked}
+        type="checkbox"
+        onChange={handleChange}
+      />
       <Switch />
     </Label>
   );

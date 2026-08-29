@@ -46,10 +46,6 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
       <div className="flex flex-col 2xl:flex-row gap-8">
         <div
           className="w-full 2xl:w-8/12 flex"
-          data-sal="slide-right"
-          data-sal-delay="300"
-          data-sal-duration="700"
-          data-sal-easing="ease"
         >
           {image && (
             <div className="w-full flex border-2 border-black rounded-lg shadow-dark dark:border-white dark:shadow-light overflow-hidden">
@@ -65,10 +61,6 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
 
         <div
           className="w-full 2xl:w-4/12 flex border-2 border-black rounded-lg dark:shadow-light dark:border-white shadow-dark flex-col"
-          data-sal="slide-left"
-          data-sal-delay="300"
-          data-sal-duration="700"
-          data-sal-easing="ease"
         >
           <div className="shadow-dark p-4 border-b-2 border-black dark:border-white dark:shadow-light">
             <h1 className="text-5xl my-3">{project.name}</h1>

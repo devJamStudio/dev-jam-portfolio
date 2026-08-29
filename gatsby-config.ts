@@ -16,7 +16,7 @@ const config: GatsbyConfig = {
     description: `devJam Studio — DevOps, AI and automation. CI/CD pipelines, infrastructure as code, AI agents, and the web builds that sit on top of them.`,
     siteUrl: `https://devjamstudio.netlify.app`,
     author: `@devjamstudio`,
-    image: "",
+    image: "/og-image.jpg",
     pages: [
       {
         title: "Home",
@@ -51,7 +51,6 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     `gatsby-plugin-postcss`,
-    `gatsby-plugin-scroll-reveal-with-new-react`,
 
 
     {

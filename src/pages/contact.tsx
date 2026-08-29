@@ -15,10 +15,6 @@ const Contact: React.FC = () => {
       <div className="max-w-[700px] mx-auto">
         <div
           className="my-4"
-          data-sal="slide-left"
-          data-sal-delay="100"
-          data-sal-duration="600"
-          data-sal-easing="ease"
         >
           <h1 className="text-6xl mb-6">{copy.contact.title}</h1>
           <span>{copy.contact.subtitle}</span>

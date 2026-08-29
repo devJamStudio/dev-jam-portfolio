@@ -11,3 +11,30 @@ body {
 .dark {
   @apply text-white bg-black border-white fill-white;
 }
+
+/* Entrance animation, CSS only.
+   This replaces gatsby-plugin-scroll-reveal: sal.js set [data-sal] to opacity 0
+   and only revealed elements on a scroll event, so anything already in the
+   viewport on load stayed invisible — the whole offer page rendered blank until
+   the visitor scrolled, and nothing appeared at all without JavaScript.
+   A keyframe animation needs no JS, no observer, and cannot strand content. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: reveal 0.5s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}

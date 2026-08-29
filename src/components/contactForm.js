@@ -53,10 +53,6 @@ const ContactForm = () => {
     <form action={FORM_ENDPOINT} onSubmit={handleSubmit} method="POST">
       <div
         className="pt-0 my-8"
-        data-sal="slide-left"
-        data-sal-delay="300"
-        data-sal-duration="600"
-        data-sal-easing="ease"
       >
         <input
           type="text"
@@ -68,10 +64,6 @@ const ContactForm = () => {
       </div>
       <div
         className="pt-0 my-8"
-        data-sal="slide-left"
-        data-sal-delay="300"
-        data-sal-duration="600"
-        data-sal-easing="ease"
       >
         <input
           type="email"
@@ -83,10 +75,6 @@ const ContactForm = () => {
       </div>
       <div
         className="pt-0 mt-8"
-        data-sal="slide-left"
-        data-sal-delay="300"
-        data-sal-duration="600"
-        data-sal-easing="ease"
       >
         <textarea
           placeholder={copy.contact.message}
@@ -97,10 +85,6 @@ const ContactForm = () => {
       </div>
       <div
         className="pt-0 text-center"
-        data-sal="slide-left"
-        data-sal-delay="300"
-        data-sal-duration="600"
-        data-sal-easing="ease"
       >
         <Button type="submit">{copy.contact.send}</Button>{" "}
       </div>

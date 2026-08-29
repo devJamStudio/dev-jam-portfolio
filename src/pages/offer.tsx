@@ -24,12 +24,9 @@ const Offer: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 2xl:gap-12">
         {offers.map((offer, index) => (
           <div
-            data-sal="slide-up"
-            data-sal-delay={index * 30}
-            data-sal-duration="500"
-            data-sal-easing="ease"
             key={offer.id}
-            className="border-2 px-4 flex flex-col justify-between border-black dark:shadow-light shadow-dark py-4 rounded-lg dark:border-white"
+            className="reveal border-2 px-4 flex flex-col justify-between border-black dark:shadow-light shadow-dark py-4 rounded-lg dark:border-white"
+            style={{ animationDelay: `${index * 60}ms` }}
           >
             <h2 className="text-center mt-4 text-4xl">{offer.name[locale]}</h2>
             <ul className="text-center mt-8 my-4">

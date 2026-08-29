@@ -12,12 +12,7 @@ const About: React.FC = () => {
   return (
     <Layout>
       <div className="max-w-[70ch] mx-auto">
-        <h1
-          className="text-4xl md:text-6xl leading-tight mb-10"
-          data-sal="slide-up"
-          data-sal-duration="500"
-          data-sal-easing="ease"
-        >
+        <h1 className="text-4xl md:text-6xl leading-tight mb-10">
           {copy.about.title}
         </h1>
 
@@ -25,10 +20,6 @@ const About: React.FC = () => {
           <p
             key={paragraph}
             className="text-lg md:text-xl leading-relaxed mb-6"
-            data-sal="slide-up"
-            data-sal-delay={100 + index * 50}
-            data-sal-duration="500"
-            data-sal-easing="ease"
           >
             {paragraph}
           </p>
@@ -36,10 +27,6 @@ const About: React.FC = () => {
 
         <div
           className="border-2 border-black dark:border-white shadow-dark dark:shadow-light rounded-lg p-6 mt-12"
-          data-sal="slide-up"
-          data-sal-delay="150"
-          data-sal-duration="500"
-          data-sal-easing="ease"
         >
           <h2 className="text-3xl mb-6">{copy.about.doesTitle}</h2>
           <ul className="flex flex-col gap-4">
