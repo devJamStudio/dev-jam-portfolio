@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ toggle, setToggle }) => {
   const path = usePath();
 
   return (
-    <div className="navbar flex flex-row border-b-2 border-black duration-300 dark:border-white shadow-dark  dark:shadow-light bg-white dark:bg-black p-8 w-full justify-between items-center">
+    <div className="navbar flex flex-row border-b-2 border-black duration-300 dark:border-white shadow-dark  dark:shadow-light bg-white dark:bg-black px-4 py-3 md:px-6 md:py-4 w-full justify-between items-center">
       <Link to={path("/")} aria-label="devJam Studio">
         <Logo className="fill-black dark:fill-white" width="116" height="76" />
       </Link>

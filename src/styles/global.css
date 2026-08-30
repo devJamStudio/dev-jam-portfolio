@@ -89,3 +89,20 @@ body {
     transition: none;
   }
 }
+
+/* Stack tiles. Each inline logo carries width/height="100%" but their viewBoxes
+   range from 2:1 to 1:1.2, and with no definite height on the parent the
+   percentage had nothing to resolve against — so every logo fell back to its
+   own aspect ratio and rendered at a different size (PHP 94px tall, JavaScript
+   222px and overflowing its 200px tile). Sizing the box here and letting
+   preserveAspectRatio letterbox inside it makes them all agree. */
+.tech-logo {
+  width: 100%;
+  height: 100%;
+}
+
+.tech-logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

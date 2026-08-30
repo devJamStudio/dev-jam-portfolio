@@ -50,7 +50,7 @@ const ContactForm: React.FC = () => {
   }
 
   const field =
-    "focus:outline-none border-black border-2 shadow-dark rounded-lg bg-white dark:bg-black dark:border-white dark:shadow-light focus:ring relative w-full px-3 py-3 text-sm text-black dark:text-white placeholder-gray-600 dark:placeholder-gray-300 outline-none";
+    "focus:outline-none border-black border-2 shadow-dark rounded-lg bg-white dark:bg-black dark:border-white dark:shadow-light focus:ring relative w-full px-3 py-2 text-sm text-black dark:text-white placeholder-gray-600 dark:placeholder-gray-300 outline-none";
 
   return (
     <form

@@ -29,11 +29,14 @@ const TechStack: React.FC = () => {
                 className="reveal border-2 aspect-[4/3] rounded-lg dark:shadow-light dark:border-white shadow-dark border-black flex flex-col justify-between"
                 style={{ animationDelay: `${index * 40}ms` }}
               >
-                <div className="text-sm p-2 border-b-2 border-black dark:border-white">
+                <div className="text-sm px-2 py-1.5 border-b-2 border-black dark:border-white">
                   <h3>{tech.name}</h3>
                 </div>
-                <div className="p-3 flex items-center justify-center h-full">
-                  <div dangerouslySetInnerHTML={{ __html: tech.logo }} />
+                <div className="flex-1 min-h-0 p-2 flex items-center justify-center">
+                  <div
+                    className="tech-logo"
+                    dangerouslySetInnerHTML={{ __html: tech.logo }}
+                  />
                 </div>
               </div>
             ))}

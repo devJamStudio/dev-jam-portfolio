@@ -54,19 +54,23 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                 style={{ animationDelay: `${index * 60}ms` }}
                 key={project.slug}
               >
-                <div className="text-xl px-4 py-3 border-b-2 border-black dark:border-white">
+                <div className="text-xl px-3 py-2 border-b-2 border-black dark:border-white">
                   <h2>{project.name}</h2>
                 </div>
+                {/* overflow-hidden clips the hover zoom, which used to spill
+                    outside the card. The screenshots are 16:10, same as this
+                    box, so cover fills it edge to edge without cropping —
+                    contain plus padding framed each one in white. */}
                 <Link
                   to={to}
-                  className="flex items-center justify-center p-3 bg-white aspect-[16/10]"
+                  className="relative overflow-hidden flex items-center justify-center bg-white aspect-[16/10]"
                 >
                   {image ? (
                     <GatsbyImage
-                      className="hover:scale-110 transform duration-300"
+                      className="h-full w-full hover:scale-105 transform duration-300"
                       image={image}
                       alt={project.name}
-                      objectFit="contain"
+                      objectFit="cover"
                       loading={index < 3 ? "eager" : "lazy"}
                     />
                   ) : (
@@ -97,9 +101,12 @@ export const query = graphql`
       nodes {
         name
         childImageSharp {
+          # FULL_WIDTH + the card's own 16:10 ratio: CONSTRAINED capped the
+          # image at 400px inside a wider card, which is where the white
+          # margin came from.
           gatsbyImageData(
-            layout: CONSTRAINED
-            width: 400
+            layout: FULL_WIDTH
+            aspectRatio: 1.6
             placeholder: BLURRED
           )
         }

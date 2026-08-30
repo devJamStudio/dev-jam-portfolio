@@ -73,7 +73,7 @@ const en = {
     groups: {
       automation: "Automation & AI",
       devops: "DevOps & Infrastructure",
-      web: "Web",
+      web: "Web & Commerce",
     },
   },
   portfolio: {
@@ -166,7 +166,7 @@ const pl: typeof en = {
     groups: {
       automation: "Automatyzacja i AI",
       devops: "DevOps i infrastruktura",
-      web: "Web",
+      web: "Web i e-commerce",
     },
   },
   portfolio: {

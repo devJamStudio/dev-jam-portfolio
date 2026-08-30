@@ -26,7 +26,7 @@ const About: React.FC = () => {
         ))}
 
         <div
-          className="border-2 border-black dark:border-white shadow-dark dark:shadow-light rounded-lg p-5 mt-8"
+          className="border-2 border-black dark:border-white shadow-dark dark:shadow-light rounded-lg p-4 mt-6"
         >
           <h2 className="text-2xl mb-4">{copy.about.doesTitle}</h2>
           <ul className="flex flex-col gap-2.5">

@@ -21,7 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="flex flex-col min-h-screen">
       <Header toggle={toggle} setToggle={toggleMenu} />
       <div className="flex flex-1 flex-row">
-        <main className="flex-1 p-6 md:p-8 flex flex-col">{children}</main>
+        <main className="flex-1 p-4 md:p-6 flex flex-col">{children}</main>
         <Menu toggle={toggle} />
       </div>
     </div>

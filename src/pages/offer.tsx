@@ -25,7 +25,7 @@ const Offer: React.FC = () => {
         {offers.map((offer, index) => (
           <div
             key={offer.id}
-            className="reveal border-2 px-4 flex flex-col justify-between border-black dark:shadow-light shadow-dark py-4 rounded-lg dark:border-white"
+            className="reveal border-2 px-3 flex flex-col justify-between border-black dark:shadow-light shadow-dark py-3 rounded-lg dark:border-white"
             style={{ animationDelay: `${index * 60}ms` }}
           >
             <h2 className="text-center mt-2 text-2xl">{offer.name[locale]}</h2>

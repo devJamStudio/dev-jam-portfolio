@@ -63,11 +63,11 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
         <div
           className="w-full 2xl:w-4/12 flex border-2 border-black rounded-lg dark:shadow-light dark:border-white shadow-dark flex-col"
         >
-          <div className="shadow-dark p-4 border-b-2 border-black dark:border-white dark:shadow-light">
+          <div className="shadow-dark p-3 border-b-2 border-black dark:border-white dark:shadow-light">
             <h1 className="text-5xl my-3">{project.name}</h1>
           </div>
 
-          <div className="shadow-dark py-6 border-b-2 flex-[2] border-black px-4 dark:border-white dark:shadow-light mb-2">
+          <div className="shadow-dark py-4 border-b-2 flex-[2] border-black px-3 dark:border-white dark:shadow-light mb-2">
             <h2 className="text-2xl mb-4">{copy.portfolio.aboutLabel}:</h2>
             {project.description[locale].map((paragraph) => (
               <p key={paragraph} className="mb-4 leading-relaxed">
@@ -76,7 +76,7 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
             ))}
           </div>
 
-          <div className="stack m-4">
+          <div className="stack m-3">
             <h2 className="text-2xl mb-6">{copy.portfolio.stackLabel}:</h2>
             <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-2 gap-4 mx-4">
               {project.stack.map((item) => (
@@ -85,7 +85,7 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
             </ul>
           </div>
 
-          <div className="button--wrapper flex justify-center py-4 px-4 text-center">
+          <div className="button--wrapper flex justify-center py-3 px-3 text-center">
             {project.url ? (
               <a href={project.url} target="_blank" rel="noopener noreferrer">
                 <Button type="button">{copy.portfolio.visit}</Button>
