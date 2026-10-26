@@ -15,6 +15,33 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "top-ceramics",
+    name: "Top Ceramics",
+    // Staging until the production cutover; then switch to https://topceramics.co.uk
+    url: "https://stg.topceramics.co.uk",
+    image: "topceramics",
+    stack: [
+      "WordPress",
+      "WooCommerce",
+      "PHP 8.3",
+      "Bedrock",
+      "Acorn",
+      "Blade",
+      "Tailwind CSS 4",
+      "Vite",
+    ],
+    description: {
+      en: [
+        "A UK tile retailer selling bathroom, kitchen, wall and floor tiles online, with unlimited free samples delivered next working day.",
+        "A full rebuild of the WooCommerce store on Roots Bedrock and Acorn — a custom Blade theme with Tailwind CSS 4 and Vite, product search, sample ordering and a scripted migration from the old site.",
+      ],
+      pl: [
+        "Brytyjski sklep z płytkami — łazienkowymi, kuchennymi, ściennymi i podłogowymi — z nielimitowanymi darmowymi próbkami dostarczanymi następnego dnia roboczego.",
+        "Przebudowa sklepu WooCommerce od zera na Roots Bedrock i Acorn — autorski motyw w Blade z Tailwind CSS 4 i Vite, wyszukiwarka produktów, zamawianie próbek i skryptowana migracja ze starej strony.",
+      ],
+    },
+  },
+  {
     slug: "menswear-list",
     name: "Menswear List",
     url: "https://menswearlist.com",
