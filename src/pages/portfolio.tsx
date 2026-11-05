@@ -42,7 +42,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
       {projects.length === 0 ? (
         <p className="text-xl">{copy.portfolio.empty}</p>
       ) : (
-        <div className="grid sm:grid-cols-2 gap-5 lg:grid-cols-3 2xl:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:grid-cols-3 2xl:grid-cols-4">
           {projects.map((project, index) => {
             const thumb = images.get(project.image || "");
             const image = thumb ? getImage(thumb.gatsbyImageData) : undefined;
@@ -76,7 +76,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                   ) : (
                     // Not every project has a screenshot to show — an unlaunched
                     // site has nothing to point a camera at.
-                    <span className="font-ocr text-4xl text-black px-6 text-center">
+                    <span className="font-ocr text-3xl text-black px-6 text-center">
                       {project.name}
                     </span>
                   )}
