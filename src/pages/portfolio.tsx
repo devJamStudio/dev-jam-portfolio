@@ -111,6 +111,8 @@ export const query = graphql`
             # Matches the grid (1 col, 2 from sm, 3 from lg, 4 from 2xl). The
             # default is 100vw, so a third-width card pulled a full-width image.
             sizes: "(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            # 480 for desktop cards (~450px wide); the default starts at 750.
+            breakpoints: [480, 750, 1080, 1366, 1920]
           )
         }
       }
