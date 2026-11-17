@@ -63,11 +63,11 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
         <div
           className="w-full 2xl:w-4/12 flex border-2 border-black rounded-lg dark:shadow-light dark:border-white shadow-dark flex-col"
         >
-          <div className="shadow-dark p-3 border-b-2 border-black dark:border-white dark:shadow-light">
+          <div className="p-3 border-b-2 border-black dark:border-white">
             <h1 className="text-3xl md:text-5xl my-3">{project.name}</h1>
           </div>
 
-          <div className="shadow-dark py-4 border-b-2 flex-[2] border-black px-3 dark:border-white dark:shadow-light mb-2">
+          <div className="py-4 border-b-2 flex-[2] border-black px-3 dark:border-white mb-2">
             <h2 className="text-2xl mb-4">{copy.portfolio.aboutLabel}:</h2>
             {project.description[locale].map((paragraph) => (
               <p key={paragraph} className="mb-4 leading-relaxed">

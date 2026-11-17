@@ -29,10 +29,12 @@ const Offer: React.FC = () => {
             style={{ animationDelay: `${index * 60}ms` }}
           >
             <h2 className="text-center mt-2 text-2xl">{offer.name[locale]}</h2>
-            <ul className="text-center mt-4 mb-2">
+            {/* Left-aligned with a hanging dash: centred multi-line items were
+                hard to scan, and this matches the list on the About page. */}
+            <ul className="mt-4 mb-2">
               {offer.features[locale].map((feature) => (
-                <li className="text-sm py-1.5 leading-snug" key={feature}>
-                  {feature}
+                <li className="text-sm py-1.5 leading-snug pl-4 -indent-4" key={feature}>
+                  — {feature}
                 </li>
               ))}
             </ul>

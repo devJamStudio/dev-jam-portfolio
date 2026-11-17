@@ -12,7 +12,9 @@ const Contact: React.FC = () => {
 
   return (
     <Layout>
-      <div className="max-w-[700px] mx-auto">
+      {/* w-full: main is a flex column, and auto margins on a flex item cancel
+          the stretch — the form shrank to the width of its placeholders. */}
+      <div className="w-full max-w-[700px] mx-auto">
         <div
           className="my-4"
         >
