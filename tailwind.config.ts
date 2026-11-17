@@ -21,8 +21,9 @@ module.exports = {
         "text-9xl": "8rem",
       },
       boxShadow: {
-        dark: "1px 1px 0px 1px #312919",
-        light: "1px 1px 0px 1px #FAF9F6",
+        // Hard offset, no blur: boxes sit on the page like cut-out cards.
+        dark: "3px 3px 0 0 #312919",
+        light: "3px 3px 0 0 #FAF9F6",
       },
       borderRadius: {
         lg: "0.375rem",

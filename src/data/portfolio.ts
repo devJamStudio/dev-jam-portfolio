@@ -17,8 +17,7 @@ export const projects: Project[] = [
   {
     slug: "top-ceramics",
     name: "Top Ceramics",
-    // Staging until the production cutover; then switch to https://topceramics.co.uk
-    url: "https://stg.topceramics.co.uk",
+    url: "https://topceramics.co.uk",
     image: "topceramics",
     stack: [
       "WordPress",

@@ -16,14 +16,14 @@ export const offers: Offer[] = [
     features: {
       en: [
         "Workflow audit — we find the manual work worth killing",
-        "AI agents and LLM integrations (Claude, OpenAI)",
+        "AI agents and LLM integrations (Claude)",
         "n8n, Zapier or custom Python automations",
         "Connects the tools you already pay for",
         "Handover with docs and monitoring",
       ],
       pl: [
         "Audyt procesów — znajdujemy ręczną robotę, którą warto zabić",
-        "Agenci AI i integracje LLM (Claude, OpenAI)",
+        "Agenci AI i integracje LLM (Claude)",
         "Automatyzacje w n8n, Zapierze lub własne w Pythonie",
         "Łączy narzędzia, za które już płacisz",
         "Przekazanie z dokumentacją i monitoringiem",

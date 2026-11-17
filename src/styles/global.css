@@ -106,3 +106,12 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* Keyboard focus, visible on every control. Mouse clicks don't trigger it. */
+:focus-visible {
+  outline: 2px solid theme("colors.teal.500");
+  outline-offset: 3px;
+}
+.dark :focus-visible {
+  outline-color: theme("colors.amber.500");
+}

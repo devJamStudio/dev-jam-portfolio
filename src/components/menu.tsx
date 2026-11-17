@@ -19,11 +19,15 @@ const Menu: React.FC<MenuProps> = ({ toggle }) => {
     { label: copy.nav.contact, to: path("/contact") },
   ];
 
+  // Full viewport height, pinned to the viewport and sliding in under the
+  // sticky header (z-30). It used to be fixed with no `top`, so it kept the
+  // header's offset after scrolling: a gap above it, and its bottom past the
+  // fold. pt-24 / md:pt-28 clear the header (84px / 110px tall).
   return (
     <div
       className={
-        `flex border-black border-y-2 md:border-l-4 dark:border-white fixed h-full pt-4 right-0 justify-center shadow-dark    duration-500 bg-white dark:bg-black   ` +
-        (toggle ? "w-full lg:w-4/12 " : "w-0 transform translate-x-full ")
+        "fixed inset-y-0 right-0 z-20 w-full lg:w-4/12 pt-24 md:pt-28 flex justify-center bg-white dark:bg-black border-black dark:border-white lg:border-l-2 transition-[transform,visibility] duration-300 motion-reduce:transition-none " +
+        (toggle ? "translate-x-0 visible" : "translate-x-full invisible")
       }
     >
       <Nav toggle={toggle} Links={Links} />

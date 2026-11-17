@@ -39,7 +39,7 @@ assert.ok(
   "PL page does not link back to its EN counterpart",
 );
 assert.ok(
-  en.includes('href="https://devjamstudio.netlify.app/pl/about/"'),
+  en.includes('href="https://devjam.space/pl/about/"'),
   "hreflang alternate should be an absolute URL with a trailing slash",
 );
 assert.ok(en.includes("Automation first"), "EN about copy missing");
@@ -80,6 +80,7 @@ const details = readdirSync(join(PUBLIC, "portfolio"), {
 }).filter((e) => e.isDirectory());
 assert.ok(details.length > 0, "no portfolio detail pages were built");
 for (const slug of [
+  "top-ceramics",
   "menswear-list",
   "collo-italiano",
   "i-love-montessori",
