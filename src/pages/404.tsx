@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 import type { HeadFC } from "gatsby";
 import Layout from "../components/layout";
-import Button from "../components/button";
+import { buttonClass } from "../components/button";
 import Seo from "../components/seo";
 import { useCopy, usePath } from "../i18n/LocaleContext";
 import type { LocalePageContext } from "../i18n/copy";
@@ -19,8 +19,8 @@ const NotFoundPage: React.FC = () => {
         <p className="text-lg md:text-xl leading-relaxed">
           {copy.notFound.body}
         </p>
-        <Link to={path("/")}>
-          <Button type="button">{copy.notFound.cta}</Button>
+        <Link to={path("/")} className={buttonClass}>
+          {copy.notFound.cta}
         </Link>
       </div>
     </Layout>

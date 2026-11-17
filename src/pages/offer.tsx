@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import type { HeadFC } from "gatsby";
 import Layout from "../components/layout";
-import Button from "../components/button";
+import { buttonClass } from "../components/button";
 import Seo from "../components/seo";
 import { offers } from "../data/offers";
 import { useCopy, useLocale, usePath } from "../i18n/LocaleContext";
@@ -52,8 +52,8 @@ const Offer: React.FC = () => {
                 )}
               </div>
               <div className="text-center">
-                <Link to={path("/contact")}>
-                  <Button type="button">{copy.offer.cta}</Button>
+                <Link to={path("/contact")} className={buttonClass}>
+                  {copy.offer.cta}
                 </Link>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import type { HeadFC } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
-import Button from "../components/button";
+import { buttonClass } from "../components/button";
 import Seo from "../components/seo";
 import { findProject } from "../data/portfolio";
 import { useCopy, useLocale } from "../i18n/LocaleContext";
@@ -43,10 +43,11 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
 
   return (
     <Layout>
-      <div className="flex flex-col 2xl:flex-row gap-8">
-        <div
-          className="w-full 2xl:w-8/12 flex"
-        >
+      {/* Screenshot beside the details from lg (was 2xl, which left laptops
+          with a full-width screenshot and the details below the fold). It
+          sticks under the header while the details scroll. */}
+      <div className="flex flex-col lg:flex-row lg:items-start gap-8">
+        <div className="w-full lg:w-7/12 flex lg:sticky lg:top-32">
           {image && (
             <div className="w-full flex border-2 border-black rounded-lg shadow-dark dark:border-white dark:shadow-light overflow-hidden">
               <GatsbyImage
@@ -61,7 +62,7 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
         </div>
 
         <div
-          className="w-full 2xl:w-4/12 flex border-2 border-black rounded-lg dark:shadow-light dark:border-white shadow-dark flex-col"
+          className="w-full lg:w-5/12 flex border-2 border-black rounded-lg dark:shadow-light dark:border-white shadow-dark flex-col"
         >
           <div className="p-3 border-b-2 border-black dark:border-white">
             <h1 className="text-3xl md:text-5xl my-3">{project.name}</h1>
@@ -78,7 +79,7 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
 
           <div className="stack m-3">
             <h2 className="text-2xl mb-6">{copy.portfolio.stackLabel}:</h2>
-            <ul className="grid grid-cols-1 min-[360px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-2 gap-4 sm:mx-4">
+            <ul className="grid grid-cols-1 min-[360px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 sm:mx-4">
               {project.stack.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -87,8 +88,13 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
 
           <div className="button--wrapper flex justify-center py-3 px-3 text-center">
             {project.url ? (
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                <Button type="button">{copy.portfolio.visit}</Button>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonClass}
+              >
+                {copy.portfolio.visit}
               </a>
             ) : (
               project.note && <p className="py-4">{project.note[locale]}</p>
@@ -106,7 +112,12 @@ export const query = graphql`
       nodes {
         name
         childImageSharp {
-          gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+          # Beside the details from lg, at 7/12 of the row.
+          gatsbyImageData(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            sizes: "(min-width: 1024px) 58vw, 100vw"
+          )
         }
       }
     }

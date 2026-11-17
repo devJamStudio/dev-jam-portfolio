@@ -2,7 +2,7 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import { Link } from "gatsby";
 import Layout from "../components/layout";
-import Button from "../components/button";
+import { buttonClass } from "../components/button";
 import Seo from "../components/seo";
 import { useCopy, usePath } from "../i18n/LocaleContext";
 import { useTypewriter } from "../hooks/useTypewriter";
@@ -42,11 +42,11 @@ const IndexPage: React.FC<PageProps> = () => {
         </p>
 
         <div className="flex flex-row flex-wrap gap-6 items-center pt-8">
-          <Link to={path("/offer")}>
-            <Button type="button">{copy.index.ctaOffer}</Button>
+          <Link to={path("/offer")} className={buttonClass}>
+            {copy.index.ctaOffer}
           </Link>
-          <Link to={path("/contact")}>
-            <Button type="button">{copy.index.ctaContact}</Button>
+          <Link to={path("/contact")} className={buttonClass}>
+            {copy.index.ctaContact}
           </Link>
         </div>
       </div>
