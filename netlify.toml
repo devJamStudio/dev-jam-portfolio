@@ -56,3 +56,14 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# --- Domain --------------------------------------------------------------------
+# devjam.space is primary; Netlify does not redirect its own subdomain, so the
+# old host would keep serving a duplicate. Deploy previews use other hostnames
+# (deploy-preview-N--devjamstudio.netlify.app) and are unaffected.
+
+[[redirects]]
+  from = "https://devjamstudio.netlify.app/*"
+  to = "https://devjam.space/:splat"
+  status = 301
+  force = true
