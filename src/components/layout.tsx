@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./header";
 import Menu from "./menu";
 
@@ -7,11 +7,15 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const [toggle, setToggle] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setToggle(!toggle);
-  };
+  // Escape closes the menu, like any other overlay.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   // min-h-screen, not calc(100vh - header): the header sits inside this
   // container, so subtracting its height made the page end short of the fold
@@ -19,11 +23,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   // so a page can use mt-auto to sit something on the ground.
   return (
     <div className="flex flex-col min-h-screen">
-      <Header toggle={toggle} setToggle={toggleMenu} />
-      <div className="flex flex-1 flex-row">
-        <main className="flex-1 p-4 md:p-6 flex flex-col">{children}</main>
-        <Menu toggle={toggle} />
-      </div>
+      <Header toggle={open} setToggle={setOpen} />
+      <main className="flex-1 p-4 md:p-6 flex flex-col">{children}</main>
+      <Menu toggle={open} />
     </div>
   );
 };
