@@ -22,11 +22,11 @@ const Menu: React.FC<MenuProps> = ({ toggle }) => {
   // Full viewport height, pinned to the viewport and sliding in under the
   // sticky header (z-30). It used to be fixed with no `top`, so it kept the
   // header's offset after scrolling: a gap above it, and its bottom past the
-  // fold. pt-28 clears the header (logo 76px + padding + border ≈ 110px).
+  // fold. pt-24 / md:pt-28 clear the header (84px / 110px tall).
   return (
     <div
       className={
-        "fixed inset-y-0 right-0 z-20 w-full lg:w-4/12 pt-28 flex justify-center bg-white dark:bg-black border-black dark:border-white lg:border-l-2 transition-[transform,visibility] duration-300 motion-reduce:transition-none " +
+        "fixed inset-y-0 right-0 z-20 w-full lg:w-4/12 pt-24 md:pt-28 flex justify-center bg-white dark:bg-black border-black dark:border-white lg:border-l-2 transition-[transform,visibility] duration-300 motion-reduce:transition-none " +
         (toggle ? "translate-x-0 visible" : "translate-x-full invisible")
       }
     >

@@ -31,7 +31,7 @@ const Offer: React.FC = () => {
             <h2 className="text-center mt-2 text-2xl">{offer.name[locale]}</h2>
             {/* Left-aligned with a hanging dash: centred multi-line items were
                 hard to scan, and this matches the list on the About page. */}
-            <ul className="mt-4 mb-2">
+            <ul className="flex-1 mt-4 mb-2">
               {offer.features[locale].map((feature) => (
                 <li className="text-sm py-1.5 leading-snug pl-4 -indent-4" key={feature}>
                   — {feature}

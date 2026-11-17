@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ toggle, setToggle }) => {
   return (
     <div className="navbar sticky top-0 z-30 flex flex-row border-b-2 border-black duration-300 dark:border-white shadow-dark  dark:shadow-light bg-white dark:bg-black px-4 py-3 md:px-6 md:py-4 w-full justify-between items-center">
       <Link to={path("/")} aria-label="devJam Studio">
-        <Logo className="fill-black dark:fill-white" width="116" height="76" />
+        <Logo className="fill-black dark:fill-white w-[84px] h-[55px] md:w-[116px] md:h-[76px]" width="116" height="76" />
       </Link>
       <div className="flex flex-row gap-5 items-center">
         <LangToggle />

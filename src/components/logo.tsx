@@ -11,6 +11,7 @@ const Logo: React.FC<LogoProps> = ({ fill, width, height, className }) => (
     xmlns="http://www.w3.org/2000/svg"
     width={width}
     height={height}
+    viewBox="0 0 116 76"
     className={className}
     >
     <path
