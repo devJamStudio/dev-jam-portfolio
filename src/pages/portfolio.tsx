@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby";
 import type { HeadFC } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
-import Button from "../components/button";
+import { buttonClass } from "../components/button";
 import Seo from "../components/seo";
 import { projects } from "../data/portfolio";
 import { useCopy, useLocale, usePath } from "../i18n/LocaleContext";
@@ -82,8 +82,8 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                   )}
                 </Link>
                 <div className="border-t-2 border-black dark:border-white mb-2 text-center">
-                  <Link to={to}>
-                    <Button type="button">{copy.portfolio.cta}</Button>
+                  <Link to={to} className={buttonClass}>
+                    {copy.portfolio.cta}
                   </Link>
                 </div>
               </div>
@@ -108,6 +108,11 @@ export const query = graphql`
             layout: FULL_WIDTH
             aspectRatio: 1.6
             placeholder: BLURRED
+            # Matches the grid (1 col, 2 from sm, 3 from lg, 4 from 2xl). The
+            # default is 100vw, so a third-width card pulled a full-width image.
+            sizes: "(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            # 480 for desktop cards (~450px wide); the default starts at 750.
+            breakpoints: [480, 750, 1080, 1366, 1920]
           )
         }
       }

@@ -66,6 +66,9 @@ const Seo: React.FC<SeoProps> = ({
       <title>{siteTitle ? `${title} | ${siteTitle}` : title}</title>
       <meta name="description" content={metaDescription} />
       {canonical && <link rel="canonical" href={canonical} />}
+      <link rel="icon" href="/favicon.ico" sizes="32x32" />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />

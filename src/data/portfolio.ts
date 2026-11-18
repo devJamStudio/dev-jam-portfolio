@@ -41,6 +41,54 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "tc-markets",
+    name: "TC Markets",
+    stack: ["WordPress", "WooCommerce", "PHP", "eBay API", "Mirakl API", "PhpSpreadsheet", "REST webhooks"],
+    description: {
+      en: [
+        "A WooCommerce plugin built for Top Ceramics that keeps the store and its marketplaces in step: products, stock and prices go out to eBay and to B&Q through Mirakl, and marketplace orders come back into WooCommerce.",
+        "It also imports catalogues from CSV and XLSX, listens to marketplace webhooks, catches duplicate listings and recovers from failed syncs on its own instead of leaving half-updated products behind.",
+      ],
+      pl: [
+        "Wtyczka WooCommerce napisana dla Top Ceramics, która trzyma sklep i marketplace'y w synchronizacji: produkty, stany i ceny trafiają na eBay oraz do B&Q przez Mirakl, a zamówienia z marketplace'ów wracają do WooCommerce.",
+        "Importuje też katalogi z CSV i XLSX, obsługuje webhooki marketplace'ów, wyłapuje zdublowane oferty i sama wznawia nieudane synchronizacje, zamiast zostawiać produkty w połowie zaktualizowane.",
+      ],
+    },
+    note: {
+      en: "A private plugin running behind the Top Ceramics store, so there is nothing public to link to.",
+      pl: "Prywatna wtyczka działająca za sklepem Top Ceramics, więc nie ma publicznego linku.",
+    },
+  },
+  {
+    slug: "propertyfi",
+    name: "Propertyfi",
+    stack: [
+      "Next.js 16",
+      "Payload 3",
+      "Supabase",
+      "PostgreSQL",
+      "Tailwind CSS 4",
+      "MapLibre",
+      "WhatsApp API",
+      "Docker",
+      "Playwright",
+    ],
+    description: {
+      en: [
+        "A property platform for Malta covering long lets, sales and owner acquisition. The public side has listings on a map, viewing booking, a valuation form for owners who want to sell and a chat concierge that answers questions about listings.",
+        "Behind it sits a CRM for agents, installable on the phone: leads, viewings and availability with calendar feeds, WhatsApp outreach and listing imports. Built on Next.js 16 and Payload 3 with Supabase, self-hosted with Docker and covered by Playwright and accessibility tests.",
+      ],
+      pl: [
+        "Platforma nieruchomości na Malcie: wynajem długoterminowy, sprzedaż i pozyskiwanie właścicieli. Strona publiczna ma oferty na mapie, umawianie oglądania, wycenę dla właścicieli, którzy chcą sprzedać, i czat, który odpowiada na pytania o oferty.",
+        "Za nią stoi CRM dla agentów, instalowany na telefonie: leady, oglądania i dostępność z kalendarzem, wiadomości przez WhatsApp i import ofert. Zbudowana na Next.js 16 i Payload 3 z Supabase, hostowana na własnym serwerze w Dockerze, z testami Playwright i testami dostępności.",
+      ],
+    },
+    note: {
+      en: "Launching soon, so it is shown here as a project description rather than a live link.",
+      pl: "Wkrótce start, dlatego na razie pokazuję ją jako opis projektu, bez linku.",
+    },
+  },
+  {
     slug: "menswear-list",
     name: "Menswear List",
     url: "https://menswearlist.com",
