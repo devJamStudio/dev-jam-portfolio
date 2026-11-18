@@ -38,15 +38,15 @@ const en = {
     ],
     heading: "AI automation, DevOps pipelines and web development",
     tagline:
-      "I build the automation layer — pipelines, agents and integrations — and the web products that sit on top of it.",
+      "I take repetitive work off your plate with pipelines, agents and integrations, and build the websites and stores that run on top.",
     ctaOffer: "See the offer",
-    ctaContact: "Start a project",
+    ctaContact: "Let's talk",
   },
   about: {
     title: "Automation first. Web second.",
     paragraphs: [
       "devJam Studio is a one-person shop. I build the machinery that makes software ship on its own: CI/CD pipelines, infrastructure as code, and AI agents that take the repetitive work off your desk.",
-      "Most jobs start the same way. Something gets done by hand every week, everyone knows it, and nobody has had time to kill it. I find that thing, wire it into a pipeline or an agent, and hand it back running.",
+      "Most jobs start the same way. Something gets done by hand every week, everyone knows it, and nobody has had time to fix it. I find that thing, wire it into a pipeline or an agent, and hand it back running.",
       "I still build sites and stores — Shopify, WordPress, headless Gatsby — because that is where a lot of the manual work lives. The difference is what happens after launch: deploys, content syncs, reports and integrations run themselves.",
       "Based in Poland. I work in English and Polish.",
     ],
@@ -62,10 +62,10 @@ const en = {
   offer: {
     title: "Offer",
     intro:
-      "Automation and infrastructure are scoped per project. The web packages have a floor price.",
+      "Automation and infrastructure are priced per project. Web packages start at the prices below.",
     from: "From",
     quote: "Priced per scope",
-    cta: "Contact me",
+    cta: "Let's talk",
   },
   stack: {
     title: "Stack",
@@ -86,8 +86,8 @@ const en = {
     visit: "Visit the site",
   },
   contact: {
-    title: "Contact Me",
-    subtitle: "I speak english & polish",
+    title: "Say hello",
+    subtitle: "Tell me what you're working on. English or Polish both work.",
     name: "Your name",
     email: "Email",
     message: "Your message",
@@ -131,15 +131,15 @@ const pl: typeof en = {
     ],
     heading: "Automatyzacja AI, pipeline'y DevOps i tworzenie stron",
     tagline:
-      "Buduję warstwę automatyzacji — pipeline'y, agentów i integracje — oraz produkty webowe, które na niej stoją.",
+      "Zdejmuję z Ciebie powtarzalną robotę dzięki pipeline'om, agentom i integracjom, a do tego buduję strony i sklepy, które na tym działają.",
     ctaOffer: "Zobacz ofertę",
-    ctaContact: "Zacznij projekt",
+    ctaContact: "Porozmawiajmy",
   },
   about: {
     title: "Najpierw automatyzacja. Potem web.",
     paragraphs: [
       "devJam Studio to jednoosobowy warsztat. Buduję maszynerię, dzięki której oprogramowanie wdraża się samo: pipeline'y CI/CD, infrastrukturę jako kod i agentów AI, którzy zdejmują z biurka powtarzalną robotę.",
-      "Większość zleceń zaczyna się tak samo. Coś jest robione ręcznie co tydzień, wszyscy o tym wiedzą i nikt nie miał czasu tego zabić. Znajduję tę rzecz, wpinam ją w pipeline albo agenta i oddaję działającą.",
+      "Większość zleceń zaczyna się tak samo. Coś jest robione ręcznie co tydzień, wszyscy o tym wiedzą i nikt nie miał czasu tego poprawić. Znajduję tę rzecz, wpinam ją w pipeline albo agenta i oddaję działającą.",
       "Nadal robię strony i sklepy — Shopify, WordPress, headless Gatsby — bo to właśnie tam siedzi sporo ręcznej roboty. Różnica jest w tym, co dzieje się po starcie: deploye, synchronizacje treści, raporty i integracje działają same.",
       "Działam z Polski. Pracuję po polsku i po angielsku.",
     ],
@@ -155,7 +155,7 @@ const pl: typeof en = {
   offer: {
     title: "Oferta",
     intro:
-      "Automatyzację i infrastrukturę wyceniam pod projekt. Pakiety webowe mają cenę minimalną.",
+      "Automatyzację i infrastrukturę wyceniam pod projekt. Pakiety webowe zaczynają się od cen poniżej.",
     from: "Od",
     quote: "Wycena pod zakres",
     cta: "Napisz do mnie",
@@ -180,7 +180,7 @@ const pl: typeof en = {
   },
   contact: {
     title: "Napisz do mnie",
-    subtitle: "Mówię po polsku i po angielsku",
+    subtitle: "Napisz, nad czym pracujesz. Może być po polsku albo po angielsku.",
     name: "Imię",
     email: "E-mail",
     message: "Wiadomość",

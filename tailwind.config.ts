@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: "#17132F",
+        black: "#241D4A",
         white: "#F1FBFA",
       },
       fontFamily: {
@@ -22,11 +22,11 @@ module.exports = {
       },
       boxShadow: {
         // Hard offset, no blur: boxes sit on the page like cut-out cards.
-        dark: "3px 3px 0 0 #ec4899",
-        light: "3px 3px 0 0 #2dd4bf",
+        dark: "3px 3px 0 0 #f472b6",
+        light: "3px 3px 0 0 #5eead4",
       },
       borderRadius: {
-        lg: "0.375rem",
+        lg: "0.75rem",
       },
       screens: {
         

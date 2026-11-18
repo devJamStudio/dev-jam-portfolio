@@ -15,14 +15,14 @@ export const offers: Offer[] = [
     name: { en: "Automation & AI", pl: "Automatyzacja i AI" },
     features: {
       en: [
-        "Workflow audit — we find the manual work worth killing",
+        "Workflow audit — we find the manual work worth automating",
         "AI agents and LLM integrations (Claude)",
         "n8n, Zapier or custom Python automations",
         "Connects the tools you already pay for",
         "Handover with docs and monitoring",
       ],
       pl: [
-        "Audyt procesów — znajdujemy ręczną robotę, którą warto zabić",
+        "Audyt procesów — znajdujemy ręczną robotę, którą warto zautomatyzować",
         "Agenci AI i integracje LLM (Claude)",
         "Automatyzacje w n8n, Zapierze lub własne w Pythonie",
         "Łączy narzędzia, za które już płacisz",
@@ -39,14 +39,14 @@ export const offers: Offer[] = [
         "Dockerised environments, dev through prod",
         "Infrastructure as code with Terraform",
         "Monitoring, logs and alerts that reach a human",
-        "A runbook, so the next person on call isn't me",
+        "A runbook, so your team can run it without me",
       ],
       pl: [
         "Pipeline CI/CD — deploy po mergu, rollback gdy testy padną",
         "Środowiska w Dockerze, od dev do produkcji",
         "Infrastruktura jako kod w Terraformie",
         "Monitoring, logi i alerty, które trafiają do człowieka",
-        "Runbook, żeby następnym dyżurnym nie byłem ja",
+        "Runbook, dzięki któremu Twój zespół poradzi sobie beze mnie",
       ],
     },
   },

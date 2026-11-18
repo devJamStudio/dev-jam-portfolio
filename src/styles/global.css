@@ -113,12 +113,12 @@ body {
   outline-offset: 3px;
 }
 .dark :focus-visible {
-  outline-color: theme("colors.teal.400");
+  outline-color: theme("colors.teal.300");
 }
 
 /* Hero slogan: hard pink and aqua offsets, in em so they scale with the type. */
 .hero-slogan {
   text-shadow:
-    0.04em 0.04em 0 theme("colors.pink.500"),
-    0.08em 0.08em 0 theme("colors.teal.400");
+    0.03em 0.03em 0 theme("colors.pink.400"),
+    0.06em 0.06em 0 theme("colors.teal.300");
 }

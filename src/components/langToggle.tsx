@@ -11,7 +11,7 @@ const LangToggle: React.FC = () => {
       to={href}
       hrefLang={locale}
       aria-label={`Switch language to ${locale.toUpperCase()}`}
-      className="border-2 border-black dark:border-white shadow-dark dark:shadow-light rounded-lg px-3 py-1 text-lg hover:bg-teal-400 dark:hover:bg-pink-500 dark:hover:text-black duration-200"
+      className="border-2 border-black dark:border-white shadow-dark dark:shadow-light rounded-lg px-3 py-1 text-lg hover:bg-teal-300 dark:hover:bg-pink-400 dark:hover:text-black duration-200"
     >
       {copy.langLabel}
     </Link>
