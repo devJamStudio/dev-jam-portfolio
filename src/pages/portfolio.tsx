@@ -63,7 +63,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                     contain plus padding framed each one in white. */}
                 <Link
                   to={to}
-                  className="relative overflow-hidden flex items-center justify-center bg-white aspect-[16/10]"
+                  className="relative overflow-hidden flex items-center justify-center bg-white dark:bg-black aspect-[16/10]"
                 >
                   {image ? (
                     <GatsbyImage
@@ -76,7 +76,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                   ) : (
                     // Not every project has a screenshot to show — an unlaunched
                     // site has nothing to point a camera at.
-                    <span className="font-ocr text-3xl text-black px-6 text-center">
+                    <span className="font-ocr text-3xl text-black dark:text-white px-6 text-center">
                       {project.name}
                     </span>
                   )}
