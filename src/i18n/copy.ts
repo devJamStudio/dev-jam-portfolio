@@ -38,7 +38,7 @@ const en = {
     ],
     heading: "AI automation, DevOps pipelines and web development",
     tagline:
-      "I take repetitive work off your plate with pipelines, agents and integrations, and build the websites and stores that run on top.",
+      "I automate the repetitive work and build websites and stores that keep running on their own.",
     ctaOffer: "See the offer",
     ctaContact: "Let's talk",
   },
@@ -131,7 +131,7 @@ const pl: typeof en = {
     ],
     heading: "Automatyzacja AI, pipeline'y DevOps i tworzenie stron",
     tagline:
-      "Zdejmuję z Ciebie powtarzalną robotę dzięki pipeline'om, agentom i integracjom, a do tego buduję strony i sklepy, które na tym działają.",
+      "Automatyzuję powtarzalną robotę i buduję strony oraz sklepy, które działają same.",
     ctaOffer: "Zobacz ofertę",
     ctaContact: "Porozmawiajmy",
   },
