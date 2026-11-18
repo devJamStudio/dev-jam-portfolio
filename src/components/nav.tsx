@@ -23,7 +23,7 @@ const NavComponent: React.FC<NavComponentProps> = ({ Links, toggle }) => {
         <ul>
           {Links.map((link) => (
             <li
-              className="py-4 hover:text-teal-500  dark:hover:text-amber-600  "
+              className="py-4 hover:text-pink-600 dark:hover:text-teal-400  "
               key={link.to}
             >
               <Link to={link.to}>{link.label}</Link>

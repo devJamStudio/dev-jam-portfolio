@@ -109,9 +109,16 @@ body {
 
 /* Keyboard focus, visible on every control. Mouse clicks don't trigger it. */
 :focus-visible {
-  outline: 2px solid theme("colors.teal.500");
+  outline: 2px solid theme("colors.pink.600");
   outline-offset: 3px;
 }
 .dark :focus-visible {
-  outline-color: theme("colors.amber.500");
+  outline-color: theme("colors.teal.400");
+}
+
+/* Hero slogan: hard pink and aqua offsets, in em so they scale with the type. */
+.hero-slogan {
+  text-shadow:
+    0.04em 0.04em 0 theme("colors.pink.500"),
+    0.08em 0.08em 0 theme("colors.teal.400");
 }
