@@ -250,8 +250,8 @@ body {
   }
 }
 
-/* Striped sunset sun sinking into the grid, bottom right of the hero. On
-   phones it hangs half off-screen and fainter so it stays behind the text. */
+/* Striped sunset sun sinking into the grid, bottom right of the hero. Below
+   xl it hangs half off-screen and fainter so it stays behind the text. */
 .hero::after {
   content: "";
   position: absolute;
@@ -291,7 +291,7 @@ body {
   );
   animation: sun-rise 1.4s ease-out both;
 }
-@media (min-width: 768px) {
+@media (min-width: 1280px) {
   .hero::after {
     right: 2%;
     opacity: 0.9;
