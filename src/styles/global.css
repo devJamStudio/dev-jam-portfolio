@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Body font, self-hosted (SIL Open Font License). Variable 400-700. */
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/fonts/instrument-sans-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("/fonts/instrument-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
 html {
   @apply bg-white dark:bg-black font-sans duration-300;
 }
@@ -126,9 +147,187 @@ body {
   outline-color: theme("colors.teal.300");
 }
 
-/* Hero slogan: hard pink and aqua offsets, in em so they scale with the type. */
+/* --- 80s neon -----------------------------------------------------------
+   Kept to the home hero plus a glow on dark-mode chrome. Everything animated
+   here is decorative and stops under prefers-reduced-motion. */
+
+/* Hero slogan: hard pink and aqua offsets plus a soft neon glow that breathes. */
 .hero-slogan {
   text-shadow:
     0.03em 0.03em 0 theme("colors.pink.400"),
-    0.06em 0.06em 0 theme("colors.teal.300");
+    0.06em 0.06em 0 theme("colors.teal.300"),
+    0 0 0.3em rgb(244 114 182 / 0.45);
+  animation: neon 2.8s ease-in-out infinite alternate;
+  /* The box clips overflow; pad the text inside it so the glow is not cut
+     into a rectangle, and pull the box back so the text stays aligned. */
+  margin-left: -0.35em;
+}
+.hero-slogan > div {
+  padding: 0.3em 0.35em;
+}
+@keyframes neon {
+  to {
+    text-shadow:
+      0.03em 0.03em 0 theme("colors.pink.400"),
+      0.06em 0.06em 0 theme("colors.teal.300"),
+      0 0 0.6em rgb(244 114 182 / 0.85);
+  }
+}
+
+/* Perspective grid rolling toward the viewer along the bottom of the hero. */
+.hero {
+  position: relative;
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  height: 70%;
+  pointer-events: none;
+  background-image:
+    linear-gradient(theme("colors.pink.400") 2px, transparent 2px),
+    linear-gradient(90deg, theme("colors.pink.400") 2px, transparent 2px);
+  background-size: 64px 64px;
+  transform: perspective(320px) rotateX(62deg);
+  transform-origin: bottom;
+  opacity: 0.45;
+  -webkit-mask-image: radial-gradient(ellipse at bottom, #000 35%, transparent 75%);
+  mask-image: radial-gradient(ellipse at bottom, #000 35%, transparent 75%);
+  animation: grid-roll 1.6s linear infinite;
+}
+.dark .hero::before {
+  background-image:
+    linear-gradient(theme("colors.teal.300") 2px, transparent 2px),
+    linear-gradient(90deg, theme("colors.teal.300") 2px, transparent 2px);
+  opacity: 0.6;
+}
+@keyframes grid-roll {
+  to {
+    background-position: 0 64px;
+  }
+}
+
+/* Dark mode: header and buttons pick up a neon glow; buttons flare on hover. */
+.dark .navbar {
+  box-shadow: 0 0 26px -4px rgb(94 234 212 / 0.7);
+}
+.dark .btn {
+  box-shadow:
+    3px 3px 0 0 theme("colors.teal.300"),
+    0 0 18px rgb(244 114 182 / 0.5);
+}
+.dark .btn:hover {
+  box-shadow: 0 0 26px rgb(244 114 182 / 0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slogan,
+  .hero::before {
+    animation: none;
+  }
+}
+
+/* Title card for projects without a screenshot (see retroCover.tsx):
+   night sky into a pink sunset, with CRT scanlines over it. */
+.retro-cover {
+  color: #fff;
+  background-image:
+    repeating-linear-gradient(0deg, rgb(0 0 0 / 0.16) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, #241d4a 0%, #4c1d95 45%, #be185d 100%);
+}
+.retro-cover__name {
+  text-shadow:
+    0.06em 0.06em 0 theme("colors.pink.500"),
+    0.12em 0.12em 0 #241d4a;
+}
+
+/* Terminal block cursor after the typed slogan. It lives in the fixed-size
+   slogan box, so it cannot shift the layout. */
+.hero-slogan > div::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.85em;
+  margin-left: 0.12em;
+  vertical-align: -0.08em;
+  background: theme("colors.pink.400");
+  box-shadow: 0 0 0.4em rgb(244 114 182 / 0.8);
+  animation: cursor-blink 1s steps(1) infinite;
+}
+.dark .hero-slogan > div::after {
+  background: theme("colors.teal.300");
+  box-shadow: 0 0 0.4em rgb(94 234 212 / 0.8);
+}
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Striped sunset sun sinking into the grid, bottom right of the hero. Below
+   xl it hangs half off-screen and fainter so it stays behind the text. */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -22%;
+  bottom: 6%;
+  width: min(62vw, 30vw + 120px, 400px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.4;
+  background: linear-gradient(180deg, #fbbf24 0%, #f472b6 55%, #be185d 100%);
+  /* Solid top, then bands that thicken toward the horizon. */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0 50%,
+    transparent 50% 53%,
+    #000 53% 62%,
+    transparent 62% 66%,
+    #000 66% 74%,
+    transparent 74% 79%,
+    #000 79% 86%,
+    transparent 86% 92%,
+    #000 92% 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0 50%,
+    transparent 50% 53%,
+    #000 53% 62%,
+    transparent 62% 66%,
+    #000 66% 74%,
+    transparent 74% 79%,
+    #000 79% 86%,
+    transparent 86% 92%,
+    #000 92% 100%
+  );
+  animation: sun-rise 1.4s ease-out both;
+}
+@media (min-width: 1280px) {
+  .hero::after {
+    right: 2%;
+    opacity: 0.9;
+  }
+}
+@keyframes sun-rise {
+  from {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slogan > div::after,
+  .hero::after {
+    animation: none;
+  }
 }

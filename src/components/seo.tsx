@@ -2,6 +2,7 @@ import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { copy, defaultLocale, locales, localePath } from "../i18n/copy";
 import type { Locale } from "../i18n/copy";
+import { EMAIL, GITHUB_URL } from "../data/site";
 
 interface SeoProps {
   title: string;
@@ -35,7 +36,12 @@ const Seo: React.FC<SeoProps> = ({
   `);
 
   const { title: siteTitle, siteUrl, author, image } = data.site.siteMetadata;
-  const metaDescription = description || copy[locale].seo.description;
+  // Top-level pages have their own search title and description; anything
+  // else (project pages, 404) falls back to "<title> | <site>".
+  const page = basePath ? copy[locale].seo.pages[basePath] : undefined;
+  const fullTitle = page?.title || (siteTitle ? `${title} | ${siteTitle}` : title);
+  const metaDescription =
+    description || page?.description || copy[locale].seo.description;
   const canonical = basePath
     ? `${siteUrl}${localePath(basePath, locale)}`
     : undefined;
@@ -48,6 +54,9 @@ const Seo: React.FC<SeoProps> = ({
     url: siteUrl,
     description: metaDescription,
     areaServed: "Worldwide",
+    email: EMAIL,
+    sameAs: [GITHUB_URL],
+    logo: `${siteUrl}/apple-touch-icon.png`,
     knowsLanguage: ["en", "pl"],
     ...(ogImage ? { image: ogImage } : {}),
     serviceType: [
@@ -63,27 +72,31 @@ const Seo: React.FC<SeoProps> = ({
   return (
     <>
       <html lang={locale} />
-      <title>{siteTitle ? `${title} | ${siteTitle}` : title}</title>
+      <title>{fullTitle}</title>
+      <meta name="theme-color" content="#241D4A" />
       <meta name="description" content={metaDescription} />
       {canonical && <link rel="canonical" href={canonical} />}
       <link rel="icon" href="/favicon.ico" sizes="32x32" />
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={siteTitle} />
       <meta property="og:locale" content={OG_LOCALE[locale]} />
       {canonical && <meta property="og:url" content={canonical} />}
       {ogImage && <meta property="og:image" content={ogImage} />}
+      {ogImage && <meta property="og:image:width" content="1200" />}
+      {ogImage && <meta property="og:image:height" content="630" />}
+      {ogImage && <meta property="og:image:alt" content={siteTitle} />}
 
       <meta
         name="twitter:card"
         content={ogImage ? "summary_large_image" : "summary"}
       />
       <meta name="twitter:creator" content={author || ""} />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={metaDescription} />
       {ogImage && <meta name="twitter:image" content={ogImage} />}
 

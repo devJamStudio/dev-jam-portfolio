@@ -106,6 +106,39 @@ const en = {
     cta: "Back home",
   },
   seo: {
+    // Keyed by unprefixed path. Titles are complete (brand included).
+    pages: {
+      "/": {
+        title: "devJam Studio — AI automation, DevOps and web development",
+        description:
+          "One-person studio for AI automation, CI/CD pipelines and infrastructure as code, plus Shopify, WordPress and Next.js sites that keep running on their own.",
+      },
+      "/offer/": {
+        title: "Services and pricing — automation, DevOps, websites | devJam Studio",
+        description:
+          "Automation and AI agents, DevOps pipelines, landing pages, multi-page sites and online stores. Web packages from 1300 PLN / 300 EUR.",
+      },
+      "/tech-stack/": {
+        title: "Tech stack — Docker, Terraform, Next.js, WordPress | devJam Studio",
+        description:
+          "The tools devJam Studio works with: Claude, Python and n8n for automation; Docker, Kubernetes and Terraform for infrastructure; Next.js, WordPress and Shopify for the web.",
+      },
+      "/portfolio/": {
+        title: "Portfolio — online stores, CMS sites and internal tools | devJam Studio",
+        description:
+          "Selected projects: WooCommerce and Shopify stores, Next.js sites on Payload CMS, and internal systems built and automated by devJam Studio.",
+      },
+      "/about/": {
+        title: "About — a one-person automation and web studio | devJam Studio",
+        description:
+          "devJam Studio builds the pipelines, infrastructure and AI agents that take repetitive work off your desk. Based in Poland, working in English and Polish.",
+      },
+      "/contact/": {
+        title: "Contact — tell me about your project | devJam Studio",
+        description:
+          "Get in touch about automation, DevOps or a new website. Send a message or email dev.jam.studio@gmail.com. English and Polish.",
+      },
+    } as Record<string, { title: string; description: string }>,
     description:
       "devJam Studio — DevOps, AI and automation. CI/CD pipelines, infrastructure as code, AI agents, and the web builds that sit on top of them.",
   },
@@ -202,6 +235,38 @@ const pl: typeof en = {
     cta: "Wróć na start",
   },
   seo: {
+    pages: {
+      "/": {
+        title: "devJam Studio — automatyzacja AI, DevOps i strony internetowe",
+        description:
+          "Jednoosobowe studio: automatyzacja AI, pipeline'y CI/CD i infrastruktura jako kod, a do tego strony i sklepy na Shopify, WordPressie i Next.js, które działają same.",
+      },
+      "/offer/": {
+        title: "Oferta i cennik — automatyzacja, DevOps, strony | devJam Studio",
+        description:
+          "Automatyzacja i agenci AI, pipeline'y DevOps, landing page, strony wielopodstronowe i sklepy internetowe. Pakiety webowe od 1300 PLN.",
+      },
+      "/tech-stack/": {
+        title: "Stack — Docker, Terraform, Next.js, WordPress | devJam Studio",
+        description:
+          "Narzędzia, z którymi pracuje devJam Studio: Claude, Python i n8n do automatyzacji; Docker, Kubernetes i Terraform do infrastruktury; Next.js, WordPress i Shopify do weba.",
+      },
+      "/portfolio/": {
+        title: "Portfolio — sklepy internetowe, strony na CMS i systemy | devJam Studio",
+        description:
+          "Wybrane realizacje: sklepy na WooCommerce i Shopify, strony Next.js na Payload CMS oraz systemy wewnętrzne zbudowane i zautomatyzowane przez devJam Studio.",
+      },
+      "/about/": {
+        title: "O mnie — jednoosobowe studio automatyzacji i weba | devJam Studio",
+        description:
+          "devJam Studio buduje pipeline'y, infrastrukturę i agentów AI, którzy zdejmują z biurka powtarzalną robotę. Działam z Polski, po polsku i po angielsku.",
+      },
+      "/contact/": {
+        title: "Kontakt — opowiedz o swoim projekcie | devJam Studio",
+        description:
+          "Napisz w sprawie automatyzacji, DevOps albo nowej strony. Wyślij wiadomość lub maila na dev.jam.studio@gmail.com. Po polsku i po angielsku.",
+      },
+    },
     description:
       "devJam Studio — DevOps, AI i automatyzacja. Pipeline'y CI/CD, infrastruktura jako kod, agenci AI i strony, które na nich stoją.",
   },

@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import { buttonClass } from "../components/button";
 import Seo from "../components/seo";
+import RetroCover from "../components/retroCover";
 import { findProject } from "../data/portfolio";
 import { useCopy, useLocale } from "../i18n/LocaleContext";
 import type { LocalePageContext } from "../i18n/copy";
@@ -48,7 +49,7 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
           sticks under the header while the details scroll. */}
       <div className="flex flex-col lg:flex-row lg:items-start gap-8">
         <div className="w-full lg:w-7/12 flex lg:sticky lg:top-32">
-          {image && (
+          {image ? (
             <div className="w-full flex border-2 border-black rounded-lg shadow-dark dark:border-white dark:shadow-light overflow-hidden">
               <GatsbyImage
                 className="w-full"
@@ -58,6 +59,11 @@ const PortfolioTemplate: React.FC<PortfolioTemplateProps> = ({
                 loading="eager"
               />
             </div>
+          ) : (
+            <RetroCover
+              name={project.name}
+              className="w-full aspect-[16/10] border-2 border-black dark:border-white rounded-lg shadow-dark dark:shadow-light"
+            />
           )}
         </div>
 
@@ -131,7 +137,11 @@ export const Head: HeadFC<object, ProjectPageContext> = ({ pageContext }) => {
   const locale = pageContext?.locale || defaultLocale;
   return (
     <Seo
-      title={project?.name || "Portfolio"}
+      title={
+        project
+          ? `${project.name} — ${project.stack.slice(0, 2).join(", ")} project`
+          : "Portfolio"
+      }
       description={project?.description[locale][0]}
       locale={locale}
       basePath={pageContext?.basePath}
