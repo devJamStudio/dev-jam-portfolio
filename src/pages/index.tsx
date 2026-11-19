@@ -32,14 +32,14 @@ const IndexPage: React.FC<PageProps> = () => {
             its content; overflow-hidden stops a long string reopening it. */}
         <div
           aria-hidden="true"
-          className="hero-slogan relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[length:clamp(3rem,min(10vw,13svh),8rem)] mr-10"
+          className="hero-slogan relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[length:clamp(3rem,min(10vw,12svh),8rem)] mr-10"
         >
           <div ref={typewriter} className="absolute inset-0">
             {copy.index.slogans[0]}
           </div>
         </div>
 
-        <p className="max-w-[40ch] text-xl md:text-2xl leading-relaxed">
+        <p className="max-w-[40ch] mt-4 text-xl md:text-2xl leading-relaxed">
           {copy.index.tagline}
         </p>
 
