@@ -177,6 +177,10 @@ body {
 /* Perspective grid rolling toward the viewer along the bottom of the hero. */
 .hero {
   position: relative;
+  /* clip, not hidden: a hidden box can still be scrolled sideways (the grid
+     and sun overflow it), which shoved the text against the screen edge. */
+  overflow: hidden;
+  overflow: clip;
 }
 .hero > * {
   position: relative;

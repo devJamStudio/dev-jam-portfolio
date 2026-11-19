@@ -3,6 +3,7 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 import type { HeadFC } from "gatsby";
 import { useCopy } from "../i18n/LocaleContext";
+import { stackGroups } from "../data/stack";
 import type { LocalePageContext } from "../i18n/copy";
 import { copy as allCopy, defaultLocale } from "../i18n/copy";
 
@@ -37,6 +38,25 @@ const About: React.FC = () => {
             ))}
           </ul>
         </div>
+
+        {/* The stack used to be its own page of logo tiles; a short list here
+            says the same thing without a detour. */}
+        <h2 className="text-2xl mt-10 mb-4">{copy.stack.title}</h2>
+        {stackGroups.map((group) => (
+          <div key={group.id} className="mb-4">
+            <h3 className="text-base mb-2">{copy.stack.groups[group.id]}</h3>
+            <ul className="flex flex-wrap gap-2">
+              {group.items.map((tech) => (
+                <li
+                  key={tech.name}
+                  className="font-ocr text-sm border-2 border-black dark:border-white rounded-full px-3 py-0.5"
+                >
+                  {tech.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </Layout>
   );

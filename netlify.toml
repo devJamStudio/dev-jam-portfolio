@@ -68,6 +68,17 @@
 # old host would keep serving a duplicate. Deploy previews use other hostnames
 # (deploy-preview-N--devjamstudio.netlify.app) and are unaffected.
 
+# The stack page was folded into About.
+[[redirects]]
+  from = "/tech-stack/*"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/pl/tech-stack/*"
+  to = "/pl/about/"
+  status = 301
+
 [[redirects]]
   from = "https://devjamstudio.netlify.app/*"
   to = "https://devjam.space/:splat"

@@ -12,7 +12,7 @@ const PUBLIC = fileURLToPath(new URL("../public/", import.meta.url));
 const read = (p) => readFileSync(join(PUBLIC, p), "utf8");
 const has = (p) => existsSync(join(PUBLIC, p));
 
-const PAGES = ["", "about", "offer", "portfolio", "tech-stack", "contact"];
+const PAGES = ["", "about", "offer", "portfolio", "contact"];
 
 for (const page of PAGES) {
   assert.ok(has(join(page, "index.html")), `missing EN page /${page}`);
@@ -68,7 +68,7 @@ for (const name of ["Automation &amp; AI", "DevOps", "E-commerce"]) {
   assert.ok(offer.includes(name), `offer card missing: ${name}`);
 }
 
-const stack = read("tech-stack/index.html");
+const stack = read("about/index.html");
 for (const tech of ["Docker", "Terraform", "Kubernetes", "Claude", "n8n"]) {
   assert.ok(stack.includes(tech), `stack entry missing: ${tech}`);
 }
