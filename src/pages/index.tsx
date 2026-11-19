@@ -43,7 +43,7 @@ const IndexPage: React.FC<PageProps> = () => {
           {copy.index.tagline}
         </p>
 
-        <div className="flex flex-row flex-wrap gap-6 items-center pt-8">
+        <div className="flex flex-row flex-wrap gap-x-6 gap-y-1 items-center pt-6">
           <Link to={path("/offer")} className={buttonClass}>
             {copy.index.ctaOffer}
           </Link>
