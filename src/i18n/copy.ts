@@ -62,13 +62,24 @@ const en = {
   offer: {
     title: "Offer",
     intro:
-      "Automation and infrastructure are priced per project. Web packages start at the prices below.",
+      "Two kinds of work: automation and infrastructure, quoted per project, and websites with clear starting prices.",
+    scopedTitle: "Automation and infrastructure",
+    scopedIntro:
+      "Every setup is different, so you get a fixed quote after a short call about what you need.",
+    webTitle: "Websites and stores",
+    webIntro: "Starting prices. The final quote depends on scope and content.",
+    stepsTitle: "How it works",
+    steps: [
+      { title: "Short call", body: "You tell me what you need and what is in the way. Free, about 30 minutes." },
+      { title: "Fixed quote", body: "You get a scope, a price and a timeline in writing before anything starts." },
+      { title: "Build and handover", body: "I build it, show progress along the way, and hand it over with docs." },
+    ],
     from: "From",
     quote: "Priced per scope",
     cta: "Let's talk",
   },
   stack: {
-    title: "Stack",
+    title: "Tools I work with",
     intro: "What I reach for, grouped by the kind of problem it solves.",
     groups: {
       automation: "Automation & AI",
@@ -117,11 +128,6 @@ const en = {
         title: "Services and pricing — automation, DevOps, websites | devJam Studio",
         description:
           "Automation and AI agents, DevOps pipelines, landing pages, multi-page sites and online stores. Web packages from 1300 PLN / 300 EUR.",
-      },
-      "/tech-stack/": {
-        title: "Tech stack — Docker, Terraform, Next.js, WordPress | devJam Studio",
-        description:
-          "The tools devJam Studio works with: Claude, Python and n8n for automation; Docker, Kubernetes and Terraform for infrastructure; Next.js, WordPress and Shopify for the web.",
       },
       "/portfolio/": {
         title: "Portfolio — online stores, CMS sites and internal tools | devJam Studio",
@@ -191,13 +197,24 @@ const pl: typeof en = {
   offer: {
     title: "Oferta",
     intro:
-      "Automatyzację i infrastrukturę wyceniam pod projekt. Pakiety webowe zaczynają się od cen poniżej.",
+      "Dwa rodzaje pracy: automatyzacja i infrastruktura, wyceniane pod projekt, oraz strony z jasnymi cenami startowymi.",
+    scopedTitle: "Automatyzacja i infrastruktura",
+    scopedIntro:
+      "Każde wdrożenie jest inne, więc po krótkiej rozmowie o potrzebach dostajesz stałą wycenę.",
+    webTitle: "Strony i sklepy",
+    webIntro: "Ceny startowe. Ostateczna wycena zależy od zakresu i treści.",
+    stepsTitle: "Jak to działa",
+    steps: [
+      { title: "Krótka rozmowa", body: "Opowiadasz, czego potrzebujesz i co przeszkadza. Bezpłatnie, około 30 minut." },
+      { title: "Stała wycena", body: "Przed startem dostajesz na piśmie zakres, cenę i termin." },
+      { title: "Budowa i przekazanie", body: "Buduję, pokazuję postępy po drodze i przekazuję z dokumentacją." },
+    ],
     from: "Od",
     quote: "Wycena pod zakres",
     cta: "Napisz do mnie",
   },
   stack: {
-    title: "Stack",
+    title: "Narzędzia, z którymi pracuję",
     intro: "Po co sięgam, pogrupowane według rodzaju problemu.",
     groups: {
       automation: "Automatyzacja i AI",
@@ -245,11 +262,6 @@ const pl: typeof en = {
         title: "Oferta i cennik — automatyzacja, DevOps, strony | devJam Studio",
         description:
           "Automatyzacja i agenci AI, pipeline'y DevOps, landing page, strony wielopodstronowe i sklepy internetowe. Pakiety webowe od 1300 PLN.",
-      },
-      "/tech-stack/": {
-        title: "Stack — Docker, Terraform, Next.js, WordPress | devJam Studio",
-        description:
-          "Narzędzia, z którymi pracuje devJam Studio: Claude, Python i n8n do automatyzacji; Docker, Kubernetes i Terraform do infrastruktury; Next.js, WordPress i Shopify do weba.",
       },
       "/portfolio/": {
         title: "Portfolio — sklepy internetowe, strony na CMS i systemy | devJam Studio",

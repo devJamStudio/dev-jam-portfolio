@@ -25,7 +25,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header toggle={open} setToggle={setOpen} />
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-10 flex flex-col">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-5 md:px-10 py-6 md:py-10 flex flex-col">
         {children}
       </main>
       <Footer />

@@ -9,7 +9,6 @@ export const useNavLinks = (): NavLink[] => {
   const path = usePath();
   return [
     { label: copy.nav.offer, to: path("/offer") },
-    { label: copy.nav.stack, to: path("/tech-stack") },
     { label: copy.nav.portfolio, to: path("/portfolio") },
     { label: copy.nav.about, to: path("/about") },
     { label: copy.nav.contact, to: path("/contact") },

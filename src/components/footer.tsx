@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="border-t-2 border-black dark:border-white">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+      <div className="max-w-7xl mx-auto px-5 md:px-10 py-8 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
         <p className="font-ocr text-xl">{copy.footer.cta}</p>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           <a href={`mailto:${EMAIL}`} className={link}>
