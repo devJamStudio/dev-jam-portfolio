@@ -28,11 +28,11 @@ const IndexPage: React.FC<PageProps> = () => {
         {/* The typewriter box takes the slack rather than sizing itself to its
             text. That fills the screen and, more importantly, stops the box
             height depending on how many lines the current slogan wraps to —
-            which is what caused the layout shift. min-h-0 lets it shrink under
-            its content; overflow-hidden stops a long string reopening it. */}
+            which is what caused the layout shift. min-h keeps two lines visible on
+            short windows (the page scrolls instead); overflow-hidden stops a long string reopening it. */}
         <div
           aria-hidden="true"
-          className="hero-slogan relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[length:clamp(3rem,min(10vw,12svh),8rem)] mr-10"
+          className="hero-slogan relative flex-1 min-h-[3.2em] overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[length:clamp(3rem,min(10vw,12svh),8rem)] mr-10"
         >
           <div ref={typewriter} className="absolute inset-0">
             {copy.index.slogans[0]}
