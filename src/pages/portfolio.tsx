@@ -4,6 +4,7 @@ import type { HeadFC } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
+import RetroCover from "../components/retroCover";
 import { projects } from "../data/portfolio";
 import { useCopy, useLocale, usePath } from "../i18n/LocaleContext";
 import type { LocalePageContext } from "../i18n/copy";
@@ -68,12 +69,11 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
                         image={image}
                         alt=""
                         objectFit="cover"
+                        objectPosition="50% 0%"
                         loading={index < 3 ? "eager" : "lazy"}
                       />
                     ) : (
-                      <span className="font-ocr text-3xl px-6 text-center">
-                        {project.name}
-                      </span>
+                      <RetroCover name={project.name} className="h-full w-full" />
                     )}
                   </div>
                   <div className="flex flex-col flex-1 gap-2 p-4">

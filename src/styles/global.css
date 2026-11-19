@@ -212,3 +212,17 @@ body {
     animation: none;
   }
 }
+
+/* Title card for projects without a screenshot (see retroCover.tsx):
+   night sky into a pink sunset, with CRT scanlines over it. */
+.retro-cover {
+  color: #fff;
+  background-image:
+    repeating-linear-gradient(0deg, rgb(0 0 0 / 0.16) 0 2px, transparent 2px 4px),
+    linear-gradient(180deg, #241d4a 0%, #4c1d95 45%, #be185d 100%);
+}
+.retro-cover__name {
+  text-shadow:
+    0.06em 0.06em 0 theme("colors.pink.500"),
+    0.12em 0.12em 0 #241d4a;
+}
