@@ -155,15 +155,22 @@ body {
 .hero-slogan {
   text-shadow:
     0.03em 0.03em 0 theme("colors.pink.400"),
-    0.06em 0.06em 0 theme("colors.teal.300"),
-    0 0 0.3em rgb(244 114 182 / 0.45);
-  animation: neon 2.8s ease-in-out infinite alternate;
+    0.06em 0.06em 0 theme("colors.teal.300");
   /* The box clips overflow; pad the text inside it so the glow is not cut
      into a rectangle, and pull the box back so the text stays aligned. */
   margin-left: -0.35em;
 }
 .hero-slogan > div {
   padding: 0.3em 0.35em;
+}
+/* The glow only reads on the dark background; on the light one it looked
+   like a grey box behind the text. */
+.dark .hero-slogan {
+  text-shadow:
+    0.03em 0.03em 0 theme("colors.pink.400"),
+    0.06em 0.06em 0 theme("colors.teal.300"),
+    0 0 0.3em rgb(244 114 182 / 0.45);
+  animation: neon 2.8s ease-in-out infinite alternate;
 }
 @keyframes neon {
   to {
@@ -181,6 +188,15 @@ body {
      and sun overflow it), which shoved the text against the screen edge. */
   overflow: hidden;
   overflow: clip;
+  /* Full-bleed: the grid and sun run to the screen edges while the content
+     keeps the page margins. 50% is main's content width. */
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+  padding-bottom: 2.5rem;
+}
+/* 100vw includes the scrollbar where one takes up room. */
+body {
+  overflow-x: clip;
 }
 .hero > * {
   position: relative;
@@ -281,13 +297,13 @@ body {
   content: "";
   position: absolute;
   z-index: 0;
-  right: -22%;
-  bottom: 6%;
+  right: -14%;
+  bottom: 4%;
   width: min(62vw, 30vw + 120px, 400px);
   aspect-ratio: 1;
   border-radius: 50%;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.28;
   background: linear-gradient(180deg, #fbbf24 0%, #f472b6 55%, #be185d 100%);
   /* Solid top, then bands that thicken toward the horizon. */
   -webkit-mask-image: linear-gradient(
@@ -318,7 +334,7 @@ body {
 }
 @media (min-width: 1280px) {
   .hero::after {
-    right: 2%;
+    right: max(4%, calc(50vw - 600px));
     opacity: 0.9;
   }
 }
