@@ -79,7 +79,6 @@ const en = {
   portfolio: {
     title: "Portfolio",
     intro: "Selected work — stores, CMS-backed sites and internal systems.",
-    cta: "Check it out",
     empty: "Nothing published here yet.",
     aboutLabel: "About",
     stackLabel: "Stack",
@@ -94,8 +93,12 @@ const en = {
     send: "Send a message",
     thanks: "Thank you!",
     thanksBody: "I'll be in touch soon.",
-    failed: "That didn't send. Email me directly and I'll pick it up.",
+    failed: "That didn't send. Email me instead:",
+    orEmail: "Prefer email?",
     honeypot: "Leave this field empty",
+  },
+  footer: {
+    cta: "Got a project? Let's talk.",
   },
   notFound: {
     title: "Page not found",
@@ -172,7 +175,6 @@ const pl: typeof en = {
   portfolio: {
     title: "Portfolio",
     intro: "Wybrane realizacje — sklepy, strony oparte o CMS i systemy wewnętrzne.",
-    cta: "Zobacz projekt",
     empty: "Nic tu jeszcze nie opublikowano.",
     aboutLabel: "O projekcie",
     stackLabel: "Stack",
@@ -187,8 +189,12 @@ const pl: typeof en = {
     send: "Wyślij wiadomość",
     thanks: "Dziękuję!",
     thanksBody: "Odezwę się niedługo.",
-    failed: "Nie udało się wysłać. Napisz do mnie mailem, odbiorę.",
+    failed: "Nie udało się wysłać. Napisz do mnie mailem:",
+    orEmail: "Wolisz maila?",
     honeypot: "Zostaw to pole puste",
+  },
+  footer: {
+    cta: "Masz projekt? Pogadajmy.",
   },
   notFound: {
     title: "Nie znaleziono strony",

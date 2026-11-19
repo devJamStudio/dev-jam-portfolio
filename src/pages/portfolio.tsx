@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby";
 import type { HeadFC } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Layout from "../components/layout";
-import { buttonClass } from "../components/button";
 import Seo from "../components/seo";
 import { projects } from "../data/portfolio";
 import { useCopy, useLocale, usePath } from "../i18n/LocaleContext";
@@ -42,50 +41,58 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ data }) => {
       {projects.length === 0 ? (
         <p className="text-xl">{copy.portfolio.empty}</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:grid-cols-3 2xl:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
             const thumb = images.get(project.image || "");
             const image = thumb ? getImage(thumb.gatsbyImageData) : undefined;
-            const to = path(`/portfolio/${project.slug}`);
 
+            // The whole card is one link: one tab stop, one big target. The
+            // entrance animation sits on a wrapper because its fill mode would
+            // otherwise pin transform and cancel the hover press.
             return (
               <div
-                className="reveal flex flex-col border-2 border-black dark:shadow-light duration-300 shadow-dark col-span-1 rounded-lg dark:border-white justify-between"
-                style={{ animationDelay: `${index * 60}ms` }}
                 key={project.slug}
+                className="reveal"
+                style={{ animationDelay: `${index * 60}ms` }}
               >
-                <div className="text-xl px-3 py-2 border-b-2 border-black dark:border-white">
-                  <h2>{project.name}</h2>
-                </div>
-                {/* overflow-hidden clips the hover zoom, which used to spill
-                    outside the card. The screenshots are 16:10, same as this
-                    box, so cover fills it edge to edge without cropping —
-                    contain plus padding framed each one in white. */}
                 <Link
-                  to={to}
-                  className="relative overflow-hidden flex items-center justify-center bg-white dark:bg-black aspect-[16/10]"
+                  to={path(`/portfolio/${project.slug}`)}
+                  className="group h-full flex flex-col border-2 border-black dark:border-white rounded-lg overflow-hidden shadow-dark dark:shadow-light hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none dark:hover:shadow-none transition duration-200 motion-reduce:transition-none"
                 >
-                  {image ? (
-                    <GatsbyImage
-                      className="h-full w-full hover:scale-105 transform duration-300"
-                      image={image}
-                      alt={project.name}
-                      objectFit="cover"
-                      loading={index < 3 ? "eager" : "lazy"}
-                    />
-                  ) : (
-                    // Not every project has a screenshot to show — an unlaunched
-                    // site has nothing to point a camera at.
-                    <span className="font-ocr text-3xl text-black dark:text-white px-6 text-center">
-                      {project.name}
-                    </span>
-                  )}
+                  {/* Screenshots are 16:10 like this box, so cover fills it
+                      edge to edge. An unlaunched project shows its name. */}
+                  <div className="relative aspect-[16/10] overflow-hidden flex items-center justify-center border-b-2 border-black dark:border-white bg-teal-100 dark:bg-white/10">
+                    {image ? (
+                      <GatsbyImage
+                        className="h-full w-full group-hover:scale-105 transition-transform duration-300 motion-reduce:transition-none"
+                        image={image}
+                        alt=""
+                        objectFit="cover"
+                        loading={index < 3 ? "eager" : "lazy"}
+                      />
+                    ) : (
+                      <span className="font-ocr text-3xl px-6 text-center">
+                        {project.name}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex flex-col flex-1 gap-2 p-4">
+                    <h2 className="text-xl">{project.name}</h2>
+                    <p className="leading-relaxed line-clamp-2">
+                      {project.description[locale][0]}
+                    </p>
+                    <ul className="flex flex-wrap gap-2 mt-auto pt-2">
+                      {project.stack.slice(0, 3).map((tech) => (
+                        <li
+                          key={tech}
+                          className="font-ocr text-xs border-2 border-black dark:border-white rounded-full px-2.5 py-0.5"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </Link>
-                <div className="border-t-2 border-black dark:border-white mb-2 text-center">
-                  <Link to={to} className={buttonClass}>
-                    {copy.portfolio.cta}
-                  </Link>
-                </div>
               </div>
             );
           })}
@@ -108,9 +115,9 @@ export const query = graphql`
             layout: FULL_WIDTH
             aspectRatio: 1.6
             placeholder: BLURRED
-            # Matches the grid (1 col, 2 from sm, 3 from lg, 4 from 2xl). The
-            # default is 100vw, so a third-width card pulled a full-width image.
-            sizes: "(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            # Matches the grid (1 col, 2 from sm, 3 from lg inside the 7xl container).
+            # The default is 100vw, so a third-width card pulled a full-width image.
+            sizes: "(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
             # 480 for desktop cards (~450px wide); the default starts at 750.
             breakpoints: [480, 750, 1080, 1366, 1920]
           )

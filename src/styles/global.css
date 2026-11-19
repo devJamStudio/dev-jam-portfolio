@@ -3,10 +3,20 @@
 @tailwind utilities;
 
 html {
-  @apply bg-white dark:bg-black font-ocr  duration-300;
+  @apply bg-white dark:bg-black font-sans duration-300;
 }
 body {
-  @apply bg-white dark:bg-black font-ocr duration-300;
+  @apply bg-white dark:bg-black font-sans duration-300;
+}
+
+/* Headings carry the brand face; body copy is the readable sans. In the base
+   layer so a utility class on the element still wins. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    @apply font-ocr;
+  }
 }
 .dark {
   @apply text-white bg-black border-white fill-white;

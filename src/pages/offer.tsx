@@ -21,7 +21,7 @@ const Offer: React.FC = () => {
         <p className="text-base md:text-lg leading-relaxed">{copy.offer.intro}</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {offers.map((offer, index) => (
           <div
             key={offer.id}
@@ -33,13 +33,13 @@ const Offer: React.FC = () => {
                 hard to scan, and this matches the list on the About page. */}
             <ul className="flex-1 mt-4 mb-2">
               {offer.features[locale].map((feature) => (
-                <li className="text-sm py-1.5 leading-snug pl-4 -indent-4" key={feature}>
+                <li className="py-1.5 leading-snug pl-4 -indent-4" key={feature}>
                   — {feature}
                 </li>
               ))}
             </ul>
             <div>
-              <div className="text-center flex flex-col text-lg mt-2">
+              <div className="text-center flex flex-col font-ocr text-xl mt-2">
                 {offer.pricePln && offer.priceEuro ? (
                   <>
                     <span>

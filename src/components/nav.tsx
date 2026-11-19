@@ -15,7 +15,7 @@ const NavComponent: React.FC<NavComponentProps> = ({ Links, toggle }) => {
   return (
     <div
       className={
-        `navbar flex flex-col  text-5xl text-center duration-200    p-4 ` +
+        `navbar flex flex-col font-ocr text-5xl text-center duration-200    p-4 ` +
         (toggle ? " w-full flex " : "w-0 transform translate-x-full hidden")
       }
     >

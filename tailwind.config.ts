@@ -13,6 +13,8 @@ module.exports = {
       },
       fontFamily: {
         ocr: ["ocr-a-std", "monospace"],
+        // Body text. OCR-A stays for the logo, headings, nav and buttons.
+        sans: ["Instrument Sans", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       fontSize: {
         "text-6xl": "3.75rem",

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../components/button";
 import { useCopy } from "../i18n/LocaleContext";
+import { EMAIL } from "../data/site";
 
 const FORM_NAME = "contact";
 
@@ -113,7 +114,9 @@ const ContactForm: React.FC = () => {
       </div>
 
       {failed && (
-        <p className="pt-4 text-center">{copy.contact.failed}</p>
+        <p className="pt-4 text-center">
+          {copy.contact.failed} <a href={`mailto:${EMAIL}`} className="underline decoration-2 underline-offset-4 decoration-pink-400 dark:decoration-teal-300">{EMAIL}</a>
+        </p>
       )}
 
       <div className="pt-0 text-center">

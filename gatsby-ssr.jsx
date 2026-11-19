@@ -3,6 +3,8 @@ import React from "react";
 import { LocaleProvider } from "./src/i18n/LocaleContext";
 
 const TYPEKIT = "https://use.typekit.net/thl7qti.css";
+const BODY_FONT =
+  "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap";
 
 // Runs before the body paints, so the theme is right on the first frame and
 // there is no flash. Replaces the redux store that used to decide this after
@@ -34,27 +36,46 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       href="https://p.typekit.net"
       crossOrigin="anonymous"
     />,
-    // media="print" then flipped once loaded: the kit never blocks first paint.
-    // React will not render a string onLoad, so the flip is a real script — and
-    // it checks .sheet first in case the stylesheet beat the listener.
+    <link
+      key="preconnect-gfonts"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />,
+    <link
+      key="preconnect-gstatic"
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossOrigin="anonymous"
+    />,
+    // media="print" then flipped once loaded: font CSS never blocks first
+    // paint. React will not render a string onLoad, so the flip is a real
+    // script — and it checks .sheet first in case a stylesheet beat it.
     <link
       key="typekit"
-      id="typekit-css"
+      data-async-css=""
       rel="stylesheet"
       href={TYPEKIT}
       media="print"
     />,
+    <link
+      key="body-font"
+      data-async-css=""
+      rel="stylesheet"
+      href={BODY_FONT}
+      media="print"
+    />,
     <script
-      key="typekit-swap"
+      key="async-css-swap"
       dangerouslySetInnerHTML={{
         __html:
-          "(function(){var l=document.getElementById('typekit-css');" +
-          "if(!l)return;function s(){l.media='all'}" +
-          "if(l.sheet)s();else l.addEventListener('load',s)})()",
+          "document.querySelectorAll('link[data-async-css]').forEach(function(l){" +
+          "function s(){l.media='all'}" +
+          "if(l.sheet)s();else l.addEventListener('load',s)})",
       }}
     />,
-    <noscript key="typekit-noscript">
+    <noscript key="fonts-noscript">
       <link rel="stylesheet" href={TYPEKIT} />
+      <link rel="stylesheet" href={BODY_FONT} />
     </noscript>,
   ]);
 
