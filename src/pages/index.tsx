@@ -16,9 +16,11 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      {/* Header + this column are exactly one viewport tall, so the hero ends
-          at the fold and the CTAs sit on the ground — no position:fixed. */}
-      <div className="flex flex-1 flex-col overflow-hidden">
+      {/* Header + this column fill the first screen, so the CTAs sit on the
+          fold and the footer starts below it. The min-height subtracts the
+          header and main's padding (84px + 3rem on phones, 110px + 5rem from
+          md); without it the footer squeezed the slogan box and cut lines. */}
+      <div className="flex flex-1 flex-col overflow-hidden min-h-[calc(100svh-8.5rem)] md:min-h-[calc(100svh-12rem)]">
         {/* The typewriter only paints client-side, so the real heading ships
             as text and the animation is decorative. */}
         <h1 className="sr-only">{copy.index.heading}</h1>
