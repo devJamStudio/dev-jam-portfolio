@@ -226,3 +226,87 @@ body {
     0.06em 0.06em 0 theme("colors.pink.500"),
     0.12em 0.12em 0 #241d4a;
 }
+
+/* Terminal block cursor after the typed slogan. It lives in the fixed-size
+   slogan box, so it cannot shift the layout. */
+.hero-slogan > div::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.85em;
+  margin-left: 0.12em;
+  vertical-align: -0.08em;
+  background: theme("colors.pink.400");
+  box-shadow: 0 0 0.4em rgb(244 114 182 / 0.8);
+  animation: cursor-blink 1s steps(1) infinite;
+}
+.dark .hero-slogan > div::after {
+  background: theme("colors.teal.300");
+  box-shadow: 0 0 0.4em rgb(94 234 212 / 0.8);
+}
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Striped sunset sun sinking into the grid, bottom right of the hero. On
+   phones it hangs half off-screen and fainter so it stays behind the text. */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -22%;
+  bottom: 6%;
+  width: min(62vw, 420px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.4;
+  background: linear-gradient(180deg, #fbbf24 0%, #f472b6 55%, #be185d 100%);
+  /* Solid top, then bands that thicken toward the horizon. */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0 50%,
+    transparent 50% 53%,
+    #000 53% 62%,
+    transparent 62% 66%,
+    #000 66% 74%,
+    transparent 74% 79%,
+    #000 79% 86%,
+    transparent 86% 92%,
+    #000 92% 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0 50%,
+    transparent 50% 53%,
+    #000 53% 62%,
+    transparent 62% 66%,
+    #000 66% 74%,
+    transparent 74% 79%,
+    #000 79% 86%,
+    transparent 86% 92%,
+    #000 92% 100%
+  );
+  animation: sun-rise 1.4s ease-out both;
+}
+@media (min-width: 768px) {
+  .hero::after {
+    right: 4%;
+    opacity: 0.9;
+  }
+}
+@keyframes sun-rise {
+  from {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slogan > div::after,
+  .hero::after {
+    animation: none;
+  }
+}
