@@ -3,8 +3,6 @@ import React from "react";
 import { LocaleProvider } from "./src/i18n/LocaleContext";
 
 const TYPEKIT = "https://use.typekit.net/thl7qti.css";
-const BODY_FONT =
-  "https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap";
 
 // Runs before the body paints, so the theme is right on the first frame and
 // there is no flash. Replaces the redux store that used to decide this after
@@ -36,15 +34,14 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       href="https://p.typekit.net"
       crossOrigin="anonymous"
     />,
+    // Body font is served from this site (static/fonts); preload the Latin
+    // file so text does not wait for the CSS to be parsed first.
     <link
-      key="preconnect-gfonts"
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />,
-    <link
-      key="preconnect-gstatic"
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
+      key="preload-body-font"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/instrument-sans-latin.woff2"
       crossOrigin="anonymous"
     />,
     // media="print" then flipped once loaded: font CSS never blocks first
@@ -55,13 +52,6 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       data-async-css=""
       rel="stylesheet"
       href={TYPEKIT}
-      media="print"
-    />,
-    <link
-      key="body-font"
-      data-async-css=""
-      rel="stylesheet"
-      href={BODY_FONT}
       media="print"
     />,
     <script
@@ -75,7 +65,6 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
     />,
     <noscript key="fonts-noscript">
       <link rel="stylesheet" href={TYPEKIT} />
-      <link rel="stylesheet" href={BODY_FONT} />
     </noscript>,
   ]);
 
