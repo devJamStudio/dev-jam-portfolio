@@ -258,7 +258,7 @@ body {
   z-index: 0;
   right: -22%;
   bottom: 6%;
-  width: min(62vw, 420px);
+  width: min(62vw, 30vw + 120px, 400px);
   aspect-ratio: 1;
   border-radius: 50%;
   pointer-events: none;
@@ -293,7 +293,7 @@ body {
 }
 @media (min-width: 768px) {
   .hero::after {
-    right: 4%;
+    right: 2%;
     opacity: 0.9;
   }
 }

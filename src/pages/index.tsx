@@ -39,7 +39,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </div>
 
-        <p className="max-w-[60ch] text-xl md:text-2xl leading-relaxed">
+        <p className="max-w-[40ch] text-xl md:text-2xl leading-relaxed">
           {copy.index.tagline}
         </p>
 
