@@ -8,11 +8,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: "#17132F",
+        black: "#241D4A",
         white: "#F1FBFA",
       },
       fontFamily: {
         ocr: ["ocr-a-std", "monospace"],
+        // Body text. OCR-A stays for the logo, headings, nav and buttons.
+        sans: ["Instrument Sans", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       fontSize: {
         "text-6xl": "3.75rem",
@@ -22,11 +24,11 @@ module.exports = {
       },
       boxShadow: {
         // Hard offset, no blur: boxes sit on the page like cut-out cards.
-        dark: "3px 3px 0 0 #ec4899",
-        light: "3px 3px 0 0 #2dd4bf",
+        dark: "3px 3px 0 0 #f472b6",
+        light: "3px 3px 0 0 #5eead4",
       },
       borderRadius: {
-        lg: "0.375rem",
+        lg: "0.75rem",
       },
       screens: {
         

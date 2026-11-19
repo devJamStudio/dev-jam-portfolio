@@ -22,7 +22,7 @@ const TechStack: React.FC = () => {
           <h2 className="text-2xl mb-4 border-b-2 border-black dark:border-white pb-2">
             {copy.stack.groups[group.id]}
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
             {group.items.map((tech, index) => (
               <div
                 key={tech.name}

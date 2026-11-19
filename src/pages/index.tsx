@@ -16,9 +16,11 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      {/* Header + this column are exactly one viewport tall, so the hero ends
-          at the fold and the CTAs sit on the ground — no position:fixed. */}
-      <div className="flex flex-1 flex-col overflow-hidden">
+      {/* Header + this column fill the first screen, so the CTAs sit on the
+          fold and the footer starts below it. The min-height subtracts the
+          header and main's padding (84px + 3rem on phones, 110px + 5rem from
+          md); without it the footer squeezed the slogan box and cut lines. */}
+      <div className="flex flex-1 flex-col overflow-hidden min-h-[calc(100svh-8rem)] md:min-h-[calc(100svh-11.875rem)]">
         {/* The typewriter only paints client-side, so the real heading ships
             as text and the animation is decorative. */}
         <h1 className="sr-only">{copy.index.heading}</h1>
@@ -30,14 +32,14 @@ const IndexPage: React.FC<PageProps> = () => {
             its content; overflow-hidden stops a long string reopening it. */}
         <div
           aria-hidden="true"
-          className="hero-slogan relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[3rem] sm:text-[5rem] md:text-[7rem] xl:text-[8rem] 2xl:text-[12rem] mr-10"
+          className="hero-slogan relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[length:clamp(3rem,min(10vw,13svh),8rem)] mr-10"
         >
           <div ref={typewriter} className="absolute inset-0">
             {copy.index.slogans[0]}
           </div>
         </div>
 
-        <p className="max-w-[60ch] text-lg md:text-xl 2xl:text-2xl leading-relaxed">
+        <p className="max-w-[60ch] text-xl md:text-2xl leading-relaxed">
           {copy.index.tagline}
         </p>
 

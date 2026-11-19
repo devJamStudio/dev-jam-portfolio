@@ -3,10 +3,20 @@
 @tailwind utilities;
 
 html {
-  @apply bg-white dark:bg-black font-ocr  duration-300;
+  @apply bg-white dark:bg-black font-sans duration-300;
 }
 body {
-  @apply bg-white dark:bg-black font-ocr duration-300;
+  @apply bg-white dark:bg-black font-sans duration-300;
+}
+
+/* Headings carry the brand face; body copy is the readable sans. In the base
+   layer so a utility class on the element still wins. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    @apply font-ocr;
+  }
 }
 .dark {
   @apply text-white bg-black border-white fill-white;
@@ -113,12 +123,12 @@ body {
   outline-offset: 3px;
 }
 .dark :focus-visible {
-  outline-color: theme("colors.teal.400");
+  outline-color: theme("colors.teal.300");
 }
 
 /* Hero slogan: hard pink and aqua offsets, in em so they scale with the type. */
 .hero-slogan {
   text-shadow:
-    0.04em 0.04em 0 theme("colors.pink.500"),
-    0.08em 0.08em 0 theme("colors.teal.400");
+    0.03em 0.03em 0 theme("colors.pink.400"),
+    0.06em 0.06em 0 theme("colors.teal.300");
 }

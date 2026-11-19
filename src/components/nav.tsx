@@ -15,7 +15,7 @@ const NavComponent: React.FC<NavComponentProps> = ({ Links, toggle }) => {
   return (
     <div
       className={
-        `navbar flex flex-col  text-5xl text-center duration-200    p-4 ` +
+        `navbar flex flex-col font-ocr text-5xl text-center duration-200    p-4 ` +
         (toggle ? " w-full flex " : "w-0 transform translate-x-full hidden")
       }
     >
@@ -23,7 +23,7 @@ const NavComponent: React.FC<NavComponentProps> = ({ Links, toggle }) => {
         <ul>
           {Links.map((link) => (
             <li
-              className="py-4 hover:text-pink-600 dark:hover:text-teal-400  "
+              className="py-4 hover:text-pink-600 dark:hover:text-teal-300  "
               key={link.to}
             >
               <Link to={link.to}>{link.label}</Link>
