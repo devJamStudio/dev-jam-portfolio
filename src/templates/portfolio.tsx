@@ -137,7 +137,11 @@ export const Head: HeadFC<object, ProjectPageContext> = ({ pageContext }) => {
   const locale = pageContext?.locale || defaultLocale;
   return (
     <Seo
-      title={project?.name || "Portfolio"}
+      title={
+        project
+          ? `${project.name} — ${project.stack.slice(0, 2).join(", ")} project`
+          : "Portfolio"
+      }
       description={project?.description[locale][0]}
       locale={locale}
       basePath={pageContext?.basePath}
