@@ -137,6 +137,12 @@ body {
     0.06em 0.06em 0 theme("colors.teal.300"),
     0 0 0.3em rgb(244 114 182 / 0.45);
   animation: neon 2.8s ease-in-out infinite alternate;
+  /* The box clips overflow; pad the text inside it so the glow is not cut
+     into a rectangle, and pull the box back so the text stays aligned. */
+  margin-left: -0.35em;
+}
+.hero-slogan > div {
+  padding: 0.3em 0.35em;
 }
 @keyframes neon {
   to {
@@ -162,7 +168,7 @@ body {
   left: -50%;
   right: -50%;
   bottom: 0;
-  height: 55%;
+  height: 70%;
   pointer-events: none;
   background-image:
     linear-gradient(theme("colors.pink.400") 2px, transparent 2px),
@@ -170,16 +176,16 @@ body {
   background-size: 64px 64px;
   transform: perspective(320px) rotateX(62deg);
   transform-origin: bottom;
-  opacity: 0.22;
-  -webkit-mask-image: radial-gradient(ellipse at bottom, #000 25%, transparent 70%);
-  mask-image: radial-gradient(ellipse at bottom, #000 25%, transparent 70%);
+  opacity: 0.45;
+  -webkit-mask-image: radial-gradient(ellipse at bottom, #000 35%, transparent 75%);
+  mask-image: radial-gradient(ellipse at bottom, #000 35%, transparent 75%);
   animation: grid-roll 1.6s linear infinite;
 }
 .dark .hero::before {
   background-image:
     linear-gradient(theme("colors.teal.300") 2px, transparent 2px),
     linear-gradient(90deg, theme("colors.teal.300") 2px, transparent 2px);
-  opacity: 0.3;
+  opacity: 0.6;
 }
 @keyframes grid-roll {
   to {
