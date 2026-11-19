@@ -20,7 +20,7 @@ const IndexPage: React.FC<PageProps> = () => {
           fold and the footer starts below it. The min-height subtracts the
           header and main's padding (84px + 3rem on phones, 110px + 5rem from
           md); without it the footer squeezed the slogan box and cut lines. */}
-      <div className="flex flex-1 flex-col overflow-hidden min-h-[calc(100svh-8.5rem)] md:min-h-[calc(100svh-12rem)]">
+      <div className="flex flex-1 flex-col overflow-hidden min-h-[calc(100svh-8rem)] md:min-h-[calc(100svh-11.875rem)]">
         {/* The typewriter only paints client-side, so the real heading ships
             as text and the animation is decorative. */}
         <h1 className="sr-only">{copy.index.heading}</h1>
@@ -32,7 +32,7 @@ const IndexPage: React.FC<PageProps> = () => {
             its content; overflow-hidden stops a long string reopening it. */}
         <div
           aria-hidden="true"
-          className="hero-slogan relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[3rem] sm:text-[5rem] md:text-[7rem] xl:text-[8rem] mr-10"
+          className="hero-slogan relative flex-1 min-h-0 overflow-hidden mt-6 leading-tight font-ocr text-black dark:text-white text-[length:clamp(3rem,min(10vw,13svh),8rem)] mr-10"
         >
           <div ref={typewriter} className="absolute inset-0">
             {copy.index.slogans[0]}
