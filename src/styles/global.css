@@ -126,9 +126,83 @@ body {
   outline-color: theme("colors.teal.300");
 }
 
-/* Hero slogan: hard pink and aqua offsets, in em so they scale with the type. */
+/* --- 80s neon -----------------------------------------------------------
+   Kept to the home hero plus a glow on dark-mode chrome. Everything animated
+   here is decorative and stops under prefers-reduced-motion. */
+
+/* Hero slogan: hard pink and aqua offsets plus a soft neon glow that breathes. */
 .hero-slogan {
   text-shadow:
     0.03em 0.03em 0 theme("colors.pink.400"),
-    0.06em 0.06em 0 theme("colors.teal.300");
+    0.06em 0.06em 0 theme("colors.teal.300"),
+    0 0 0.3em rgb(244 114 182 / 0.45);
+  animation: neon 2.8s ease-in-out infinite alternate;
+}
+@keyframes neon {
+  to {
+    text-shadow:
+      0.03em 0.03em 0 theme("colors.pink.400"),
+      0.06em 0.06em 0 theme("colors.teal.300"),
+      0 0 0.6em rgb(244 114 182 / 0.85);
+  }
+}
+
+/* Perspective grid rolling toward the viewer along the bottom of the hero. */
+.hero {
+  position: relative;
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  height: 55%;
+  pointer-events: none;
+  background-image:
+    linear-gradient(theme("colors.pink.400") 2px, transparent 2px),
+    linear-gradient(90deg, theme("colors.pink.400") 2px, transparent 2px);
+  background-size: 64px 64px;
+  transform: perspective(320px) rotateX(62deg);
+  transform-origin: bottom;
+  opacity: 0.22;
+  -webkit-mask-image: radial-gradient(ellipse at bottom, #000 25%, transparent 70%);
+  mask-image: radial-gradient(ellipse at bottom, #000 25%, transparent 70%);
+  animation: grid-roll 1.6s linear infinite;
+}
+.dark .hero::before {
+  background-image:
+    linear-gradient(theme("colors.teal.300") 2px, transparent 2px),
+    linear-gradient(90deg, theme("colors.teal.300") 2px, transparent 2px);
+  opacity: 0.3;
+}
+@keyframes grid-roll {
+  to {
+    background-position: 0 64px;
+  }
+}
+
+/* Dark mode: header and buttons pick up a neon glow; buttons flare on hover. */
+.dark .navbar {
+  box-shadow: 0 0 26px -4px rgb(94 234 212 / 0.7);
+}
+.dark .btn {
+  box-shadow:
+    3px 3px 0 0 theme("colors.teal.300"),
+    0 0 18px rgb(244 114 182 / 0.5);
+}
+.dark .btn:hover {
+  box-shadow: 0 0 26px rgb(244 114 182 / 0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slogan,
+  .hero::before {
+    animation: none;
+  }
 }

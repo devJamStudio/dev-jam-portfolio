@@ -20,7 +20,7 @@ const IndexPage: React.FC<PageProps> = () => {
           fold and the footer starts below it. The min-height subtracts the
           header and main's padding (84px + 3rem on phones, 110px + 5rem from
           md); without it the footer squeezed the slogan box and cut lines. */}
-      <div className="flex flex-1 flex-col overflow-hidden min-h-[calc(100svh-8rem)] md:min-h-[calc(100svh-11.875rem)]">
+      <div className="hero flex flex-1 flex-col overflow-hidden min-h-[calc(100svh-8rem)] md:min-h-[calc(100svh-11.875rem)]">
         {/* The typewriter only paints client-side, so the real heading ships
             as text and the animation is decorative. */}
         <h1 className="sr-only">{copy.index.heading}</h1>
