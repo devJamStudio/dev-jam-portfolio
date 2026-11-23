@@ -15,6 +15,11 @@ export interface LocalePageContext {
   basePath?: string;
 }
 
+// Writing rules for this file: the home page and the offer speak to a business
+// owner in plain words; technical detail belongs on About and in the project
+// pages. Polish is written as Polish, not translated line by line. Do not
+// reuse a phrase or call to action that another page already carries.
+
 const en = {
   langLabel: "PL",
   nav: {
@@ -28,55 +33,78 @@ const en = {
   index: {
     slogans: [
       "Are You ready to JAM?",
+      "Websites That Sell",
+      "Online Stores",
       "AI Automation",
-      "DevOps Pipelines",
-      "CI/CD That Ships Itself",
-      "Agentic Workflows",
-      "Infrastructure as Code",
-      "Web Development",
+      "Less Manual Work",
       "Shopify & WordPress",
+      "DevOps & CI/CD",
     ],
-    heading: "AI automation, DevOps pipelines and web development",
+    heading: "Websites, online stores and business automation",
     tagline:
-      "I automate the repetitive work and build websites and stores that keep running on their own.",
-    ctaOffer: "See the offer",
-    ctaContact: "Let's talk",
+      "Websites and online stores, plus automation that takes the manual work off your team.",
+    ctaOffer: "See prices",
+    ctaContact: "Get in touch",
+    pillarsTitle: "Two things I do",
+    pillars: [
+      {
+        title: "Websites and online stores",
+        body: "From a one-page site to a full store on WooCommerce or Shopify. It loads fast, you can edit it yourself, and Google can read it from day one.",
+        points: [
+          "Landing pages from 1300 PLN, stores from 3000 PLN",
+          "WordPress, WooCommerce, Shopify, Next.js",
+          "Moving an old store to a new one, products and orders included",
+        ],
+      },
+      {
+        title: "Automation and AI",
+        body: "Orders retyped between systems, reports put together by hand, stock updated in three places. I connect the tools so that this happens without anyone touching it.",
+        points: [
+          "Store, marketplaces and invoicing kept in step",
+          "AI assistants that answer questions and sort incoming messages",
+          "Releases and backups that nobody has to remember",
+        ],
+      },
+    ],
+    recentTitle: "Recent work",
+    allWork: "All projects",
   },
   about: {
-    title: "Automation first. Web second.",
+    title: "One person, from the first call to the handover",
     paragraphs: [
-      "devJam Studio is a one-person shop. I build the machinery that makes software ship on its own: CI/CD pipelines, infrastructure as code, and AI agents that take the repetitive work off your desk.",
-      "Most jobs start the same way. Something gets done by hand every week, everyone knows it, and nobody has had time to fix it. I find that thing, wire it into a pipeline or an agent, and hand it back running.",
-      "I still build sites and stores — Shopify, WordPress, headless Gatsby — because that is where a lot of the manual work lives. The difference is what happens after launch: deploys, content syncs, reports and integrations run themselves.",
-      "Based in Poland. I work in English and Polish.",
+      "devJam Studio is a one-person studio. You talk to whoever does the work, so nothing gets lost between a salesperson, a project manager and a developer.",
+      "I build two things. The first is websites and online stores on WordPress, WooCommerce, Shopify and Next.js. The second is the automation around them: syncing products and orders between systems, AI assistants, and releases that go out without manual steps.",
+      "The two usually meet. A store rebuilt for a UK tile retailer came with a plugin that sends products, stock and prices to eBay and B&Q and brings the orders back, so nobody types them in twice.",
+      "I am based in Poland and work remotely with clients here and abroad, in Polish and English.",
     ],
-    doesTitle: "What that looks like",
+    doesTitle: "What I can take on",
     does: [
-      "CI/CD pipelines that deploy on merge and roll back on red",
-      "Infrastructure as code — Docker, Terraform, Kubernetes",
-      "AI agents and LLM integrations wired into real systems",
-      "Workflow automation across the tools you already pay for",
-      "Web and e-commerce builds that maintain themselves",
+      "Company websites and landing pages",
+      "Online stores on WooCommerce and Shopify",
+      "Moving a site or store to a new platform",
+      "Connecting a store with marketplaces, invoicing and other tools",
+      "AI assistants and automations built on Claude, n8n or custom code",
+      "Hosting, deployments and monitoring: Docker, Terraform, CI/CD",
     ],
   },
   offer: {
     title: "Offer",
     intro:
-      "Two kinds of work: automation and infrastructure, quoted per project, and websites with clear starting prices.",
+      "Websites and stores have starting prices. Automation and infrastructure are quoted per project, because no two setups are alike.",
     scopedTitle: "Automation and infrastructure",
     scopedIntro:
-      "Every setup is different, so you get a fixed quote after a short call about what you need.",
+      "A short call comes first; after it you get a fixed price for the scope we agreed.",
     webTitle: "Websites and stores",
-    webIntro: "Starting prices. The final quote depends on scope and content.",
+    webIntro: "Prices start here. The final figure depends on scope and content.",
     stepsTitle: "How it works",
     steps: [
-      { title: "Short call", body: "You tell me what you need and what is in the way. Free, about 30 minutes." },
-      { title: "Fixed quote", body: "You get a scope, a price and a timeline in writing before anything starts." },
-      { title: "Build and handover", body: "I build it, show progress along the way, and hand it over with docs." },
+      { title: "Short call", body: "You describe what you need and what is in the way. Free, about 30 minutes." },
+      { title: "Fixed quote", body: "Scope, price and timeline arrive in writing before any work begins." },
+      { title: "Build and handover", body: "You see progress along the way and receive the result with documentation." },
     ],
     from: "From",
-    quote: "Priced per scope",
-    cta: "Let's talk",
+    quote: "Quoted per project",
+    cta: "Ask for a quote",
   },
   stack: {
     title: "Tools I work with",
@@ -89,7 +117,8 @@ const en = {
   },
   portfolio: {
     title: "Portfolio",
-    intro: "Selected work — stores, CMS-backed sites and internal systems.",
+    intro:
+      "Stores, company sites and internal systems I designed, built or rebuilt.",
     empty: "Nothing published here yet.",
     aboutLabel: "About",
     stackLabel: "Stack",
@@ -97,7 +126,8 @@ const en = {
   },
   contact: {
     title: "Say hello",
-    subtitle: "Tell me what you're working on. English or Polish both work.",
+    subtitle:
+      "Write what you need: a new site, a store, or a process you want off your plate. English or Polish.",
     name: "Your name",
     email: "Email",
     message: "Your message",
@@ -109,7 +139,7 @@ const en = {
     honeypot: "Leave this field empty",
   },
   footer: {
-    cta: "Got a project? Let's talk.",
+    cta: "Got a project? Write to me.",
   },
   notFound: {
     title: "Page not found",
@@ -120,33 +150,33 @@ const en = {
     // Keyed by unprefixed path. Titles are complete (brand included).
     pages: {
       "/": {
-        title: "devJam Studio — AI automation, DevOps and web development",
+        title: "Websites, online stores and AI automation | devJam Studio",
         description:
-          "One-person studio for AI automation, CI/CD pipelines and infrastructure as code, plus Shopify, WordPress and Next.js sites that keep running on their own.",
+          "devJam Studio builds websites and online stores on WordPress, WooCommerce, Shopify and Next.js, and automates the manual work around them. Remote, from Poland.",
       },
       "/offer/": {
-        title: "Services and pricing — automation, DevOps, websites | devJam Studio",
+        title: "Website, online store and automation pricing | devJam Studio",
         description:
-          "Automation and AI agents, DevOps pipelines, landing pages, multi-page sites and online stores. Web packages from 1300 PLN / 300 EUR.",
+          "Landing pages from 1300 PLN, multi-page sites from 2000 PLN, online stores from 3000 PLN. Automation, AI and DevOps quoted per project after a free call.",
       },
       "/portfolio/": {
-        title: "Portfolio — online stores, CMS sites and internal tools | devJam Studio",
+        title: "Portfolio: WooCommerce, Shopify and Next.js projects | devJam Studio",
         description:
-          "Selected projects: WooCommerce and Shopify stores, Next.js sites on Payload CMS, and internal systems built and automated by devJam Studio.",
+          "Case studies: a WooCommerce store rebuilt for a UK retailer, a marketplace sync plugin for eBay and B&Q, Shopify boutiques and Next.js sites on Payload CMS.",
       },
       "/about/": {
-        title: "About — a one-person automation and web studio | devJam Studio",
+        title: "About devJam Studio: web developer and automation engineer",
         description:
-          "devJam Studio builds the pipelines, infrastructure and AI agents that take repetitive work off your desk. Based in Poland, working in English and Polish.",
+          "A one-person studio from Poland. Websites and online stores, integrations between systems, AI assistants and DevOps. Working remotely in Polish and English.",
       },
       "/contact/": {
-        title: "Contact — tell me about your project | devJam Studio",
+        title: "Contact devJam Studio: quote for a website, store or automation",
         description:
-          "Get in touch about automation, DevOps or a new website. Send a message or email dev.jam.studio@gmail.com. English and Polish.",
+          "Describe your project and get a fixed quote. Use the form or write to dev.jam.studio@gmail.com. English and Polish.",
       },
     } as Record<string, { title: string; description: string }>,
     description:
-      "devJam Studio — DevOps, AI and automation. CI/CD pipelines, infrastructure as code, AI agents, and the web builds that sit on top of them.",
+      "devJam Studio: websites, online stores and automation. WordPress, WooCommerce, Shopify, Next.js, AI assistants and DevOps, delivered remotely from Poland.",
   },
 };
 
@@ -163,55 +193,78 @@ const pl: typeof en = {
   index: {
     slogans: [
       "Gotowy na JAM?",
+      "Strony, które sprzedają",
+      "Sklepy internetowe",
       "Automatyzacja AI",
-      "Pipeline'y DevOps",
-      "CI/CD, które wdraża się samo",
-      "Agentowe workflow",
-      "Infrastruktura jako kod",
-      "Tworzenie stron",
+      "Mniej ręcznej roboty",
       "Shopify i WordPress",
+      "DevOps i CI/CD",
     ],
-    heading: "Automatyzacja AI, pipeline'y DevOps i tworzenie stron",
+    heading: "Strony internetowe, sklepy i automatyzacja w firmie",
     tagline:
-      "Automatyzuję powtarzalną robotę i buduję strony oraz sklepy, które działają same.",
-    ctaOffer: "Zobacz ofertę",
-    ctaContact: "Porozmawiajmy",
+      "Strony i sklepy internetowe oraz automatyzacja, która zdejmuje z zespołu ręczną robotę.",
+    ctaOffer: "Zobacz ceny",
+    ctaContact: "Napisz do mnie",
+    pillarsTitle: "Czym się zajmuję",
+    pillars: [
+      {
+        title: "Strony i sklepy internetowe",
+        body: "Od prostej wizytówki po pełny sklep na WooCommerce albo Shopify. Szybko się ładuje, treści zmieniasz samodzielnie, a Google widzi ją od pierwszego dnia.",
+        points: [
+          "Landing page od 1300 zł, sklep od 3000 zł",
+          "WordPress, WooCommerce, Shopify, Next.js",
+          "Przeniesienie starego sklepu na nowy razem z produktami i zamówieniami",
+        ],
+      },
+      {
+        title: "Automatyzacja i AI",
+        body: "Zamówienia przepisywane między systemami, raporty sklejane ręcznie, stany magazynowe poprawiane w trzech miejscach. Łączę narzędzia tak, żeby działo się to bez niczyjego udziału.",
+        points: [
+          "Sklep, marketplace'y i faktury zawsze zgodne ze sobą",
+          "Asystenci AI, którzy odpowiadają na pytania i segregują wiadomości",
+          "Wdrożenia i kopie zapasowe, o których nikt nie musi pamiętać",
+        ],
+      },
+    ],
+    recentTitle: "Ostatnie realizacje",
+    allWork: "Wszystkie projekty",
   },
   about: {
-    title: "Najpierw automatyzacja. Potem web.",
+    title: "Jedna osoba od pierwszej rozmowy do oddania projektu",
     paragraphs: [
-      "devJam Studio to jednoosobowy warsztat. Buduję maszynerię, dzięki której oprogramowanie wdraża się samo: pipeline'y CI/CD, infrastrukturę jako kod i agentów AI, którzy zdejmują z biurka powtarzalną robotę.",
-      "Większość zleceń zaczyna się tak samo. Coś jest robione ręcznie co tydzień, wszyscy o tym wiedzą i nikt nie miał czasu tego poprawić. Znajduję tę rzecz, wpinam ją w pipeline albo agenta i oddaję działającą.",
-      "Nadal robię strony i sklepy — Shopify, WordPress, headless Gatsby — bo to właśnie tam siedzi sporo ręcznej roboty. Różnica jest w tym, co dzieje się po starcie: deploye, synchronizacje treści, raporty i integracje działają same.",
-      "Działam z Polski. Pracuję po polsku i po angielsku.",
+      "devJam Studio to jednoosobowa pracownia. Rozmawiasz z tym, kto faktycznie wykonuje pracę, więc nic nie ginie po drodze między handlowcem, kierownikiem projektu i programistą.",
+      "Robię dwie rzeczy. Pierwsza to strony i sklepy internetowe na WordPressie, WooCommerce, Shopify i Next.js. Druga to automatyzacja wokół nich: synchronizacja produktów i zamówień między systemami, asystenci AI oraz wdrożenia, które nie wymagają ręcznych kroków.",
+      "Zwykle jedno łączy się z drugim. Do sklepu przebudowanego dla brytyjskiego sprzedawcy płytek powstała wtyczka, która wysyła produkty, stany i ceny na eBay i do B&Q, a zamówienia ściąga z powrotem. Nikt nie wpisuje ich dwa razy.",
+      "Mieszkam w Polsce i pracuję zdalnie z klientami z kraju i z zagranicy, po polsku i po angielsku.",
     ],
-    doesTitle: "Jak to wygląda w praktyce",
+    doesTitle: "Co mogę wziąć na siebie",
     does: [
-      "Pipeline'y CI/CD, które wdrażają po mergu i cofają zmiany, gdy testy padną",
-      "Infrastruktura jako kod — Docker, Terraform, Kubernetes",
-      "Agenci AI i integracje LLM wpięte w prawdziwe systemy",
-      "Automatyzacja przepływów między narzędziami, za które już płacisz",
-      "Strony i sklepy, które utrzymują się same",
+      "Strony firmowe i landing page",
+      "Sklepy internetowe na WooCommerce i Shopify",
+      "Migrację strony lub sklepu na nową platformę",
+      "Połączenie sklepu z marketplace'ami, fakturowaniem i innymi narzędziami",
+      "Asystentów AI i automatyzacje na Claude, n8n albo we własnym kodzie",
+      "Hosting, wdrożenia i monitoring: Docker, Terraform, CI/CD",
     ],
   },
   offer: {
     title: "Oferta",
     intro:
-      "Dwa rodzaje pracy: automatyzacja i infrastruktura, wyceniane pod projekt, oraz strony z jasnymi cenami startowymi.",
+      "Strony i sklepy mają ceny startowe. Automatyzację i infrastrukturę wyceniam indywidualnie, bo każda firma działa trochę inaczej.",
     scopedTitle: "Automatyzacja i infrastruktura",
     scopedIntro:
-      "Każde wdrożenie jest inne, więc po krótkiej rozmowie o potrzebach dostajesz stałą wycenę.",
+      "Zaczynamy od krótkiej rozmowy, a po niej dostajesz stałą cenę za ustalony zakres.",
     webTitle: "Strony i sklepy",
-    webIntro: "Ceny startowe. Ostateczna wycena zależy od zakresu i treści.",
-    stepsTitle: "Jak to działa",
+    webIntro: "Ceny od. Ostateczna kwota zależy od zakresu i treści.",
+    stepsTitle: "Jak wygląda współpraca",
     steps: [
-      { title: "Krótka rozmowa", body: "Opowiadasz, czego potrzebujesz i co przeszkadza. Bezpłatnie, około 30 minut." },
-      { title: "Stała wycena", body: "Przed startem dostajesz na piśmie zakres, cenę i termin." },
-      { title: "Budowa i przekazanie", body: "Buduję, pokazuję postępy po drodze i przekazuję z dokumentacją." },
+      { title: "Krótka rozmowa", body: "Mówisz, czego potrzebujesz i co dziś przeszkadza. Bezpłatnie, około 30 minut." },
+      { title: "Stała wycena", body: "Zakres, cenę i termin dostajesz na piśmie, zanim zacznę pracę." },
+      { title: "Realizacja i przekazanie", body: "Po drodze widzisz postępy, a na koniec dostajesz całość z dokumentacją." },
     ],
     from: "Od",
-    quote: "Wycena pod zakres",
-    cta: "Napisz do mnie",
+    quote: "Wycena indywidualna",
+    cta: "Poproś o wycenę",
   },
   stack: {
     title: "Narzędzia, z którymi pracuję",
@@ -224,15 +277,17 @@ const pl: typeof en = {
   },
   portfolio: {
     title: "Portfolio",
-    intro: "Wybrane realizacje — sklepy, strony oparte o CMS i systemy wewnętrzne.",
+    intro:
+      "Sklepy, strony firmowe i systemy wewnętrzne, które zaprojektowałem, zbudowałem albo przebudowałem.",
     empty: "Nic tu jeszcze nie opublikowano.",
     aboutLabel: "O projekcie",
-    stackLabel: "Stack",
+    stackLabel: "Technologie",
     visit: "Wejdź na stronę",
   },
   contact: {
-    title: "Napisz do mnie",
-    subtitle: "Napisz, nad czym pracujesz. Może być po polsku albo po angielsku.",
+    title: "Odezwij się",
+    subtitle:
+      "Opisz, czego potrzebujesz: nowej strony, sklepu albo procesu, który chcesz mieć z głowy. Po polsku lub po angielsku.",
     name: "Imię",
     email: "E-mail",
     message: "Wiadomość",
@@ -254,33 +309,33 @@ const pl: typeof en = {
   seo: {
     pages: {
       "/": {
-        title: "devJam Studio — automatyzacja AI, DevOps i strony internetowe",
+        title: "Strony internetowe, sklepy i automatyzacja AI | devJam Studio",
         description:
-          "Jednoosobowe studio: automatyzacja AI, pipeline'y CI/CD i infrastruktura jako kod, a do tego strony i sklepy na Shopify, WordPressie i Next.js, które działają same.",
+          "Tworzę strony internetowe i sklepy na WordPressie, WooCommerce, Shopify i Next.js oraz automatyzuję ręczną pracę wokół nich. Zdalnie, z Polski.",
       },
       "/offer/": {
-        title: "Oferta i cennik — automatyzacja, DevOps, strony | devJam Studio",
+        title: "Cennik: strona internetowa, sklep, automatyzacja | devJam Studio",
         description:
-          "Automatyzacja i agenci AI, pipeline'y DevOps, landing page, strony wielopodstronowe i sklepy internetowe. Pakiety webowe od 1300 PLN.",
+          "Landing page od 1300 zł, strona firmowa od 2000 zł, sklep internetowy od 3000 zł. Automatyzacja, AI i DevOps wyceniane indywidualnie po bezpłatnej rozmowie.",
       },
       "/portfolio/": {
-        title: "Portfolio — sklepy internetowe, strony na CMS i systemy | devJam Studio",
+        title: "Portfolio: realizacje WooCommerce, Shopify i Next.js | devJam Studio",
         description:
-          "Wybrane realizacje: sklepy na WooCommerce i Shopify, strony Next.js na Payload CMS oraz systemy wewnętrzne zbudowane i zautomatyzowane przez devJam Studio.",
+          "Realizacje: sklep WooCommerce przebudowany dla brytyjskiej firmy, wtyczka łącząca sklep z eBay i B&Q, butiki na Shopify i strony Next.js na Payload CMS.",
       },
       "/about/": {
-        title: "O mnie — jednoosobowe studio automatyzacji i weba | devJam Studio",
+        title: "O devJam Studio: programista stron i automatyzacji",
         description:
-          "devJam Studio buduje pipeline'y, infrastrukturę i agentów AI, którzy zdejmują z biurka powtarzalną robotę. Działam z Polski, po polsku i po angielsku.",
+          "Jednoosobowa pracownia z Polski. Strony i sklepy internetowe, integracje między systemami, asystenci AI i DevOps. Praca zdalna po polsku i po angielsku.",
       },
       "/contact/": {
-        title: "Kontakt — opowiedz o swoim projekcie | devJam Studio",
+        title: "Kontakt z devJam Studio: wycena strony, sklepu lub automatyzacji",
         description:
-          "Napisz w sprawie automatyzacji, DevOps albo nowej strony. Wyślij wiadomość lub maila na dev.jam.studio@gmail.com. Po polsku i po angielsku.",
+          "Opisz projekt i odbierz stałą wycenę. Skorzystaj z formularza albo napisz na dev.jam.studio@gmail.com. Po polsku i po angielsku.",
       },
     },
     description:
-      "devJam Studio — DevOps, AI i automatyzacja. Pipeline'y CI/CD, infrastruktura jako kod, agenci AI i strony, które na nich stoją.",
+      "devJam Studio: strony internetowe, sklepy i automatyzacja. WordPress, WooCommerce, Shopify, Next.js, asystenci AI i DevOps, zdalnie z Polski.",
   },
 };
 

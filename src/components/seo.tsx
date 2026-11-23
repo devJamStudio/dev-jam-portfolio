@@ -54,6 +54,7 @@ const Seo: React.FC<SeoProps> = ({
     url: siteUrl,
     description: metaDescription,
     areaServed: "Worldwide",
+    address: { "@type": "PostalAddress", addressCountry: "PL" },
     email: EMAIL,
     sameAs: [GITHUB_URL],
     logo: `${siteUrl}/apple-touch-icon.png`,
