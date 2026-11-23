@@ -4,7 +4,8 @@ import { Link } from "gatsby";
 import Layout from "../components/layout";
 import { buttonClass } from "../components/button";
 import Seo from "../components/seo";
-import { useCopy, usePath } from "../i18n/LocaleContext";
+import { useCopy, useLocale, usePath } from "../i18n/LocaleContext";
+import { projects } from "../data/portfolio";
 import { useTypewriter } from "../hooks/useTypewriter";
 import type { LocalePageContext } from "../i18n/copy";
 import { copy as allCopy, defaultLocale } from "../i18n/copy";
@@ -12,6 +13,7 @@ import { copy as allCopy, defaultLocale } from "../i18n/copy";
 const IndexPage: React.FC<PageProps> = () => {
   const copy = useCopy();
   const path = usePath();
+  const locale = useLocale();
   const typewriter = useTypewriter(copy.index.slogans);
 
   return (
@@ -52,6 +54,57 @@ const IndexPage: React.FC<PageProps> = () => {
           </Link>
         </div>
       </div>
+
+      {/* Below the fold: what the studio does and proof of it. The hero alone
+          gave visitors and search engines one sentence to go on. */}
+      <section className="pt-14 md:pt-20">
+        <h2 className="text-2xl md:text-4xl mb-6">{copy.index.pillarsTitle}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {copy.index.pillars.map((pillar) => (
+            <div
+              key={pillar.title}
+              className="border-2 border-black dark:border-white rounded-lg shadow-dark dark:shadow-light p-6"
+            >
+              <h3 className="text-2xl mb-3">{pillar.title}</h3>
+              <p className="text-lg leading-relaxed mb-4">{pillar.body}</p>
+              <ul>
+                {pillar.points.map((point) => (
+                  <li key={point} className="py-1 leading-snug pl-5 -indent-5">
+                    — {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="pt-14 md:pt-20 pb-6">
+        <h2 className="text-2xl md:text-4xl mb-6">{copy.index.recentTitle}</h2>
+        <ul className="border-t-2 border-black dark:border-white">
+          {projects.slice(0, 4).map((project) => (
+            <li
+              key={project.slug}
+              className="border-b-2 border-black dark:border-white"
+            >
+              <Link
+                to={path(`/portfolio/${project.slug}`)}
+                className="group grid md:grid-cols-[16rem_1fr] gap-x-6 gap-y-1 py-4"
+              >
+                <span className="font-ocr text-xl group-hover:text-pink-600 dark:group-hover:text-teal-300">
+                  {project.name}
+                </span>
+                <span className="leading-relaxed">
+                  {project.description[locale][0]}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <Link to={path("/portfolio")} className={buttonClass + " mt-6"}>
+          {copy.index.allWork}
+        </Link>
+      </section>
     </Layout>
   );
 };

@@ -42,16 +42,16 @@ assert.ok(
   en.includes('href="https://devjam.space/pl/about/"'),
   "hreflang alternate should be an absolute URL with a trailing slash",
 );
-assert.ok(en.includes("Automation first"), "EN about copy missing");
-assert.ok(pl.includes("Najpierw automatyzacja"), "PL about copy missing");
+assert.ok(en.includes("One person, from the first call"), "EN about copy missing");
+assert.ok(pl.includes("Jedna osoba od pierwszej rozmowy"), "PL about copy missing");
 
 // The typewriter paints client-side; the static heading is what crawlers read.
 assert.ok(
-  read("index.html").includes("AI automation, DevOps pipelines"),
+  read("index.html").includes("Websites, online stores and business automation"),
   "EN home heading missing",
 );
 assert.ok(
-  read("pl/index.html").includes("Automatyzacja AI, pipeline"),
+  read("pl/index.html").includes("Strony internetowe, sklepy i automatyzacja"),
   "PL home heading missing",
 );
 
@@ -59,12 +59,12 @@ const bundles = readdirSync(PUBLIC)
   .filter((f) => f.endsWith(".js"))
   .map((f) => read(f))
   .join("");
-for (const slogan of ["AI Automation", "Agentic Workflows", "Automatyzacja AI"]) {
+for (const slogan of ["AI Automation", "Websites That Sell", "Automatyzacja AI"]) {
   assert.ok(bundles.includes(slogan), `slogan not shipped: ${slogan}`);
 }
 
 const offer = read("offer/index.html");
-for (const name of ["Automation &amp; AI", "DevOps", "E-commerce"]) {
+for (const name of ["Automation &amp; AI", "DevOps", "Online store"]) {
   assert.ok(offer.includes(name), `offer card missing: ${name}`);
 }
 
